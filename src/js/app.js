@@ -1,9 +1,11 @@
 $(function() {
   var accountCreated;
 
-  async function createAccount() {
-    let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
+  async function createAccount(email, keywords) {
+    var keys = keywords.replace(/\s/g,'');
+    var entropy = email + keys;
 
+    let response = await web3.eth.accounts.create(entropy);
     return response;
   }
 
@@ -17,7 +19,10 @@ $(function() {
         web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
       }
 
-      createAccount().then((result) => {
+      var email = $('#email').val();
+      var keywords = $('#keywords').val();
+
+      createAccount(email, keywords).then((result) => {
         accountCreated = result;
         $('.accountNumber')[0].innerHTML = result.address;
         $('.publicKey')[0].innerHTML = result.address;
