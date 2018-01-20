@@ -1,63 +1,85 @@
-/*App = {
-  web3Provider: null,
-  contracts: {},
-
-  init: function() {
-    return App.initWeb3();
-  },
-
-  initWeb3: function() {
-    if(typeof web3 !== undefined ){
-      App.web3Provider = web3.currentProvider;
-      web3 = new Web3(web3.currentProvider);
-    }
-    else{
-      App.web3Provider = new Web3.providers.HttpProvider('http://localhost:8545');
-      web3 = new Web3(App.web3Provider);
-    }
-    console.log('web3 check', web3);
-  },
-
-  signUp: function(){
-    var email = $('#email').val();
-    var keywords = $('#keywords').val();
-
-    web3.eth.accounts.create();
-
-    console.log('account', account);
-  },
-
-};
-*/
-
-
 $(function() {
+  var accountCreated;
+
+  async function createAccount() {
+    let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
+
+    return response;
+  }
+
   $(window).load(function() {
-    /*App.init();*/
 
-    if (typeof web3 !== 'undefined') {
-      web3 = new Web3(web3.currentProvider);
-    } else {
-      // set the provider you want from Web3.providers
-      web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
-    }
+    $('.signUpBtn').click(function(){
+      if (typeof web3 !== 'undefined') {
+        web3 = new Web3(web3.currentProvider);
+      } else {
+        // set the provider you want from Web3.providers
+        web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
+      }
 
-    console.log('web3', web3);
+      createAccount().then((result) => {
+        accountCreated = result;
+        $('.accountNumber')[0].innerHTML = result.address;
+        $('.publicKey')[0].innerHTML = result.address;
+      });
 
-    web3.eth.getAccounts(console.log);
+      $('.userDiv').show();
+      $('.signUpForm').hide();
 
-    web3.eth.accounts.create();
-
-    web3.eth.getAccounts(console.log);
-
-    /*web3.personal.newAccount('123456', function(error, result){
-      console.log('newaccount', error);
-      console.log('newaccount', result);
-    });*/
+      $('.check').click(function(){
+        if (typeof web3 !== 'undefined') {
+          // Use Mist/MetaMask's provider
+          window.web3 = new Web3(web3.currentProvider);
+          $.confirm({
+            title: 'MetaMask detected!',
+            content: 'Please ensure you are on the test network.',
+            useBootstrap: false,
+            type: 'green',
+            buttons: {
+              continue: {
+                text: 'Click here to continue',
+                action: function(){
+                  location.href = 'assets.html';
+                }
+              }
+            }
+          });
+        } 
+        else {
+          $.confirm({
+            title: 'No web3? You should consider trying MetaMask!',
+            content: '',
+            useBootstrap: false,
+            type: 'red',
+            buttons: {
+              continue: {
+                text: '',
+                btnClass: 'downloadBtn',
+                action: function(){
+                  window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
+                }
+              }
+            }
+          });
+        }
+      });
+    });
 
   });
 
   $('.download').click(function(){
-    console.log('downloadPrivetKey');
+    var privateKey = accountCreated.privateKey;
+
+    var a = window.document.createElement('a');
+    a.href = window.URL.createObjectURL(new Blob([privateKey], {type: 'text'}));
+    a.download = 'privateKey.txt';
+
+    // Append anchor to body.
+    document.body.appendChild(a);
+    a.click();
+
+    // Remove anchor from body
+    document.body.removeChild(a);
   });
+
 });

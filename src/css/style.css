@@ -36,4 +36,15 @@
 }
 .userDiv{
 	display: none;
+	margin-top: 20px;
+}
+.heading{
+	font-size: 18px;
+	font-weight: bold;
+}
+.publicKey{
+	font-size: 16px;
+}
+.download{
+	margin-top: 20px;
 }
