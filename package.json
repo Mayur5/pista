@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "description": "test",
   "dependencies": {
+    "truffle-hdwallet-provider": "0.0.3",
+    "web3": "^1.0.0-beta.24"
   },
   "devDependencies": {},
   "main": "truffle.js",
