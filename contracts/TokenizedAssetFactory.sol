@@ -1,11 +1,12 @@
 pragma solidity ^0.4.18;
 
-import './token/StandardToken.sol';
+//import './token/StandardToken.sol';
 import './token/BurnableToken.sol';
-import './ownership/Ownable.sol';
+import './token/MintableToken.sol';
+//import './ownership/Ownable.sol';
 import './math/SafeMath.sol';
 
-contract TokenizedAsset is StandardToken, BurnableToken, Ownable {
+contract TokenizedAsset is BurnableToken, MintableToken {
 
     string  public name;
     string  public symbol;
