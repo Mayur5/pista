@@ -1,0 +1,36 @@
+.signUpForm{
+	margin-top: 10%;
+}
+.formRow{
+	text-align: center;
+}
+.side-nav{
+	transform: translateX(0px) !important;
+	margin-top: 65px !important;
+	width: 210px !important;
+}
+.sideBarLinks{
+	font-size: 20px !important;
+	text-decoration: none !important;
+}
+.selected{
+	background-color: #eee;
+}
+.mainBody{
+	margin-left: 240px;
+	margin-top: 20px;
+}
+.assetsList{
+	margin-top: 20px;
+}
+.createFormDiv{
+	width: 50%;
+	margin-top: 30px;
+	margin-bottom: 20px;
+}
+.input-field.col label{
+	left: 0 !important;
+}
+.paramRow .input-field.col label{
+	left: .75rem !important;
+}
