@@ -34,3 +34,6 @@
 .paramRow .input-field.col label{
 	left: .75rem !important;
 }
+.userDiv{
+	display: none;
+}
