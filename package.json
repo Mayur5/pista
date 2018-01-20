@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "test",
   "dependencies": {
+    "zeppelin-solidity": "1.5.0"
   },
   "devDependencies": {},
   "main": "truffle.js",
@@ -21,5 +22,6 @@
   "bugs": {
     "url": "https://github.com/Mayur5/pista/issues"
   },
-  "homepage": "https://github.com/Mayur5/pista#readme"
+  "homepage": "https://github.com/Mayur5/pista#readme",
+  "keywords": []
 }
