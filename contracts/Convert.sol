@@ -1,13 +1,26 @@
 pragma solidity ^0.4.18;
 
-contract Convert {
-    mapping (address => mapping (address => uint8)) ConversionRate;
+import './math/SafeMath.sol';
+import "./TokenizedAsset.sol";
 
-    function setConversionRate(address incomingAsset, address outgoingAsset, uint8 rate) {
+contract Convert is TokenizedAsset {
+    mapping (address => mapping (address => uint)) ConversionRate;
+
+    function setConversionRate(address incomingAsset, address outgoingAsset, uint rate) {
         ConversionRate[incomingAsset][outgoingAsset] = rate;
     }
 
-    function getConversionRate(address incomingAsset, address outgoingAsset) constant returns (uint8) {
+    function getConversionRate(address incomingAsset, address outgoingAsset) constant returns (uint) {
         return ConversionRate[incomingAsset][outgoingAsset];
+    }
+
+    function convertAsset(uint expectedAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) {
+        TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
+        TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
+
+        uint diffAmount = sub(expectedAmount, actualAmount);
+
+        originalAsset.burn(diffAmount);
+        convertedAsset.mint(msg.sender, actualAmount);
     }
 }

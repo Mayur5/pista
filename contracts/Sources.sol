@@ -1,6 +1,8 @@
 pragma solidity ^0.4.18;
 
-contract Sources {
+import "./TokenizedAsset.sol";
+
+contract Sources is TokenizedAsset {
 
     struct Source {
       string name;
@@ -38,5 +40,10 @@ contract Sources {
 
     function getAccWithEmail(string email) constant returns (address) {
         return emailAccSource[email];
+    }
+
+    function addAssetAmount(uint amount, address assetContractAddr) {
+        TokenizedAsset asset = TokenizedAsset(assetContractAddr);
+        asset.mint(msg.sender, amount);
     }
 }
