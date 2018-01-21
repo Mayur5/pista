@@ -120,10 +120,8 @@ $(function() {
   var contract = abi.at("0x2949c974dec09777dd16c7291e119d119d324bc4");
 
   async function createAccount() {
-    /*var keys = keywords.replace(/\s/g,'');
-    var entropy = email + keys;*/
-
     let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
+
     return response;
   }
 
@@ -159,6 +157,12 @@ $(function() {
 
   async function convertAsset(expectedAmount, actualAmount, originalAssetAddr, convertedAssetAddr){
     let response = await contract.convertAsset(expectedAmount, actualAmount, originalAssetAddr, convertedAssetAddr);
+
+    return response;
+  }
+
+  async function transferAsset(deptFrom, deptTo, amount, outgoingAssetAddr){
+    let response = await contract.transferAsset(deptFrom, deptTo, amount, outgoingAssetAddr);
 
     return response;
   }
@@ -229,10 +233,12 @@ $(function() {
       });
     });
 
+    //continue to department home page
     $('.continue').click(function(){
       location.href = './home.html';
     });
 
+    //continue to source home page
     $('.continueSourceBtn').click(function(){
       location.href = './sourceHome.html';
     });
@@ -254,13 +260,7 @@ $(function() {
     document.body.removeChild(a);
   });
 
-  //save asset
-  $('.saveAssetBtn').click(function(){
-    var name = $('.assetName').val();
-    var symbol = $('.symbol').val();
-  });
-
-  //create department
+  //function to create department
   $('.createDeptBtn').click(function(){
     var deptName = $('#deptName').val();
     var deptEmail = $('#deptEmail').val();
@@ -276,7 +276,7 @@ $(function() {
     });
   });
 
-  //get departments
+  //get departments list
   contract.getDepartmentsSize(function(error, result){
     var departmentsSize = result;
     var deptAddrArray = [];
@@ -296,7 +296,7 @@ $(function() {
     }
   });
 
-  //get sources
+  //function to get source list
   contract.getSourcesSize(function(error, result){
     var sourcesSize = result;
     var sourceAddrArray = [];
@@ -316,7 +316,7 @@ $(function() {
     }
   });
 
-  //create source
+  //function to create source 
   $('.createSourceBtn').click(function(){
     var sourceName = $('#sourceName').val();
     var sourceEmail = $('#sourceEmail').val();
@@ -331,7 +331,7 @@ $(function() {
     });
   });
 
-  //convert asset 
+  //function to convert an asset by a department
   $('.convertAssetBtn').click(function(){
     var assetName = $('#assetName').val();
     var expectedAmount = $('#expectedAmount').val();
@@ -351,7 +351,7 @@ $(function() {
     });
   });
 
-  //add amount to asset
+  //function to add amount to asset by source
   $('.addAssetAmountBtn').click(function(){
     var amount = $('.amount').val();
     
@@ -362,10 +362,18 @@ $(function() {
     });
   });
 
-  //transfer asset
+  //transfer asset by source to department
   $('.transferBtn').click(function(){
     var department = $('.selectedDepartment').find(":selected").val();
     var amount = $('#amount').val();
+
+    var deptFrom = contract.getDepartmentAccAddr(department);
+    var deptTo = contract.getDepartmentAccAddr(department);
+
+    outgoingAssetAddr = contract.getAssetContractAddress(assetName);
+    transferAsset(deptFrom, deptTo, amount, outgoingAssetAddr).then((result) => {
+      console.log('result', result);
+    });
   });
 
 });
