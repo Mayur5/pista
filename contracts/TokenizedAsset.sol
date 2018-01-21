@@ -46,6 +46,16 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
      */
     function mint(address _to, uint256 _value) public {
         super.mint(_to, _value);
-        Transfer(msg.sender, address(0x0), _value);
+    }
+
+    /**
+     * Overrides the transferFrom function
+     *
+     * @param _from    The amount of tokens to burn in mini-RBC
+     * @param _to    The amount of tokens to burn in mini-RBC
+     * @param _amount    The amount of tokens to burn in mini-RBC
+     */
+    function transferFrom(address _from, address _to, uint _amount) public {
+        super.transferFrom(_from, _to, _amount);
     }
 }
