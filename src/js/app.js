@@ -145,6 +145,24 @@ $(function() {
     return response;
   }
 
+  async function getContractAddress(assetName){
+    let response = await contract.getAssetContractAddress(assetName);
+
+    return response;
+  }
+
+  async function addAmount(address) {
+    let response = await contract.addAssetAmount(address);
+
+    return response;
+  }
+
+  async function convertAsset(expectedAmount, actualAmount, originalAssetAddr, convertedAssetAddr){
+    let response = await contract.convertAsset(expectedAmount, actualAmount, originalAssetAddr, convertedAssetAddr);
+
+    return response;
+  }
+
   $(window).load(function() {
     $('select').material_select();
 
@@ -316,14 +334,38 @@ $(function() {
   //convert asset 
   $('.convertAssetBtn').click(function(){
     var assetName = $('#assetName').val();
-    var assetBalance = $('#assetBalance').val();
-    var converRate = $('#converRate').val();
     var expectedAmount = $('#expectedAmount').val();
     var actualAmount = $('#actualAmount').val();
+    var originalAssetAddr;
+    var convertedAssetAddr;
 
-    contract.().then((result) => {
-      console.log('result', result);
+    getContractAddress(assetName).then((result) => {
+      originalAssetAddr = result.address;
+      getContractAddress(assetName).then((result) => {
+        convertedAssetAddr = result.address;
+
+        convertAsset(expectedAmount, actualAmount, originalAssetAddr, convertedAssetAddr).then((result) => {
+          console.log('result', result);
+        });
+      });
     });
+  });
+
+  //add amount to asset
+  $('.addAssetAmountBtn').click(function(){
+    var amount = $('.amount').val();
+    
+    getContractAddress(assetName).then((result) => {
+      addAmount(result).then((result) => {
+        console.log('result', result);
+      });
+    });
+  });
+
+  //transfer asset
+  $('.transferBtn').click(function(){
+    var department = $('.selectedDepartment').find(":selected").val();
+    var amount = $('#amount').val();
   });
 
 });
