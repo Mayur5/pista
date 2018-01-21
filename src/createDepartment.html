@@ -44,6 +44,8 @@
             <a class="sideBarLinks" href="./dashboard.html">Dashboard</a>
             <a class="sideBarLinks" href="./assets.html">Assets</a>
             <a class="sideBarLinks" href="./transfers.html">Transfers</a>
+            <a class="sideBarLinks selected" href="./departments.html">Departments</a>
+            <a class="sideBarLinks" href="./sources.html">Sources</a>
         </li>
       </ul>
     </div>
@@ -52,16 +54,16 @@
 
       <div class="createFormDiv">
         <div class="input-field col s6">
-          <input placeholder="Enter name" id="name" type="text">
-          <label for="name">Name</label>
+          <input placeholder="Enter name" id="deptName" type="text">
+          <label for="deptName">Name</label>
         </div>
 
         <div class="input-field col s6">
-          <input placeholder="Enter email" id="email" type="text">
-          <label for="email">Email</label>
+          <input placeholder="Enter email" id="deptEmail" type="text">
+          <label for="deptEmail">Email</label>
         </div>
 
-        <div class="col s6">
+        <!-- <div class="col s6">
           <p>Select Type of User</p>
           <p>
             <input name="userType" class="with-gap" type="radio" id="department" />
@@ -71,29 +73,29 @@
             <input name="userType" class="with-gap" type="radio" id="individual" />
             <label for="individual">Individual</label>
           </p>
-        </div>
+        </div> -->
 
         <div class="col s6">
-          <p>Select Assets</p>
-          <p>
-            <input type="checkbox" id="asset1" />
-            <label for="asset1">Asset 1</label>
-          </p>
-          <p>
-            <input type="checkbox" id="asset2" />
-            <label for="asset2">Asset 2</label>
-          </p>
-          <p>
-            <input type="checkbox" id="asset3" />
-            <label for="asset3">Asset 3</label>
-          </p>
-          <p>
-            <input type="checkbox" id="asset4" />
-            <label for="asset4">Asset 4</label>
-          </p>
+          <select class="incomingAsset">
+            <option value="" disabled selected>Select Incoming Asset</option>
+            <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">Option 1</option>
+            <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">Option 2</option>
+            <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">Option 3</option>
+          </select>
+          <label>Select Incoming Asset</label>
         </div>
 
-        <a class="btn waves-effect waves-light">Save Department</a>
+        <div>
+          <select class="outgoingAsset">
+            <option value="" disabled selected>Select Outgoing Asset</option>
+            <option value="0x4AdbD5E13a13acC3Ce4C9556e18400782598607B">Option 1</option>
+            <option value="0x97F15DAa52Cf5c450bF77f4C2321b859A3571F3F">Option 2</option>
+            <option value="0x4857Be29D3B26a576a4F737457ac34fEDD264CCC">Option 3</option>
+          </select>
+          <label>Select Outgoing Asset</label>
+        </div>
+
+        <a class="btn waves-effect waves-light createDeptBtn">Create Department</a>
       </div>
     </div>
   </div>

@@ -1,15 +1,152 @@
 $(function() {
   var accountCreated;
 
-  async function createAccount(email, keywords) {
-    var keys = keywords.replace(/\s/g,'');
-    var entropy = email + keys;
+  var abi = web3.eth.contract([
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getDepartmentsSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint8"
+        }
+      ],
+      "name": "getDepartmentAccAddr",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_incomingAsset",
+          "type": "address"
+        },
+        {
+          "name": "_outgoingAsset",
+          "type": "address"
+        },
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "createDepartment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "email",
+          "type": "string"
+        }
+      ],
+      "name": "getAccWithEmail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getDepartment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ]);
 
-    let response = await web3.eth.accounts.create(entropy);
+  var contract = abi.at("0x2949c974dec09777dd16c7291e119d119d324bc4");
+
+  async function createAccount() {
+    /*var keys = keywords.replace(/\s/g,'');
+    var entropy = email + keys;*/
+
+    let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
+    return response;
+  }
+
+  async function createDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress){
+    let response = await contract.createDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress);
+
+    return response;
+  }
+
+  async function createSource(sourceName, sourceEmail, outgoingAsset, sourceAddress){
+    let response = await contract.createSource(deptName, deptEmail, outgoingAsset, sourceAddress);
+
+    return response;
+  }
+
+  async function createWallet(account){
+    let response = await web3.eth.accounts.wallet.add(account);
+
     return response;
   }
 
   $(window).load(function() {
+    $('select').material_select();
 
     $('.signUpBtn').click(function(){
       if (typeof web3 !== 'undefined') {
@@ -20,17 +157,21 @@ $(function() {
       }
 
       var email = $('#email').val();
-      var keywords = $('#keywords').val();
+      contract.getAccWithEmail(email, function(error, result){
+        var account = result.address;
 
-      createAccount(email, keywords).then((result) => {
-        accountCreated = result;
-        $('.accountNumber')[0].innerHTML = result.address;
-        $('.publicKey')[0].innerHTML = result.address;
+        createWallet(account).then((result) => {
+          accountCreated = result;
+          $('.accountNumber')[0].innerHTML = result.address;
+          $('.publicKey')[0].innerHTML = result.address;
+
+          $('.userDiv').show();
+          $('.signUpForm').hide();
+
+        });
       });
 
-      $('.userDiv').show();
-      $('.signUpForm').hide();
-
+      //check if metamask exists
       $('.check').click(function(){
         if (typeof web3 !== 'undefined') {
           // Use Mist/MetaMask's provider
@@ -70,8 +211,16 @@ $(function() {
       });
     });
 
+    $('.continue').click(function(){
+      location.href = './home.html';
+    });
+
+    $('.continueSourceBtn').click(function(){
+      location.href = './sourceHome.html';
+    });
   });
 
+  //download private key
   $('.download').click(function(){
     var privateKey = accountCreated.privateKey;
 
@@ -85,6 +234,96 @@ $(function() {
 
     // Remove anchor from body
     document.body.removeChild(a);
+  });
+
+  //save asset
+  $('.saveAssetBtn').click(function(){
+    var name = $('.assetName').val();
+    var symbol = $('.symbol').val();
+  });
+
+  //create department
+  $('.createDeptBtn').click(function(){
+    var deptName = $('#deptName').val();
+    var deptEmail = $('#deptEmail').val();
+    var incomingAsset = $('.incomingAsset').find(":selected").val();
+    var outgoingAsset = $('.outgoingAsset').find(":selected").val();
+
+    createAccount().then((result) => {
+      var deptAddress = result.address;
+
+      createDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress).then((result) => {
+        console.log('department', result);
+      });
+    });
+  });
+
+  //get departments
+  contract.getDepartmentsSize(function(error, result){
+    var departmentsSize = result;
+    var deptAddrArray = [];
+
+    //get department address
+    for(var i = 0; i < departmentsSize; i++){
+      contract.getDepartmentAccAddr(i, function(error, result){
+        deptAddrArray.push(result);
+      });
+    }
+
+    //get department details
+    for(var i=0; i < departmentsSize; i++){
+      contract.getDepartment(deptAddrArray[i], function(error, result){
+        $('.departmentTable').append('<tr><td>'+result.name+'</td><td>'+result.email+'</td><td>'+result.incomingAsset+'</td><td>'+result.outgoingAsset+'</td></tr>')
+      });
+    }
+  });
+
+  //get sources
+  contract.getSourcesSize(function(error, result){
+    var sourcesSize = result;
+    var sourceAddrArray = [];
+
+    //get source address
+    for(var i = 0; i < sourcesSize; i++){
+      contract.getSourceAccAddr(i, function(error, result){
+        sourceAddrArray.push(result);
+      });
+    }
+
+    //get source details
+    for(var i=0; i < sourcesSize; i++){
+      contract.getSource(sourceAddrArray[i], function(error, result){
+        $('.sourcesTable').append('<tr><td>'+result.name+'</td><td>'+result.email+'</td><td>'+result.outgoingAsset+'</td></tr>')
+      });
+    }
+  });
+
+  //create source
+  $('.createSourceBtn').click(function(){
+    var sourceName = $('#sourceName').val();
+    var sourceEmail = $('#sourceEmail').val();
+    var outgoingAsset = $('.outgoingAsset').find(":selected").val();
+
+    createAccount().then((result) => {
+      var sourceAddress = result.address;
+
+      createSource(sourceName, sourceEmail, outgoingAsset, sourceAddress).then((result) => {
+        console.log('source', result);
+      });
+    });
+  });
+
+  //convert asset 
+  $('.convertAssetBtn').click(function(){
+    var assetName = $('#assetName').val();
+    var assetBalance = $('#assetBalance').val();
+    var converRate = $('#converRate').val();
+    var expectedAmount = $('#expectedAmount').val();
+    var actualAmount = $('#actualAmount').val();
+
+    contract.().then((result) => {
+      console.log('result', result);
+    });
   });
 
 });

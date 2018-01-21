@@ -1,3 +1,6 @@
+.brand-logo{
+	margin-left: 30px;
+}
 .signUpForm{
 	margin-top: 10%;
 }
@@ -47,4 +50,8 @@
 }
 .download{
 	margin-top: 20px;
+}
+.assetValues{
+	font-weight: bold;
+	font-size: 16px;
 }
