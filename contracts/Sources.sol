@@ -32,7 +32,7 @@ contract Sources {
         return sourceAddrs[index];
     }
 
-    function getSourcesSize() constant returns (uint8) {
+    function getSourcesSize() constant returns (uint) {
         return sourceAddrs.length;
     }
 

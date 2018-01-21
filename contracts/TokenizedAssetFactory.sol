@@ -23,6 +23,8 @@ contract TokenizedAssetFactory {
     string[] public names;
     address[] public contracts;
 
+    mapping (string => address) AssetNameAddressMapping;
+
     function createContract(string name, string symbol) returns(address) {
         address newContract = new TokenizedAsset(name, symbol);
         names.push(name);

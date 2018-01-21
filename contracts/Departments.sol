@@ -36,7 +36,7 @@ contract Departments {
         return departmentAddrs[index];
     }
 
-    function getDepartmentsSize() constant returns (uint8) {
+    function getDepartmentsSize() constant returns (uint) {
         return departmentAddrs.length;
     }
 
