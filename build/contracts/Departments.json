@@ -11,27 +11,73 @@
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_walletAddress",
+          "type": "address"
+        }
+      ],
+      "name": "getDepartmentByAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        }
+      ],
       "name": "createDepartment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_walletAddr",
+          "type": "address"
+        }
+      ],
+      "name": "updateDepartmentWallet",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60a28061001d6000396000f3006060604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806328283b0c14604e578063cb30ef20146060575b600080fd5b3415605857600080fd5b605e6072565b005b3415606a57600080fd5b60706074565b005b565b5600a165627a7a7230582012b47fe3ff85c82b4e88eca62cd81a6ea982677140cc94e3382dcd19a44447030029",
-  "deployedBytecode": "0x6060604052600436106049576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806328283b0c14604e578063cb30ef20146060575b600080fd5b3415605857600080fd5b605e6072565b005b3415606a57600080fd5b60706074565b005b565b5600a165627a7a7230582012b47fe3ff85c82b4e88eca62cd81a6ea982677140cc94e3382dcd19a44447030029",
-  "sourceMap": "26:106:0:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:106:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;96:34;;;;;;;;;;;;;;54:36;;;;;;;;;;;;;;96:34;:::o;54:36::-;:::o",
-  "source": "pragma solidity ^0.4.18;\n\ncontract Departments {\n\n    function createDepartment() {\n\n    }\n\n    function updateAssetSet() {\n\n    }\n}\n",
+  "bytecode": "0x6060604052341561000f57600080fd5b6102d18061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806328283b0c14610067578063758310101461007c578063c5f169cf1461019a578063ebdaac521461023a575b600080fd5b341561007257600080fd5b61007a610273565b005b341561008757600080fd5b6100b3600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610275565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156100f75780820151818401526020810190506100dc565b50505050905090810190601f1680156101245780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b8381101561015d578082015181840152602081019050610142565b50505050905090810190601f16801561018a5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b34156101a557600080fd5b610238600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061028a565b005b341561024557600080fd5b610271600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061028e565b005b565b61027d610291565b610285610291565b915091565b5050565b50565b6020604051908101604052806000815250905600a165627a7a723058209f99ac594d44043e68a14ed6c0d916fcd51e12611674c544bd8a0462622ac82c0029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806328283b0c14610067578063758310101461007c578063c5f169cf1461019a578063ebdaac521461023a575b600080fd5b341561007257600080fd5b61007a610273565b005b341561008757600080fd5b6100b3600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610275565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156100f75780820151818401526020810190506100dc565b50505050905090810190601f1680156101245780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b8381101561015d578082015181840152602081019050610142565b50505050905090810190601f16801561018a5780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b34156101a557600080fd5b610238600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061028a565b005b341561024557600080fd5b610271600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061028e565b005b565b61027d610291565b610285610291565b915091565b5050565b50565b6020604051908101604052806000815250905600a165627a7a723058209f99ac594d44043e68a14ed6c0d916fcd51e12611674c544bd8a0462622ac82c0029",
+  "sourceMap": "26:421:0:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:421:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;308:34;;;;;;;;;;;;;;348:97;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;174:61:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;241;;;;;;;;;;;;;;;;;;;;;;;;;;;;308:34;:::o;348:97::-;421:6;;:::i;:::-;429;;:::i;:::-;348:97;;;:::o;174:61::-;;;:::o;241:::-;;:::o;26:421::-;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract Departments {\n\n    struct Department {\n      string name;\n      string email;\n    }\n\n    mapping (address => Department) Departments;\n\n    function createDepartment(string name, string email) {\n\n    }\n\n    function updateDepartmentWallet(address _walletAddr) {\n\n    }\n\n    function updateAssetSet() {\n\n    }\n\n    function getDepartmentByAddress(address _walletAddress) constant returns(string, string) {\n\n    }\n}\n",
   "sourcePath": "/Users/mayurrelekar/dev/pista/contracts/Departments.sol",
   "ast": {
     "attributes": {
       "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/Departments.sol",
       "exportedSymbols": {
         "Departments": [
-          10
+          39
         ]
       }
     },
@@ -61,12 +107,124 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            10
+            39
           ],
           "name": "Departments",
-          "scope": 11
+          "scope": 40
         },
         "children": [
+          {
+            "attributes": {
+              "canonicalName": "Departments.Department",
+              "name": "Department",
+              "scope": 39,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "name",
+                  "scope": 6,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 2,
+                    "name": "ElementaryTypeName",
+                    "src": "80:6:0"
+                  }
+                ],
+                "id": 3,
+                "name": "VariableDeclaration",
+                "src": "80:11:0"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "email",
+                  "scope": 6,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 4,
+                    "name": "ElementaryTypeName",
+                    "src": "99:6:0"
+                  }
+                ],
+                "id": 5,
+                "name": "VariableDeclaration",
+                "src": "99:12:0"
+              }
+            ],
+            "id": 6,
+            "name": "StructDefinition",
+            "src": "54:64:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "Departments",
+              "scope": 39,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct Departments.Department storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct Departments.Department storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 7,
+                    "name": "ElementaryTypeName",
+                    "src": "133:7:0"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Department",
+                      "referencedDeclaration": 6,
+                      "type": "struct Departments.Department storage pointer"
+                    },
+                    "id": 8,
+                    "name": "UserDefinedTypeName",
+                    "src": "144:10:0"
+                  }
+                ],
+                "id": 9,
+                "name": "Mapping",
+                "src": "124:31:0"
+              }
+            ],
+            "id": 10,
+            "name": "VariableDeclaration",
+            "src": "124:43:0"
+          },
           {
             "attributes": {
               "constant": false,
@@ -77,22 +235,70 @@
               ],
               "name": "createDepartment",
               "payable": false,
-              "scope": 10,
+              "scope": 39,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
             },
             "children": [
               {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 2,
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "name",
+                      "scope": 18,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 11,
+                        "name": "ElementaryTypeName",
+                        "src": "200:6:0"
+                      }
+                    ],
+                    "id": 12,
+                    "name": "VariableDeclaration",
+                    "src": "200:11:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "email",
+                      "scope": 18,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 13,
+                        "name": "ElementaryTypeName",
+                        "src": "213:6:0"
+                      }
+                    ],
+                    "id": 14,
+                    "name": "VariableDeclaration",
+                    "src": "213:12:0"
+                  }
+                ],
+                "id": 15,
                 "name": "ParameterList",
-                "src": "79:2:0"
+                "src": "199:27:0"
               },
               {
                 "attributes": {
@@ -101,9 +307,9 @@
                   ]
                 },
                 "children": [],
-                "id": 3,
+                "id": 16,
                 "name": "ParameterList",
-                "src": "82:0:0"
+                "src": "227:0:0"
               },
               {
                 "attributes": {
@@ -112,14 +318,90 @@
                   ]
                 },
                 "children": [],
-                "id": 4,
+                "id": 17,
                 "name": "Block",
-                "src": "82:8:0"
+                "src": "227:8:0"
               }
             ],
-            "id": 5,
+            "id": 18,
             "name": "FunctionDefinition",
-            "src": "54:36:0"
+            "src": "174:61:0"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "updateDepartmentWallet",
+              "payable": false,
+              "scope": 39,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_walletAddr",
+                      "scope": 24,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 19,
+                        "name": "ElementaryTypeName",
+                        "src": "273:7:0"
+                      }
+                    ],
+                    "id": 20,
+                    "name": "VariableDeclaration",
+                    "src": "273:19:0"
+                  }
+                ],
+                "id": 21,
+                "name": "ParameterList",
+                "src": "272:21:0"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 22,
+                "name": "ParameterList",
+                "src": "294:0:0"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 23,
+                "name": "Block",
+                "src": "294:8:0"
+              }
+            ],
+            "id": 24,
+            "name": "FunctionDefinition",
+            "src": "241:61:0"
           },
           {
             "attributes": {
@@ -131,7 +413,7 @@
               ],
               "name": "updateAssetSet",
               "payable": false,
-              "scope": 10,
+              "scope": 39,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -144,9 +426,9 @@
                   ]
                 },
                 "children": [],
-                "id": 6,
+                "id": 25,
                 "name": "ParameterList",
-                "src": "119:2:0"
+                "src": "331:2:0"
               },
               {
                 "attributes": {
@@ -155,9 +437,9 @@
                   ]
                 },
                 "children": [],
-                "id": 7,
+                "id": 26,
                 "name": "ParameterList",
-                "src": "122:0:0"
+                "src": "334:0:0"
               },
               {
                 "attributes": {
@@ -166,24 +448,148 @@
                   ]
                 },
                 "children": [],
-                "id": 8,
+                "id": 27,
                 "name": "Block",
-                "src": "122:8:0"
+                "src": "334:8:0"
               }
             ],
-            "id": 9,
+            "id": 28,
             "name": "FunctionDefinition",
-            "src": "96:34:0"
+            "src": "308:34:0"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getDepartmentByAddress",
+              "payable": false,
+              "scope": 39,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_walletAddress",
+                      "scope": 38,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 29,
+                        "name": "ElementaryTypeName",
+                        "src": "380:7:0"
+                      }
+                    ],
+                    "id": 30,
+                    "name": "VariableDeclaration",
+                    "src": "380:22:0"
+                  }
+                ],
+                "id": 31,
+                "name": "ParameterList",
+                "src": "379:24:0"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 38,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 32,
+                        "name": "ElementaryTypeName",
+                        "src": "421:6:0"
+                      }
+                    ],
+                    "id": 33,
+                    "name": "VariableDeclaration",
+                    "src": "421:6:0"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 38,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 34,
+                        "name": "ElementaryTypeName",
+                        "src": "429:6:0"
+                      }
+                    ],
+                    "id": 35,
+                    "name": "VariableDeclaration",
+                    "src": "429:6:0"
+                  }
+                ],
+                "id": 36,
+                "name": "ParameterList",
+                "src": "420:16:0"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 37,
+                "name": "Block",
+                "src": "437:8:0"
+              }
+            ],
+            "id": 38,
+            "name": "FunctionDefinition",
+            "src": "348:97:0"
           }
         ],
-        "id": 10,
+        "id": 39,
         "name": "ContractDefinition",
-        "src": "26:106:0"
+        "src": "26:421:0"
       }
     ],
-    "id": 11,
+    "id": 40,
     "name": "SourceUnit",
-    "src": "0:133:0"
+    "src": "0:448:0"
   },
   "compiler": {
     "name": "solc",
@@ -197,5 +603,5 @@
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-20T14:55:31.899Z"
+  "updatedAt": "2018-01-20T15:25:08.975Z"
 }

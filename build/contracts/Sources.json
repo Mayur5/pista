@@ -12,6 +12,20 @@
     },
     {
       "constant": false,
+      "inputs": [
+        {
+          "name": "_walletAddr",
+          "type": "address"
+        }
+      ],
+      "name": "updateSourceWallet",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
       "inputs": [],
       "name": "updateAssetSet",
       "outputs": [],
@@ -21,26 +35,58 @@
     },
     {
       "constant": false,
-      "inputs": [],
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "email",
+          "type": "string"
+        }
+      ],
       "name": "createSource",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_sourceWallet",
+          "type": "address"
+        }
+      ],
+      "name": "getSourceByAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b60c08061001d6000396000f3006060604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ce509c14605857806328283b0c14606a578063c133bf1914607c575b600080fd5b3415606257600080fd5b6068608e565b005b3415607457600080fd5b607a6090565b005b3415608657600080fd5b608c6092565b005b565b565b5600a165627a7a72305820071716a26b91a9df7f849fb451146b1373e02c81a8d2d3815b8b79209713265e0029",
-  "deployedBytecode": "0x6060604052600436106053576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ce509c14605857806328283b0c14606a578063c133bf1914607c575b600080fd5b3415606257600080fd5b6068608e565b005b3415607457600080fd5b607a6090565b005b3415608657600080fd5b608c6092565b005b565b565b5600a165627a7a72305820071716a26b91a9df7f849fb451146b1373e02c81a8d2d3815b8b79209713265e0029",
-  "sourceMap": "26:144:1:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "26:144:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;128:40;;;;;;;;;;;;;;88:34;;;;;;;;;;;;;;50:32;;;;;;;;;;;;;;128:40;:::o;88:34::-;:::o;50:32::-;:::o",
-  "source": "pragma solidity ^0.4.18;\n\ncontract Sources {\n\n    function createSource() {\n\n    }\n\n    function updateAssetSet() {\n\n    }\n\n    function updateParamSet() {\n      \n    }\n}\n",
+  "bytecode": "0x6060604052341561000f57600080fd5b6102f38061001e6000396000f30060606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ce509c146100725780632767279d1461008757806328283b0c146100c0578063526364ee146100d5578063729b7a4814610175575b600080fd5b341561007d57600080fd5b610085610293565b005b341561009257600080fd5b6100be600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610295565b005b34156100cb57600080fd5b6100d3610298565b005b34156100e057600080fd5b610173600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061029a565b005b341561018057600080fd5b6101ac600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061029e565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156101f05780820151818401526020810190506101d5565b50505050905090810190601f16801561021d5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b8381101561025657808201518184015260208101905061023b565b50505050905090810190601f1680156102835780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b565b50565b565b5050565b6102a66102b3565b6102ae6102b3565b915091565b6020604051908101604052806000815250905600a165627a7a723058206953e15c0b5ecd0cd7f0fa6eb49a185f569e689443331b4a7665a6351f7b92d40029",
+  "deployedBytecode": "0x60606040526004361061006d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ce509c146100725780632767279d1461008757806328283b0c146100c0578063526364ee146100d5578063729b7a4814610175575b600080fd5b341561007d57600080fd5b610085610293565b005b341561009257600080fd5b6100be600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610295565b005b34156100cb57600080fd5b6100d3610298565b005b34156100e057600080fd5b610173600480803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190803590602001908201803590602001908080601f0160208091040260200160405190810160405280939291908181526020018383808284378201915050505050509190505061029a565b005b341561018057600080fd5b6101ac600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061029e565b604051808060200180602001838103835285818151815260200191508051906020019080838360005b838110156101f05780820151818401526020810190506101d5565b50505050905090810190601f16801561021d5780820380516001836020036101000a031916815260200191505b50838103825284818151815260200191508051906020019080838360005b8381101561025657808201518184015260208101905061023b565b50505050905090810190601f1680156102835780820380516001836020036101000a031916815260200191505b5094505050505060405180910390f35b565b50565b565b5050565b6102a66102b3565b6102ae6102b3565b915091565b6020604051908101604052806000815250905600a165627a7a723058206953e15c0b5ecd0cd7f0fa6eb49a185f569e689443331b4a7665a6351f7b92d40029",
+  "sourceMap": "26:432:1:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "26:432:1:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;324:34;;;;;;;;;;;;;;221:57;;;;;;;;;;;;;;;;;;;;;;;;;;;;284:34;;;;;;;;;;;;;;158:57;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;364:92;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1:-1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;23:1;8:100;33:3;30:1;27:2;8:100;;;99:1;94:3;90;84:5;80:1;75:3;71;64:6;52:2;49:1;45:3;40:15;;8:100;;;12:14;3:109;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;324:34:1;:::o;221:57::-;;:::o;284:34::-;:::o;158:57::-;;;:::o;364:92::-;432:6;;:::i;:::-;440;;:::i;:::-;364:92;;;:::o;26:432::-;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\ncontract Sources {\n\n    struct Source {\n      string name;\n      string email;\n    }\n\n    mapping (address => Source) Sources;\n\n    function createSource(string name, string email) {\n\n    }\n\n    function updateSourceWallet(address _walletAddr) {\n\n    }\n\n    function updateAssetSet() {\n\n    }\n\n    function updateParamSet() {\n\n    }\n\n    function getSourceByAddress(address _sourceWallet) constant returns(string, string) {\n\n    }\n}\n",
   "sourcePath": "/Users/mayurrelekar/dev/pista/contracts/Sources.sol",
   "ast": {
     "attributes": {
       "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/Sources.sol",
       "exportedSymbols": {
         "Sources": [
-          25
+          83
         ]
       }
     },
@@ -54,7 +100,7 @@
             ".18"
           ]
         },
-        "id": 12,
+        "id": 41,
         "name": "PragmaDirective",
         "src": "0:24:1"
       },
@@ -70,12 +116,124 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            25
+            83
           ],
           "name": "Sources",
-          "scope": 26
+          "scope": 84
         },
         "children": [
+          {
+            "attributes": {
+              "canonicalName": "Sources.Source",
+              "name": "Source",
+              "scope": 83,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "name",
+                  "scope": 46,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 42,
+                    "name": "ElementaryTypeName",
+                    "src": "72:6:1"
+                  }
+                ],
+                "id": 43,
+                "name": "VariableDeclaration",
+                "src": "72:11:1"
+              },
+              {
+                "attributes": {
+                  "constant": false,
+                  "name": "email",
+                  "scope": 46,
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "type": "string storage pointer",
+                  "value": null,
+                  "visibility": "internal"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "string",
+                      "type": "string storage pointer"
+                    },
+                    "id": 44,
+                    "name": "ElementaryTypeName",
+                    "src": "91:6:1"
+                  }
+                ],
+                "id": 45,
+                "name": "VariableDeclaration",
+                "src": "91:12:1"
+              }
+            ],
+            "id": 46,
+            "name": "StructDefinition",
+            "src": "50:60:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "name": "Sources",
+              "scope": 83,
+              "stateVariable": true,
+              "storageLocation": "default",
+              "type": "mapping(address => struct Sources.Source storage ref)",
+              "value": null,
+              "visibility": "internal"
+            },
+            "children": [
+              {
+                "attributes": {
+                  "type": "mapping(address => struct Sources.Source storage ref)"
+                },
+                "children": [
+                  {
+                    "attributes": {
+                      "name": "address",
+                      "type": "address"
+                    },
+                    "id": 47,
+                    "name": "ElementaryTypeName",
+                    "src": "125:7:1"
+                  },
+                  {
+                    "attributes": {
+                      "contractScope": null,
+                      "name": "Source",
+                      "referencedDeclaration": 46,
+                      "type": "struct Sources.Source storage pointer"
+                    },
+                    "id": 48,
+                    "name": "UserDefinedTypeName",
+                    "src": "136:6:1"
+                  }
+                ],
+                "id": 49,
+                "name": "Mapping",
+                "src": "116:27:1"
+              }
+            ],
+            "id": 50,
+            "name": "VariableDeclaration",
+            "src": "116:35:1"
+          },
           {
             "attributes": {
               "constant": false,
@@ -86,22 +244,70 @@
               ],
               "name": "createSource",
               "payable": false,
-              "scope": 25,
+              "scope": 83,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
             },
             "children": [
               {
-                "attributes": {
-                  "parameters": [
-                    null
-                  ]
-                },
-                "children": [],
-                "id": 13,
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "name",
+                      "scope": 58,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 51,
+                        "name": "ElementaryTypeName",
+                        "src": "180:6:1"
+                      }
+                    ],
+                    "id": 52,
+                    "name": "VariableDeclaration",
+                    "src": "180:11:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "email",
+                      "scope": 58,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 53,
+                        "name": "ElementaryTypeName",
+                        "src": "193:6:1"
+                      }
+                    ],
+                    "id": 54,
+                    "name": "VariableDeclaration",
+                    "src": "193:12:1"
+                  }
+                ],
+                "id": 55,
                 "name": "ParameterList",
-                "src": "71:2:1"
+                "src": "179:27:1"
               },
               {
                 "attributes": {
@@ -110,9 +316,9 @@
                   ]
                 },
                 "children": [],
-                "id": 14,
+                "id": 56,
                 "name": "ParameterList",
-                "src": "74:0:1"
+                "src": "207:0:1"
               },
               {
                 "attributes": {
@@ -121,14 +327,90 @@
                   ]
                 },
                 "children": [],
-                "id": 15,
+                "id": 57,
                 "name": "Block",
-                "src": "74:8:1"
+                "src": "207:8:1"
               }
             ],
-            "id": 16,
+            "id": 58,
             "name": "FunctionDefinition",
-            "src": "50:32:1"
+            "src": "158:57:1"
+          },
+          {
+            "attributes": {
+              "constant": false,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "updateSourceWallet",
+              "payable": false,
+              "scope": 83,
+              "stateMutability": "nonpayable",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_walletAddr",
+                      "scope": 64,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 59,
+                        "name": "ElementaryTypeName",
+                        "src": "249:7:1"
+                      }
+                    ],
+                    "id": 60,
+                    "name": "VariableDeclaration",
+                    "src": "249:19:1"
+                  }
+                ],
+                "id": 61,
+                "name": "ParameterList",
+                "src": "248:21:1"
+              },
+              {
+                "attributes": {
+                  "parameters": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 62,
+                "name": "ParameterList",
+                "src": "270:0:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 63,
+                "name": "Block",
+                "src": "270:8:1"
+              }
+            ],
+            "id": 64,
+            "name": "FunctionDefinition",
+            "src": "221:57:1"
           },
           {
             "attributes": {
@@ -140,7 +422,7 @@
               ],
               "name": "updateAssetSet",
               "payable": false,
-              "scope": 25,
+              "scope": 83,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -153,9 +435,9 @@
                   ]
                 },
                 "children": [],
-                "id": 17,
+                "id": 65,
                 "name": "ParameterList",
-                "src": "111:2:1"
+                "src": "307:2:1"
               },
               {
                 "attributes": {
@@ -164,9 +446,9 @@
                   ]
                 },
                 "children": [],
-                "id": 18,
+                "id": 66,
                 "name": "ParameterList",
-                "src": "114:0:1"
+                "src": "310:0:1"
               },
               {
                 "attributes": {
@@ -175,14 +457,14 @@
                   ]
                 },
                 "children": [],
-                "id": 19,
+                "id": 67,
                 "name": "Block",
-                "src": "114:8:1"
+                "src": "310:8:1"
               }
             ],
-            "id": 20,
+            "id": 68,
             "name": "FunctionDefinition",
-            "src": "88:34:1"
+            "src": "284:34:1"
           },
           {
             "attributes": {
@@ -194,7 +476,7 @@
               ],
               "name": "updateParamSet",
               "payable": false,
-              "scope": 25,
+              "scope": 83,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -207,9 +489,9 @@
                   ]
                 },
                 "children": [],
-                "id": 21,
+                "id": 69,
                 "name": "ParameterList",
-                "src": "151:2:1"
+                "src": "347:2:1"
               },
               {
                 "attributes": {
@@ -218,9 +500,9 @@
                   ]
                 },
                 "children": [],
-                "id": 22,
+                "id": 70,
                 "name": "ParameterList",
-                "src": "154:0:1"
+                "src": "350:0:1"
               },
               {
                 "attributes": {
@@ -229,24 +511,148 @@
                   ]
                 },
                 "children": [],
-                "id": 23,
+                "id": 71,
                 "name": "Block",
-                "src": "154:14:1"
+                "src": "350:8:1"
               }
             ],
-            "id": 24,
+            "id": 72,
             "name": "FunctionDefinition",
-            "src": "128:40:1"
+            "src": "324:34:1"
+          },
+          {
+            "attributes": {
+              "constant": true,
+              "implemented": true,
+              "isConstructor": false,
+              "modifiers": [
+                null
+              ],
+              "name": "getSourceByAddress",
+              "payable": false,
+              "scope": 83,
+              "stateMutability": "view",
+              "superFunction": null,
+              "visibility": "public"
+            },
+            "children": [
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "_sourceWallet",
+                      "scope": 82,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "address",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "address",
+                          "type": "address"
+                        },
+                        "id": 73,
+                        "name": "ElementaryTypeName",
+                        "src": "392:7:1"
+                      }
+                    ],
+                    "id": 74,
+                    "name": "VariableDeclaration",
+                    "src": "392:21:1"
+                  }
+                ],
+                "id": 75,
+                "name": "ParameterList",
+                "src": "391:23:1"
+              },
+              {
+                "children": [
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 82,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 76,
+                        "name": "ElementaryTypeName",
+                        "src": "432:6:1"
+                      }
+                    ],
+                    "id": 77,
+                    "name": "VariableDeclaration",
+                    "src": "432:6:1"
+                  },
+                  {
+                    "attributes": {
+                      "constant": false,
+                      "name": "",
+                      "scope": 82,
+                      "stateVariable": false,
+                      "storageLocation": "default",
+                      "type": "string memory",
+                      "value": null,
+                      "visibility": "internal"
+                    },
+                    "children": [
+                      {
+                        "attributes": {
+                          "name": "string",
+                          "type": "string storage pointer"
+                        },
+                        "id": 78,
+                        "name": "ElementaryTypeName",
+                        "src": "440:6:1"
+                      }
+                    ],
+                    "id": 79,
+                    "name": "VariableDeclaration",
+                    "src": "440:6:1"
+                  }
+                ],
+                "id": 80,
+                "name": "ParameterList",
+                "src": "431:16:1"
+              },
+              {
+                "attributes": {
+                  "statements": [
+                    null
+                  ]
+                },
+                "children": [],
+                "id": 81,
+                "name": "Block",
+                "src": "448:8:1"
+              }
+            ],
+            "id": 82,
+            "name": "FunctionDefinition",
+            "src": "364:92:1"
           }
         ],
-        "id": 25,
+        "id": 83,
         "name": "ContractDefinition",
-        "src": "26:144:1"
+        "src": "26:432:1"
       }
     ],
-    "id": 26,
+    "id": 84,
     "name": "SourceUnit",
-    "src": "0:171:1"
+    "src": "0:459:1"
   },
   "compiler": {
     "name": "solc",
@@ -260,5 +666,5 @@
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-20T14:55:31.900Z"
+  "updatedAt": "2018-01-20T15:25:08.975Z"
 }
