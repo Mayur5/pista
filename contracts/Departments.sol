@@ -1,11 +1,12 @@
 pragma solidity ^0.4.18;
 
 import './math/SafeMath.sol';
+import "./TokenizedAsset.sol";
 
 /**
   * A Contract to create and manage Govt. Departments that are part of some arbitrary supply/value chain
 **/
-contract Departments {
+contract Departments is TokenizedAsset {
 
     struct Department {
       string name;
@@ -74,5 +75,18 @@ contract Departments {
      */
     function getAccWithEmail(string email) constant returns (address) {
         return emailAccDepartment[email];
+    }
+
+    /**
+     * Method to enable transfer of Asset from one source/department wallet to another department wallet
+     *
+     * @param from    The sender's wallet address
+     * @param to    The receiver's wallet address
+     * @param amount    The number of tokens to be transferred
+     * @param assetContractAddr    The asset/token contract address
+     */
+    function transferAsset(address from, address to, uint amount, address assetContractAddr) {
+        TokenizedAsset asset = TokenizedAsset(assetContractAddr);
+        asset.transferFrom(from, to, amount);
     }
 }

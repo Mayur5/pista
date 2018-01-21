@@ -2,6 +2,10 @@ pragma solidity ^0.4.18;
 
 import "./TokenizedAsset.sol";
 
+/**
+  * A Contract to create and manage Sources for various agricultural/horticultural/forest produce
+  * that are part of some arbitrary supply/value chain
+**/
 contract Sources is TokenizedAsset {
 
     struct Source {
@@ -16,6 +20,15 @@ contract Sources is TokenizedAsset {
 
     mapping (string => address) emailAccSource;
 
+    /**
+     * Method to create a Source with an associated admin.
+     * Source also associated with a specific asset/token
+     *
+     * @param _name    The name of the source
+     * @param _email    The email of the source's admin
+     * @param _outgoingAsset    The address of the asset/token Contract address that the department can transfer out to a department in the value chain
+     * @param _accAddr    The wallet address the source
+     */
     function createSource(string _name, string _email, address _outgoingAsset, address _accAddr) {
         sourceAddrs.push(_accAddr);
 
@@ -45,5 +58,18 @@ contract Sources is TokenizedAsset {
     function addAssetAmount(uint amount, address assetContractAddr) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
         asset.mint(msg.sender, amount);
+    }
+
+    /**
+     * Method to enable transfer of a specific Asset/Token from source wallet to a department wallet
+     *
+     * @param from    The sender's wallet address
+     * @param to    The receiver's wallet address
+     * @param amount    The number of tokens to be transferred
+     * @param assetContractAddr    The asset/token contract address
+     */
+    function transferAsset(address from, address to, uint amount, address assetContractAddr) {
+        TokenizedAsset asset = TokenizedAsset(assetContractAddr);
+        asset.transferFrom(from, to, amount);
     }
 }
