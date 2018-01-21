@@ -36,6 +36,11 @@ contract Sources is TokenizedAsset {
         Sources[_accAddr] = s;
     }
 
+    /**
+     * Method to get a Source using it's wallet address
+     *
+     * @param _accAddr    The wallet address the source
+     */
     function getSource(address _accAddr) constant returns(string, string, address) {
         string name = Sources[_accAddr].name;
         string email = Sources[_accAddr].email;
@@ -43,18 +48,38 @@ contract Sources is TokenizedAsset {
         return(name, email, outgoingAsset);
     }
 
+    /**
+     * Method to get a Source's Wallet address from an arbitrary array
+     *
+     * @param _index    The index to be fetched
+     */
     function getSourceAccAddr(uint8 index) constant returns (address) {
         return sourceAddrs[index];
     }
 
+    /**
+     * Method to get the size of the arbitrary source address array
+     *
+     */
     function getSourcesSize() constant returns (uint) {
         return sourceAddrs.length;
     }
 
+    /**
+     * Method to get a Source's address using the admin email
+     *
+     * @param email    The email of the admin of a specific source
+     */
     function getAccWithEmail(string email) constant returns (address) {
         return emailAccSource[email];
     }
 
+    /**
+     * Method to create(mint) a specific asset/token
+     *
+     * @param amount    The number of tokens to be minted
+     * @param assetContractAddr    The asset/token contract address
+     */
     function addAssetAmount(uint amount, address assetContractAddr) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
         asset.mint(msg.sender, amount);
