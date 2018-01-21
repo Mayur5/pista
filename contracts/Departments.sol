@@ -15,6 +15,8 @@ contract Departments {
 
     mapping (address => Department) Departments;
 
+    mapping (string => address) emailAccDepartment;
+
     function createDepartment(string _name, string _email, address _incomingAsset, address _outgoingAsset, address _accAddr) {
         departmentAddrs.push(_accAddr);
 
@@ -32,5 +34,13 @@ contract Departments {
 
     function getDepartmentAccAddr(uint8 index) constant returns (address) {
         return departmentAddrs[index];
+    }
+
+    function getDepartmentsSize() constant returns (uint8) {
+        return departmentAddrs.length;
+    }
+
+    function getAccWithEmail(string email) constant returns (address) {
+        return emailAccDepartment[email];
     }
 }
