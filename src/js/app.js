@@ -196,7 +196,7 @@ $(function() {
 
     $('select').material_select();
 
-    $('.accountNumber')[0].innerHTML = 'dept1@kar.gov';
+    $('.accountNumber')[0].innerHTML = 'src1@kar.gov';
 
     //on user type select
     $('.departmentClick').click(function(){
