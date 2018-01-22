@@ -196,6 +196,8 @@ $(function() {
 
     $('select').material_select();
 
+    $('.accountNumber')[0].innerHTML = 'admin@kar.gov';
+
     //on user type select
     $('.departmentClick').click(function(){
       localStorage.setItem('user', 'department');
