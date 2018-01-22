@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Pista - Transfers</title>
+  <title>Orenj - Source Home</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,49 +22,71 @@
   <link href="css/style.css" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- CSS for alert box -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
 
 </head>
 
 <body>
   <div>
-    <nav>
-      <div class="nav-wrapper">
-        <a href="#" class="brand-logo">PISTA</a>
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-          <li><a class="accountNumber">Account Number</a></li>
-        </ul>
-      </div>
-    </nav>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">Orenj</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="accountNumber"></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
 
     <div>
       <ul id="slide-out" class="side-nav">
         <li>
-            <a class="sideBarLinks" href="./sourceHome.html">Dashboard</a>
-            <a class="sideBarLinks selected" href="./sourceTransactions.html">Transactions</a>
+            <a class="sideBarLinks" href="./home.html">ASSETS</a>
+            <a class="sideBarLinks selected" href="./transactions.html">TRANSACTIONS</a>
         </li>
       </ul>
     </div>
 
     <div class="mainBody">
+      <p class="tabHeading">Transactions</p>
 
       <div class="transfersList">
         <table>
           <tbody>
             <tr>
-              <th>Transaction No.</th>
+              <th>Txn Hash</th>
               <th>From</th>
               <th>To</th>
               <th>Asset</th>
               <th>Amount</th>
-              <th>Date</th>
+              <th>Date / Time</th>
             </tr>
-            <tr>
+            <tr class="dataRow">
               <td>0x123</td>
               <td>From</td>
               <td>To</td>
               <td>Tree</td>
-              <td>100 TRE</td>
-              <td>12/01/2018</td>
+              <td>10 TRE</td>
+              <td>10/01/2018</td>
+            </tr>
+            <tr class="dataRow">
+              <td>0x123</td>
+              <td>From</td>
+              <td>To</td>
+              <td>Tree</td>
+              <td>10 TRE</td>
+              <td>10/01/2018</td>
+            </tr>
+            <tr class="dataRow">
+              <td>0x123</td>
+              <td>From</td>
+              <td>To</td>
+              <td>Tree</td>
+              <td>10 TRE</td>
+              <td>10/01/2018</td>
             </tr>
           </tbody>
         </table>

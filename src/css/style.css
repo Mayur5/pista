@@ -1,3 +1,9 @@
+html, body{
+	font-family: 'Chau Philomene One', sans-serif;
+}
+.navbar-fixed nav{
+	background-color: #C74B1D !important;
+}
 .brand-logo{
 	margin-left: 30px;
 }
@@ -7,23 +13,122 @@
 .formRow{
 	text-align: center;
 }
+input[type=text]:not(.browser-default){
+	height: 5rem !important;
+}
 .side-nav{
 	transform: translateX(0px) !important;
-	margin-top: 65px !important;
-	width: 210px !important;
+	margin-top: 64px !important;
+	width: 250px !important;
+	background-color: #534B48 !important;
 }
 .sideBarLinks{
-	font-size: 16px !important;
+	font-size: 20px !important;
 	text-decoration: none !important;
+	color: #211E1E;
+	height: 100px !important;
+	padding: 25px 32px !important;
 }
+.tabHeading{
+	color: #666;
+	font-size: 24px;
+}
+
+.card-text{
+	color: #999;
+	font-size: 14px;
+}
+.card-title{
+	color: #666 !important;
+	font-size: 28px !important;
+	margin-bottom: 20px !important;
+	margin-top: 10px !important;
+}
+.convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn{
+	background-color: #C74B1D !important;
+	color: #fff !important;
+	border-radius: 16px !important;
+	height: 48px !important;
+	font-size: 24px !important;
+	padding: 6px 3rem !important;
+}
+.conversionRateBtn{
+	margin-top: 20px;
+}
+.btnDiv{
+	text-align: center;
+}
+.conversionForm{
+	display: -webkit-box;
+}
+.select-wrapper input.select-dropdown{
+	height: 48px !important;	
+	width: 330px !important;	
+	border: 1px solid #C74B1D !important;	
+	border-radius: 16px !important;	
+	background-color: #FFFFFF !important;
+	font-size: 24px !important;
+	color: #C74B1D !important;
+	padding: 0 0 0 10px !important;
+	margin-right: 40px !important;
+}
+.select-wrapper span.caret{
+	right: 60px !important;
+	z-index: 99 !important;
+	color: #C74B1D !important;
+	font-size: 20px !important;
+}
+.caret{
+	border-top: 0px dashed !important;
+}
+.assetRate{
+	display: flex !important;
+	width: 30% !important;
+}
+.assetRate input[type=text]:not(.browser-default){
+	width: 70%;
+	font-size: 48px !important;
+}
+.assetSymSelected{
+	font-size: 24px !important;
+	margin: 20px 0 10px !important;
+	color: #666 !important;
+}
+.equalsDiv{
+	font-size: 48px;
+    margin: 30px 45px 0 0;
+    color: #666;
+}
+.assetConvertDiv{
+	display: grid;
+}
+
+th{
+	color: #9B9B9B;
+	font-size: 18px;
+}
+td{
+	color: #666;
+	font-size: 16px;
+}
+.dataRow{
+	/*border: 1px solid #C0C0C0 !important;	
+	border-radius: 16px !important;	
+	background-color: #eee !important;*/
+}
+table{
+	width: 95% !important;
+}
+
 .rateLink{
 	font-size: 15px !important;
 }
 .selected{
-	background-color: #eee;
+	background-color: #211E1E;
+	color: #fff !important;
 }
 .mainBody{
-	margin-left: 240px;
+	margin-left: 300px;
 	margin-top: 20px;
 }
 .assetsList{
@@ -61,10 +166,112 @@
 .checkUserDiv, .selectUserDiv{
 	text-align: center;
 	margin-top: 10%;
+	width: 40%;
+    margin: 10% auto 0 auto;
 }
-.returnUserCheck, .departmentClick{
-	margin-bottom: 20px;
+.departmentClick, .sourceClick, .returnUserCheck, .newUserCheck{
+	color: #efefef;
+	font-size: 64px;
+	margin-bottom: 12%;
+	cursor: pointer;
 }
+.departmentClick:focus, .sourceClick:focus, .departmentClick:hover, .sourceClick:hover, .returnUserCheck:hover, .newUserCheck:hover, .returnUserCheck:focus, .newUserCheck:focus{
+	color: #C74B1D;
+}
+.headingText{
+	border-bottom: 5px solid; 
+}
+.signUpBtn, .deptSignInBtn, .assetType, .deptContBtn{
+	background-color: #fff !important;
+	color: #C74B1D !important;
+	font-size: 36px !important;
+}
+.assetType{
+	height: 48px !important;	
+	width: 174px !important;	
+	border: 1px solid #C74B1D !important;	
+	border-radius: 16px !important;
+	text-transform: capitalize !important;
+	font-size: 24px !important;
+	padding: 4px 2rem !important;
+	margin-top: -23px !important;
+}
+.card{
+	margin: 4.5rem 0 1rem 0 !important;
+	border-radius: 14px !important;
+	box-shadow: 0 2px 16px 8px rgba(0,0,0,0.02) !important;
+	border: 1px solid #F1F1F1 !important;
+}
+.card .card-content{
+	padding: 60px 40px 40px 40px !important;
+}
+hr{
+	margin-top: 45px;
+    margin-bottom: 30px;
+}
+input, label{
+	font-size: 64px !important;
+}
+input[type=text]:not(.browser-default):focus:not([readonly]){
+	border-bottom: 1px solid #C74B1D !important;
+    -webkit-box-shadow: 0 1px 0 0 #C74B1D !important;
+    box-shadow: 0 1px 0 0 #C74B1D !important;
+}
+input[type=text]:not(.browser-default):focus:not([readonly])+label{
+	color: #C74B1D !important;
+}
+.assetConvertInput input[type=text]:not(.browser-default), .amountTransferDiv input[type=text]:not(.browser-default){
+	font-size: 24px !important;
+}
+.assetConvertInput label, .amountTransferDiv label{
+	font-size: 24px !important;
+}
+.assetConvertInput input[type=text]:not(.browser-default), .amountTransferDiv input[type=text]:not(.browser-default){
+	height: 3rem !important;
+}
+.assetConvertInput.input-field{
+	margin-top: 3rem !important;
+}
+.emailLabel{
+	top: -50px !important;
+}
+.input-field label{
+	color: #666 !important;
+}
+.errorDiv{
+	display: none;
+	text-align: center;
+}	
+.successDiv{
+	margin-top: 10%;
+	text-align: center;
+	display: none;
+}
+.errorText{
+	font-size: 36px;
+	color: #C74B1D;
+}
+.successText{
+	color: #999 !important;
+	font-size: 30px;
+}
+.accountAddr{
+	color: #666 !important;
+}
+.orText{
+	color: #999;
+	font-size: 36px;
+}
+.wrongText{
+	color: #666;
+}
+.select-wrapper.selectedDepartment{
+	width: 60%;
+}
+.amountTransferDiv{
+	margin-top: 45px !important;
+}
+
 .metamaskHelpDiv{
 	margin-left: 15%;
 	margin-right: 15%;
@@ -74,6 +281,9 @@ img{
 	width: 100%;
 	margin-bottom: 20px;
 	padding: 10px;
+}
+.metamask{
+	width: 55%;
 }
 .partHeading{
 	font-size: 18px;

@@ -125,14 +125,26 @@ $(function() {
     return response;
   }
 
-  async function createDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress){
-    let response = await contract.createDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress);
+  async function createTempDepartment(deptName, deptEmail, incomingAsset, outgoingAsset){
+    let response = await contract.createTempDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress);
 
     return response;
   }
 
-  async function createSource(sourceName, sourceEmail, outgoingAsset, sourceAddress){
-    let response = await contract.createSource(deptName, deptEmail, outgoingAsset, sourceAddress);
+  async function createDepartment(email, address){
+    let response = await contract.createDepartment(email, address);
+
+    return response;
+  }
+
+  async function createTempSource(sourceName, sourceEmail, outgoingAsset){
+    let response = await contract.createTempSource(deptName, deptEmail, outgoingAsset);
+
+    return response;
+  }
+
+  async function createSource(email, address){
+    let response = await contract.createSource(email, address);
 
     return response;
   }
@@ -198,46 +210,17 @@ $(function() {
 
     //get user email to check if valid
     $('.returnUserCheck').click(function(){
-      $.confirm({
-        title: 'Please enter your email address',
-        content: '' +
-        '<form action="" class="formName">' +
-        '<div class="form-group">' +
-        '<label>Email</label>' +
-        '<input type="text" placeholder="Email" class="email form-control" required />' +
-        '</div>' +
-        '</form>',
-        buttons: {
-            formSubmit: {
-                text: 'Submit',
-                btnClass: 'btn-blue',
-                action: function () {
-                    userEmail = this.$content.find('.email').val();
-                    if(!userEmail){
-                        $.alert('Please enter email address');
-                        return false;
-                    }
-                    checkUser(userEmail);
-                }
-            },
-            cancel: function () {
-                //close
-            },
-        },
-        onContentReady: function () {
-          // bind to events
-          var jc = this;
-          this.$content.find('form').on('submit', function (e) {
-              // if the user submits the form by pressing enter in the field.
-              e.preventDefault();
-              checkUser(userEmail); // reference the button and click it
-          });
-        }
-      });
+      var userType = localStorage.getItem('user');
+
+      if(userType == 'department'){
+        location.href = 'departmentSignIn.html';
+      }
+      else
+        location.href = 'sourceSignIn.html';
     });
 
-    //check if user is valid
-    function checkUser(email){
+    //check if user is valid - sign in user
+    $('.deptSignInBtn').click(function(){
       contract.getAccWithEmail(email, function(error, result){
         var account = result.address;
 
@@ -247,10 +230,22 @@ $(function() {
             getCurrentAccount().then((result) => {
               var currentAccount = result[0];
               if(account == currentAccount){
-                alert('account verified');
+                $('.signUpForm').hide();
+                $('.errorDiv').hide();
+                $('.successDiv').show();
+                /*alert('account verified');
+                var userType = localStorage.getItem('user');
+
+                if(userType == 'department'){
+                  location.href = 'home.html';
+                }
+                else
+                  location.href = 'sourceHome.html';*/
               }
               else{
-                alert('Accounts do not match');
+                $('.signUpForm').hide();
+                $('.errorDiv').show();
+                $('.successDiv').hide();
               }
             });
           }
@@ -273,7 +268,7 @@ $(function() {
           }
         }
       });
-    }
+    });
 
     //new user
     $('.newUserCheck').click(function(){
@@ -287,7 +282,7 @@ $(function() {
       }
     });
 
-    //sign up
+    //new department sign up
     $('.signUpBtn').click(function(){
       if (typeof web3 !== 'undefined') {
         web3 = new Web3(web3.currentProvider);
@@ -298,17 +293,51 @@ $(function() {
       }
 
       var email = $('#email').val();
-      contract.getAccWithEmail(email, function(error, result){
-        var account = result.address;
 
+      createAccount().then((result) => {
+        var account = result;
         createWallet(account).then((result) => {
           accountCreated = result;
-          $('.accountNumber')[0].innerHTML = result.address;
-          $('.publicKey')[0].innerHTML = result.address;
 
-          $('.userDiv').show();
-          $('.signUpForm').hide();
+          createDepartment(email, accountCreated.address).then((result) => {
+            console.log('result', result);
 
+            $('.accountNumber')[0].innerHTML = accountCreated.address;
+            $('.publicKey')[0].innerHTML = accountCreated.address;
+
+            $('.userDiv').show();
+            $('.signUpForm').hide();
+          });
+        });
+      });
+    });
+
+    //new source sign up
+    $('.sourceSignUp').click(function(){
+      if (typeof web3 !== 'undefined') {
+        web3 = new Web3(web3.currentProvider);
+      } 
+      else {
+        // set the provider you want from Web3.providers
+        web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
+      }
+
+      var email = $('#email').val();
+
+      createAccount().then((result) => {
+        var account = result;
+        createWallet(account).then((result) => {
+          accountCreated = result;
+
+          createSource(email, accountCreated.address).then((result) => {
+            console.log('result', result);
+
+            $('.accountNumber')[0].innerHTML = accountCreated.address;
+            $('.publicKey')[0].innerHTML = accountCreated.address;
+
+            $('.userDiv').show();
+            $('.signUpForm').hide();
+          });
         });
       });
     });
@@ -411,12 +440,8 @@ $(function() {
     var incomingAsset = $('.incomingAsset').find(":selected").val();
     var outgoingAsset = $('.outgoingAsset').find(":selected").val();
 
-    createAccount().then((result) => {
-      var deptAddress = result.address;
-
-      createDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress).then((result) => {
-        console.log('department', result);
-      });
+    createTempDepartment(deptName, deptEmail, incomingAsset, outgoingAsset).then((result) => {
+      console.log('department', result);
     });
   });
 
@@ -460,18 +485,14 @@ $(function() {
     }
   });
 
-  //function to create source 
+  //function to create temporary source 
   $('.createSourceBtn').click(function(){
     var sourceName = $('#sourceName').val();
     var sourceEmail = $('#sourceEmail').val();
     var outgoingAsset = $('.outgoingAsset').find(":selected").val();
 
-    createAccount().then((result) => {
-      var sourceAddress = result.address;
-
-      createSource(sourceName, sourceEmail, outgoingAsset, sourceAddress).then((result) => {
-        console.log('source', result);
-      });
+    createTempSource(sourceName, sourceEmail, outgoingAsset).then((result) => {
+      console.log("result", result);
     });
   });
 

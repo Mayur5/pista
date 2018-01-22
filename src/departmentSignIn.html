@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Orenj - Conversion Rates</title>
+  <title>Orenj - Department Sign Up</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -41,37 +41,42 @@
       </nav>
     </div>
 
-    <div>
-      <ul id="slide-out" class="side-nav">
-        <li>
-            <a class="sideBarLinks selected" href="./dashboard.html">Assets</a>
-            <a class="sideBarLinks" href="./transfers.html">Transfers</a>
-            <a class="sideBarLinks" href="./departments.html">Departments</a>
-            <a class="sideBarLinks" href="./sources.html">Sources</a>
-            <a class="sideBarLinks rateLink" href="./conversionRate.html">Set Conversion Rate</a>
-        </li>
-      </ul>
+    <div class="signUpForm">
+      <form class="col s6">
+        <div class="row formRow">
+          <div class="input-field col s4"></div>
+          <div class="input-field col s4">
+            <input id="email" type="text">
+            <label class="emailLabel" for="email">EMAIL</label>
+          </div>
+          <div class="input-field col s4"></div>
+        </div>
+        <div class="row formRow">
+          <div class="input-field col s4"></div>
+          <div class="input-field col s4">
+            <a class="waves-effect waves-light btn-flat deptSignInBtn">SIGN IN</a>
+          </div>
+          <div class="input-field col s4"></div>
+        </div>
+      </form>
     </div>
 
-    <div class="mainBody">
-      <a class="createBtn btn waves-effect waves-light" href="./createAsset.html">Create Asset</a>
-
-      <div class="assetsList">
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Balance</th>
-            </tr>
-            <tr>
-              <td>Name</td>
-              <td>Balance</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
+    <div class="successDiv">
+      <p class="successText">YOU ARE LOGGED INTO ETHEREUM TESTNET</p>
+      <p class="successText">WITH ACCOUNT</p>
+      <p class="successText accountAddr">0x4b01721f0244e7c5b5f63c20942850e447f5a5ee</p>
+      <a href="./sourceHome.html" class="waves-effect waves-light btn-flat deptContBtn">CONTINUE</a>
     </div>
+
+    <div class="errorDiv">
+      <img class="metamask" src="images/metamask.png" />
+      <p class="errorText">LOGIN WITH METAMASK</p>
+      <p class="orText">Or</p>
+      <p class="errorText wrongText">YOU ARE ON THE WRONG ETHEREUM NETWORK</p>
+    </div>
+
   </div>
+
   <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <!-- Include all compiled plugins (below), or include individual files as needed -->

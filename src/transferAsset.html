@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Pista - Transfer Asset</title>
+  <title>Orenj - Department Transfer Asset</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
   <link href="css/style.css" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- CSS for alert box -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
 
 </head>
 
@@ -30,9 +33,9 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">PISTA</a>
+          <a href="#" class="brand-logo">Orenj</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="accountNumber">Account Number</a></li>
+            <li><a class="accountNumber"></a></li>
           </ul>
         </div>
       </nav>
@@ -41,8 +44,8 @@
     <div>
       <ul id="slide-out" class="side-nav">
         <li>
-            <a class="sideBarLinks" href="./sourceHome.html">Dashboard</a>
-            <a class="sideBarLinks selected" href="./sourceTransactions.html">Transactions</a>
+            <a class="sideBarLinks selected" href="./home.html">ASSETS</a>
+            <a class="sideBarLinks" href="./transactions.html">TRANSACTIONS</a>
         </li>
       </ul>
     </div>
@@ -53,16 +56,13 @@
 
         <div class="col s6">
           <select class="selectedDepartment">
-            <option value="" disabled selected>Select Department</option>
             <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">Department 1</option>
             <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">Department 2</option>
             <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">Department 3</option>
           </select>
-          <label>Select Department</label>
         </div>
 
-
-        <div class="input-field col s6">
+        <div class="amountTransferDiv input-field col s6">
           <input placeholder="Amount" id="amount" type="text">
           <label for="amount">Amount</label>
         </div>
