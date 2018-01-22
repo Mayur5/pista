@@ -221,36 +221,23 @@ $(function() {
 
     //check if user is valid - sign in user
     $('.deptSignInBtn').click(function(){
-      contract.getAccWithEmail(email, function(error, result){
-        var account = result.address;
-
-        if (typeof web3 !== 'undefined') {
+      if (typeof web3 !== 'undefined') {
           window.web3 = new Web3(web3.currentProvider);
           if (web3.currentProvider.isMetaMask === true) {
-            getCurrentAccount().then((result) => {
-              var currentAccount = result[0];
-              if(account == currentAccount){
+            //getCurrentAccount().then((result) => {
+              //var currentAccount = result[0];
+              //if(account == currentAccount){
                 $('.signUpForm').hide();
                 $('.errorDiv').hide();
                 $('.successDiv').show();
-                /*alert('account verified');
-                var userType = localStorage.getItem('user');
-
-                if(userType == 'department'){
-                  location.href = 'home.html';
-                }
-                else
-                  location.href = 'sourceHome.html';*/
-              }
-              else{
+              //}
+            //});
+          }
+          else{
                 $('.signUpForm').hide();
                 $('.errorDiv').show();
                 $('.successDiv').hide();
-              }
-            });
-          }
-          else{
-            $.confirm({
+            /*$.confirm({
               title: 'No web3? You should consider trying MetaMask!',
               content: '',
               useBootstrap: false,
@@ -264,10 +251,15 @@ $(function() {
                   }
                 }
               }
-            });
+            });*/
           }
         }
-      });
+
+      /*contract.getAccWithEmail(email, function(error, result){
+        var account = result.address;
+
+        
+      });*/
     });
 
     //new user
@@ -284,17 +276,19 @@ $(function() {
 
     //new department sign up
     $('.signUpBtn').click(function(){
-      if (typeof web3 !== 'undefined') {
+      /*if (typeof web3 !== 'undefined') {
         web3 = new Web3(web3.currentProvider);
       } 
       else {
         // set the provider you want from Web3.providers
         web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
-      }
+      }*/
 
       var email = $('#email').val();
 
-      createAccount().then((result) => {
+      location.href = 'assets.html';
+
+      /*createAccount().then((result) => {
         var account = result;
         createWallet(account).then((result) => {
           accountCreated = result;
@@ -309,7 +303,7 @@ $(function() {
             $('.signUpForm').hide();
           });
         });
-      });
+      });*/
     });
 
     //new source sign up

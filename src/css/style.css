@@ -44,7 +44,7 @@ input[type=text]:not(.browser-default){
 	margin-bottom: 20px !important;
 	margin-top: 10px !important;
 }
-.convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn{
+.convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn, .addAssetAmountBtn{
 	background-color: #C74B1D !important;
 	color: #fff !important;
 	border-radius: 16px !important;
