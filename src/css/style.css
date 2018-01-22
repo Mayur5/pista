@@ -186,6 +186,9 @@ table{
 	color: #C74B1D !important;
 	font-size: 36px !important;
 }
+.deptContBtn{
+	margin-top: 40px;
+}
 .assetType{
 	height: 48px !important;	
 	width: 174px !important;	

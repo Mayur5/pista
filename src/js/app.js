@@ -224,14 +224,16 @@ $(function() {
       if (typeof web3 !== 'undefined') {
           window.web3 = new Web3(web3.currentProvider);
           if (web3.currentProvider.isMetaMask === true) {
-            //getCurrentAccount().then((result) => {
-              //var currentAccount = result[0];
+            getCurrentAccount().then((result) => {
+              console.log('result', result[0]);
+              var currentAccount = result[0];
               //if(account == currentAccount){
+                $('.accountAddr')[0].innerHTML = result[0];
                 $('.signUpForm').hide();
                 $('.errorDiv').hide();
                 $('.successDiv').show();
               //}
-            //});
+            });
           }
           else{
                 $('.signUpForm').hide();
