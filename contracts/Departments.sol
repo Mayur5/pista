@@ -17,25 +17,39 @@ contract Departments is TokenizedAsset {
 
     address[] departmentAddrs;
 
+    mapping (string => Department) TempDepartments;
     mapping (address => Department) Departments;
 
     mapping (string => address) emailAccDepartment;
 
     /**
-     * Method to create a Department with an associated admin.
+     * Method to create a Temp Department till an Admin consolidates it with a wallet address.
      * Department also associated with an incoming asset/token and an outgoing asset/token which can be the same asset/token
      *
      * @param _name    The name of the department
      * @param _email    The email of the department's admin
      * @param _incomingAsset    The address of the asset/token Contract address that the department can receive from a source/department in the value chain
      * @param _outgoingAsset    The address of the asset/token Contract address that the department can transfer out to another department in the value chain
+     */
+    function createTempDepartment(string _name, string _email, address _incomingAsset, address _outgoingAsset) {
+        Department memory d = Department(_name, _email, _incomingAsset, _outgoingAsset);
+        TempDepartments[_email] = d;
+    }
+
+    /**
+     * Method to consolidate a Department with an associated admin's wallet address.
+     * Department also associated with an incoming asset/token and an outgoing asset/token which can be the same asset/token
+     *
+     * @param _email    The email of the department's admin
      * @param _accAddr    The wallet address the department
      */
-    function createDepartment(string _name, string _email, address _incomingAsset, address _outgoingAsset, address _accAddr) {
+    function createDepartment(string _email, address _accAddr) {
         departmentAddrs.push(_accAddr);
-
-        Department memory d = Department(_name, _email, _incomingAsset, _outgoingAsset);
+        Department memory d = TempDepartments[_email];
         Departments[_accAddr] = d;
+
+        delete TempDepartments[_email];
+        emailAccDepartment[_email] = _accAddr;
     }
 
     /**
