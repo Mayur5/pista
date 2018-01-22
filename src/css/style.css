@@ -13,8 +13,11 @@
 	width: 210px !important;
 }
 .sideBarLinks{
-	font-size: 20px !important;
+	font-size: 16px !important;
 	text-decoration: none !important;
+}
+.rateLink{
+	font-size: 15px !important;
 }
 .selected{
 	background-color: #eee;
@@ -54,4 +57,40 @@
 .assetValues{
 	font-weight: bold;
 	font-size: 16px;
+}
+.checkUserDiv, .selectUserDiv{
+	text-align: center;
+	margin-top: 10%;
+}
+.returnUserCheck, .departmentClick{
+	margin-bottom: 20px;
+}
+.metamaskHelpDiv{
+	margin-left: 15%;
+	margin-right: 15%;
+	margin-bottom: 20px;
+}
+img{
+	width: 100%;
+	margin-bottom: 20px;
+	padding: 10px;
+}
+.partHeading{
+	font-size: 18px;
+	background-color: #eee;
+    padding: 5px;
+}
+.stepNumber{
+	font-size: 16px;
+    font-weight: bold;
+}
+.stepText{
+	margin-bottom: 20px;
+	font-size: 16px;
+}
+.nextBtnDiv{
+	text-align: center;
+}
+.checkUserDiv{
+	display: none;
 }

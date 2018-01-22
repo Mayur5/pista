@@ -167,13 +167,132 @@ $(function() {
     return response;
   }
 
+  async function getCurrentAccount(){
+    let response = await web3.eth.getAccounts();
+
+    return response;
+  }
+
+  async function setConversionRate(incomingAsset, outgoingAsset, rate){
+    let response = await contract.setConversionRate(incomingAsset, outgoingAsset, rate);
+
+    return response;
+  }
+
   $(window).load(function() {
+    var userEmail;
+
     $('select').material_select();
 
+    //on user type select
+    $('.departmentClick').click(function(){
+      localStorage.setItem('user', 'department');
+      $('.selectUserDiv').hide();
+      $('.checkUserDiv').show();
+    });
+    $('.sourceClick').click(function(){
+      localStorage.setItem('user', 'source');
+      $('.selectUserDiv').hide();
+      $('.checkUserDiv').show();
+    });
+
+    //get user email to check if valid
+    $('.returnUserCheck').click(function(){
+      $.confirm({
+        title: 'Please enter your email address',
+        content: '' +
+        '<form action="" class="formName">' +
+        '<div class="form-group">' +
+        '<label>Email</label>' +
+        '<input type="text" placeholder="Email" class="email form-control" required />' +
+        '</div>' +
+        '</form>',
+        buttons: {
+            formSubmit: {
+                text: 'Submit',
+                btnClass: 'btn-blue',
+                action: function () {
+                    userEmail = this.$content.find('.email').val();
+                    if(!userEmail){
+                        $.alert('Please enter email address');
+                        return false;
+                    }
+                    checkUser(userEmail);
+                }
+            },
+            cancel: function () {
+                //close
+            },
+        },
+        onContentReady: function () {
+          // bind to events
+          var jc = this;
+          this.$content.find('form').on('submit', function (e) {
+              // if the user submits the form by pressing enter in the field.
+              e.preventDefault();
+              checkUser(userEmail); // reference the button and click it
+          });
+        }
+      });
+    });
+
+    //check if user is valid
+    function checkUser(email){
+      contract.getAccWithEmail(email, function(error, result){
+        var account = result.address;
+
+        if (typeof web3 !== 'undefined') {
+          window.web3 = new Web3(web3.currentProvider);
+          if (web3.currentProvider.isMetaMask === true) {
+            getCurrentAccount().then((result) => {
+              var currentAccount = result[0];
+              if(account == currentAccount){
+                alert('account verified');
+              }
+              else{
+                alert('Accounts do not match');
+              }
+            });
+          }
+          else{
+            $.confirm({
+              title: 'No web3? You should consider trying MetaMask!',
+              content: '',
+              useBootstrap: false,
+              type: 'red',
+              buttons: {
+                continue: {
+                  text: '',
+                  btnClass: 'downloadBtn',
+                  action: function(){
+                    window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
+                  }
+                }
+              }
+            });
+          }
+        }
+      });
+    }
+
+    //new user
+    $('.newUserCheck').click(function(){
+      var userType = localStorage.getItem('user');
+
+      if(user == 'department'){
+        location.href = 'signUp.html';
+      }
+      else{
+        location.href = 'sourceSignUp.html';
+      }
+    });
+
+    //sign up
     $('.signUpBtn').click(function(){
       if (typeof web3 !== 'undefined') {
         web3 = new Web3(web3.currentProvider);
-      } else {
+      } 
+      else {
         // set the provider you want from Web3.providers
         web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
       }
@@ -192,45 +311,46 @@ $(function() {
 
         });
       });
+    });
 
-      //check if metamask exists
-      $('.check').click(function(){
-        if (typeof web3 !== 'undefined') {
-          // Use Mist/MetaMask's provider
-          window.web3 = new Web3(web3.currentProvider);
-          $.confirm({
-            title: 'MetaMask detected!',
-            content: 'Please ensure you are on the test network.',
-            useBootstrap: false,
-            type: 'green',
-            buttons: {
-              continue: {
-                text: 'Click here to continue',
-                action: function(){
-                  location.href = 'assets.html';
-                }
+    //check if metamask exists
+    $('.check').click(function(){
+      if (typeof web3 !== 'undefined') {
+        // Use Mist/MetaMask's provider
+        window.web3 = new Web3(web3.currentProvider);
+        $.confirm({
+          title: 'MetaMask detected!',
+          content: 'Please ensure you are on the test network.',
+          useBootstrap: false,
+          type: 'green',
+          buttons: {
+            continue: {
+              text: 'Click here to continue',
+              action: function(){
+                location.href = 'assets.html';
               }
             }
-          });
-        } 
-        else {
-          $.confirm({
-            title: 'No web3? You should consider trying MetaMask!',
-            content: '',
-            useBootstrap: false,
-            type: 'red',
-            buttons: {
-              continue: {
-                text: '',
-                btnClass: 'downloadBtn',
-                action: function(){
-                  window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
-                }
+          }
+        });
+      } 
+      else {
+        $.confirm({
+          title: 'No web3? You should consider trying MetaMask!',
+          content: '',
+          useBootstrap: false,
+          type: 'red',
+          buttons: {
+            continue: {
+              text: '',
+              btnClass: 'downloadBtn',
+              action: function(){
+                window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
+                location.href = './metamaskHelp.html';
               }
             }
-          });
-        }
-      });
+          }
+        });
+      }
     });
 
     //continue to department home page
@@ -258,6 +378,30 @@ $(function() {
 
     // Remove anchor from body
     document.body.removeChild(a);
+  });
+
+  //go to user sign up page
+  $('.nextBtn').click(function(){
+    var userType = localStorage.getItem('user');
+
+    if(user == 'department'){
+      location.href = 'signUp.html';
+    }
+    else{
+      location.href = 'sourceSignUp.html';
+    }
+  });
+
+  //save conversion rate of asset
+  $('.conversionRateBtn').click(function(){
+    var incomingAsset = $('.incomingAsset').find(":selected").val();
+    var outgoingAsset = $('.outgoingAsset').find(":selected").val();
+    var conversionRate = $('#conversionAmount').val();
+
+    setConversionRate(incomingAsset, outgoingAsset, conversionRate).then((result) => {
+      console.log('result', result);
+    });
+
   });
 
   //function to create department

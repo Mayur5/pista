@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Pista - Assets</title>
+  <title>Pista - Set COnversion Rate</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
         <div class="nav-wrapper">
           <a href="#" class="brand-logo">PISTA</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="accountNumber"></a></li>
+            <li><a class="accountNumber">Account Number</a></li>
           </ul>
         </div>
       </nav>
@@ -42,31 +42,45 @@
       <ul id="slide-out" class="side-nav">
         <li>
             <a class="sideBarLinks" href="./dashboard.html">Dashboard</a>
-            <a class="sideBarLinks selected" href="./assets.html">Assets</a>
+            <a class="sideBarLinks" href="./assets.html">Assets</a>
             <a class="sideBarLinks" href="./transfers.html">Transfers</a>
             <a class="sideBarLinks" href="./departments.html">Departments</a>
             <a class="sideBarLinks" href="./sources.html">Sources</a>
-            <a class="sideBarLinks rateLink" href="./conversionRate.html">Set Conversion Rate</a>
+            <a class="sideBarLinks rateLink selected" href="./conversionRate.html">Set Conversion Rate</a>
         </li>
       </ul>
     </div>
 
     <div class="mainBody">
-      <a class="createBtn btn waves-effect waves-light" href="./createAsset.html">Create Asset</a>
 
-      <div class="assetsList">
-        <table>
-          <tbody>
-            <tr>
-              <th>Name</th>
-              <th>Balance</th>
-            </tr>
-            <tr>
-              <td>Name</td>
-              <td>Balance</td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="createFormDiv">
+
+        <div class="col s6">
+          <select class="incomingAsset">
+            <option value="" disabled selected>Select Incoming Asset</option>
+            <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">Asset 1</option>
+            <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">Asset 2</option>
+            <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">Asset 3</option>
+          </select>
+          <label>Select Incoming Asset</label>
+        </div>
+
+        <div class="col s6">
+          <select class="outgoingAsset">
+            <option value="" disabled selected>Select Outgoing Asset</option>
+            <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">Asset 1</option>
+            <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">Asset 2</option>
+            <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">Asset 3</option>
+          </select>
+          <label>Select Outgoing Asset</label>
+        </div>
+
+        <div class="input-field col s6">
+          <input placeholder="Enter Conversion Rate" id="conversionAmount" type="text">
+          <label for="conversionAmount">Enter Conversion Rate</label>
+        </div>
+
+        <a class="btn waves-effect waves-light conversionRateBtn">Save</a>
       </div>
     </div>
   </div>
