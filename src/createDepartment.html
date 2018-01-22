@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Pista - Create Department</title>
+  <title>Orenj - Conversion Rates</title>
 
   <!-- Bootstrap -->
-  <!-- <link href="css/bootstrap.min.css" rel="stylesheet">
- -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -22,6 +22,9 @@
   <link href="css/style.css" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- CSS for alert box -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
 
 </head>
 
@@ -30,9 +33,9 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">PISTA</a>
+          <a href="#" class="brand-logo">Orenj</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="accountNumber">Account Number</a></li>
+            <li><a class="accountNumber"></a></li>
           </ul>
         </div>
       </nav>
@@ -41,11 +44,11 @@
     <div>
       <ul id="slide-out" class="side-nav">
         <li>
-            <a class="sideBarLinks" href="./dashboard.html">Dashboard</a>
             <a class="sideBarLinks" href="./assets.html">Assets</a>
-            <a class="sideBarLinks" href="./transfers.html">Transfers</a>
             <a class="sideBarLinks selected" href="./departments.html">Departments</a>
             <a class="sideBarLinks" href="./sources.html">Sources</a>
+            <a class="sideBarLinks" href="./conversionRate.html">Conversion</a>
+            <a class="sideBarLinks" href="./transfers.html">Transactions</a>
         </li>
       </ul>
     </div>
@@ -53,14 +56,12 @@
     <div class="mainBody">
 
       <div class="createFormDiv">
-        <div class="input-field col s6">
-          <input placeholder="Enter name" id="deptName" type="text">
-          <label for="deptName">Name</label>
+        <div class="amountTransferDiv input-field col s6">
+          <input placeholder="Department Name" id="name" type="text">
         </div>
 
-        <div class="input-field col s6">
-          <input placeholder="Enter email" id="deptEmail" type="text">
-          <label for="deptEmail">Email</label>
+        <div class="amountTransferDiv input-field col s6">
+          <input placeholder="Department Email" id="name" type="text">
         </div>
 
         <!-- <div class="col s6">
@@ -78,21 +79,19 @@
         <div class="col s6">
           <select class="incomingAsset">
             <option value="" disabled selected>Select Incoming Asset</option>
-            <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">Option 1</option>
-            <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">Option 2</option>
-            <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">Option 3</option>
+            <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">Organic Mango Fruit - OMF</option>
+            <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">Organic Mango Pulp - OMP</option>
+            <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">Teak Wood Tree (Grade A)</option>
           </select>
-          <label>Select Incoming Asset</label>
         </div>
 
         <div>
           <select class="outgoingAsset">
             <option value="" disabled selected>Select Outgoing Asset</option>
-            <option value="0x4AdbD5E13a13acC3Ce4C9556e18400782598607B">Option 1</option>
-            <option value="0x97F15DAa52Cf5c450bF77f4C2321b859A3571F3F">Option 2</option>
-            <option value="0x4857Be29D3B26a576a4F737457ac34fEDD264CCC">Option 3</option>
+            <option value="0x4AdbD5E13a13acC3Ce4C9556e18400782598607B">Organic Mango Fruit - OMF</option>
+            <option value="0x97F15DAa52Cf5c450bF77f4C2321b859A3571F3F">Organic Mango Pulp - OMP</option>
+            <option value="0x4857Be29D3B26a576a4F737457ac34fEDD264CCC">Teak Wood Tree (Grade A)</option>
           </select>
-          <label>Select Outgoing Asset</label>
         </div>
 
         <a class="btn waves-effect waves-light createDeptBtn">Create Department</a>

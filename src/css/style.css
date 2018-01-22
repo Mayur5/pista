@@ -44,13 +44,16 @@ input[type=text]:not(.browser-default){
 	margin-bottom: 20px !important;
 	margin-top: 10px !important;
 }
-.convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn, .addAssetAmountBtn{
+.convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn, .addAssetAmountBtn, .createDeptBtn{
 	background-color: #C74B1D !important;
 	color: #fff !important;
 	border-radius: 16px !important;
 	height: 48px !important;
 	font-size: 24px !important;
 	padding: 6px 3rem !important;
+}
+.createDeptBtn{
+	margin-top: 20px;
 }
 .conversionRateBtn{
 	margin-top: 20px;
@@ -306,4 +309,10 @@ img{
 }
 .checkUserDiv{
 	display: none;
+}
+.incomingAsset, .outgoingAsset{
+	width: 60%;
+}
+.dropdown-content li>a, .dropdown-content li>span{
+	color: #C74B1D !important;
 }
