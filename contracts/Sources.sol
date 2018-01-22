@@ -16,24 +16,38 @@ contract Sources is TokenizedAsset {
 
     address[] sourceAddrs;
 
+    mapping (string => Source) TempSources;
     mapping (address => Source) Sources;
 
     mapping (string => address) emailAccSource;
 
     /**
-     * Method to create a Source with an associated admin.
-     * Source also associated with a specific asset/token
+     * Method to create a Temp Source till an Admin consolidates it with a wallet address.
+     * Source also associated with an outgoing asset/token
      *
-     * @param _name    The name of the source
-     * @param _email    The email of the source's admin
-     * @param _outgoingAsset    The address of the asset/token Contract address that the department can transfer out to a department in the value chain
-     * @param _accAddr    The wallet address the source
+     * @param _name    The name of the Source
+     * @param _email    The email of the Source's admin
+     * @param _outgoingAsset    The address of the asset/token Contract address that the Source can transfer out to another Source in the value chain
      */
-    function createSource(string _name, string _email, address _outgoingAsset, address _accAddr) {
-        sourceAddrs.push(_accAddr);
+    function createTempSource(string _name, string _email, address _outgoingAsset) {
+        Source memory d = Source(_name, _email, _incomingAsset, _outgoingAsset);
+        TempSources[_email] = d;
+    }
 
-        Source memory s = Source(_name, _email, _outgoingAsset);
-        Sources[_accAddr] = s;
+    /**
+     * Method to consolidate a Source with an associated admin's wallet address.
+     * Source also associated with an outgoing asset/token
+     *
+     * @param _email    The email of the Source's admin
+     * @param _accAddr    The wallet address the Source
+     */
+    function createSource(string _email, address _accAddr) {
+        sourceAddrs.push(_accAddr);
+        Source memory d = TempSources[_email];
+        Sources[_accAddr] = d;
+
+        delete TempSources[_email];
+        emailAccSource[_email] = _accAddr;
     }
 
     /**
