@@ -46,7 +46,7 @@ contract Convert is TokenizedAsset {
         TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
         TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
 
-        uint diffAmount = sub(expectedAmount, actualAmount);
+        uint diffAmount = expectedAmount.sub(actualAmount);
 
         originalAsset.burn(diffAmount);
         convertedAsset.mint(msg.sender, actualAmount);
