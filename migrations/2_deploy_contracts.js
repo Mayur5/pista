@@ -34,12 +34,15 @@ module.exports = function(deployer, accounts) {
     deployer.link(TokenizedAssetFactory, TokenizedAsset);
 
     deployer.deploy(Departments, {gas: 3000000});
+    deployer.link(Departments, SafeMath);
     deployer.link(Departments, TokenizedAsset);
 
     deployer.deploy(Sources, {gas: 3000000});
+    deployer.link(Sources, SafeMath);
     deployer.link(Sources, TokenizedAsset);
 
     deployer.deploy(Convert, {gas: 3000000});
+    deployer.link(Convert, SafeMath);
     deployer.link(Convert, TokenizedAsset);
 
 };
