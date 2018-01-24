@@ -14,24 +14,24 @@ module.exports = function(deployer, accounts) {
     deployer.deploy(SafeMath);
     deployer.deploy(Ownable);
     deployer.link(Ownable, Mintable);
-    deployer.deploy(Mintable);
+    deployer.deploy(Mintable, {gas: 3000000});
 
     deployer.deploy(BasicToken, {gas: 500000});
     deployer.link(BasicToken, SafeMath);
     deployer.link(BasicToken, ERC20Basic);
 
-    deployer.deploy(StandardToken);
+    deployer.deploy(StandardToken, {gas: 3000000});
     deployer.link(StandardToken, BasicToken);
 
-    deployer.deploy(TokenizedAssetFactory);
+    deployer.deploy(TokenizedAssetFactory, {gas: 3000000});
     //deployer.link(TokenizedAssetFactory, StandardToken);
     //deployer.link(TokenizedAssetFactory, Ownable);
     deployer.link(TokenizedAssetFactory, BurnableToken);
     deployer.link(TokenizedAssetFactory, Mintable);
     deployer.link(TokenizedAssetFactory, SafeMath);
 
-    deployer.deploy(Departments);
+    deployer.deploy(Departments, {gas: 3000000});
 
-    deployer.deploy(Sources);
+    deployer.deploy(Sources, {gas: 3000000});
 
 };

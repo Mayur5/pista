@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+  <title>Pista - Source Sign Up</title>
+
+  <!-- Bootstrap -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+  <!-- Application -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- CSS for alert box -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
+
+</head>
+
+<body>
+  <div>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">PISTA</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><a class="accountNumber"></a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="signUpForm">
+      <form class="col s6">
+        <div class="row formRow">
+          <div class="input-field col s5"></div>
+          <div class="input-field col s2">
+            <input placeholder="Enter email" id="email" type="text">
+            <label for="email">Email</label>
+          </div>
+          <div class="input-field col s5"></div>
+        </div>
+
+        <div class="row formRow">
+          <div class="input-field col s5"></div>
+          <div class="input-field col s2">
+            <a class="waves-effect waves-light btn sourceSignUp">Sign Up</a>
+          </div>
+          <div class="input-field col s5"></div>
+        </div>
+      </form>
+    </div>
+
+    <div class="userDiv">
+      <div class="row">
+        <div class="input-field col s3"></div>
+
+        <div class="col s6">
+          <p class="heading">Public Key</p>
+          <p class="publicKey"></p>
+
+          <a class="btn waves-effect waves-light download">Download Private Key</a>
+        </div>
+        <div class="input-field col s3"></div>
+      </div>
+
+      <div class="row">
+        <div class="input-field col s3"></div>
+        <div class="col s6">
+          <a class="btn waves-effect waves-light continueSourceBtn">Continue</a>
+        </div>
+        <div class="input-field col s3"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <!-- Include all compiled plugins (below), or include individual files as needed -->
+  <script src="js/bootstrap.min.js"></script>
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+  <!-- JS file for alert box -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
+  <script src="js/web3.min.js"></script>
+  <script src="js/app.js"></script>
+</body>
+
+</html>

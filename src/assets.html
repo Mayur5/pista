@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Pista - Assets</title>
+  <title>Orenj - Conversion Rates</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
   <link href="css/style.css" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- CSS for alert box -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
 
 </head>
 
@@ -30,7 +33,7 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">PISTA</a>
+          <a href="#" class="brand-logo">Orenj</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a class="accountNumber"></a></li>
           </ul>
@@ -41,28 +44,36 @@
     <div>
       <ul id="slide-out" class="side-nav">
         <li>
-            <a class="sideBarLinks" href="./dashboard.html">Dashboard</a>
             <a class="sideBarLinks selected" href="./assets.html">Assets</a>
-            <a class="sideBarLinks" href="./transfers.html">Transfers</a>
+            <a class="sideBarLinks" href="./departments.html">Departments</a>
+            <a class="sideBarLinks" href="./sources.html">Sources</a>
+            <a class="sideBarLinks" href="./conversionRate.html">Conversion</a>
+            <a class="sideBarLinks" href="./transfers.html">Transactions</a>
         </li>
       </ul>
     </div>
 
     <div class="mainBody">
-      <a class="createBtn btn waves-effect waves-light" href="/createAsset.html">Create Asset</a>
+      <a class="createBtn btn waves-effect waves-light" href="./adminCreateAsset.html">Create Asset</a>
 
       <div class="assetsList">
         <table>
           <tbody>
             <tr>
               <th>Name</th>
-              <th>Balance</th>
-              <th>Transfer</th>
+              <th>Symbol</th>
             </tr>
             <tr>
-              <td>Name</td>
-              <td>Balance</td>
-              <td><a class="createBtn btn waves-effect waves-light">Transfer</a></td>
+              <td>Organic Mango Fruit</td>
+              <td>OMF</td>
+            </tr>
+            <tr>
+              <td>Organic Mango Pulp</td>
+              <td>OMP</td>
+            </tr>
+            <tr>
+              <td>Teak Wood Tree (Grade A)</td>
+              <td>TWTA</td>
             </tr>
           </tbody>
         </table>

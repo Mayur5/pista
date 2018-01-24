@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Pista - Create Asset</title>
+  <title>Orenj - Source Home</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -22,6 +22,9 @@
   <link href="css/style.css" rel="stylesheet">
   <!-- Compiled and minified CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <!-- CSS for alert box -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
 
 </head>
 
@@ -30,9 +33,9 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">PISTA</a>
+          <a href="#" class="brand-logo">Orenj</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a class="accountNumber">Account Number</a></li>
+            <li><a class="accountNumber"></a></li>
           </ul>
         </div>
       </nav>
@@ -41,9 +44,8 @@
     <div>
       <ul id="slide-out" class="side-nav">
         <li>
-            <a class="sideBarLinks" href="./dashboard.html">Dashboard</a>
-            <a class="sideBarLinks selected" href="./assets.html">Assets</a>
-            <a class="sideBarLinks" href="./transfers.html">Transfers</a>
+            <a class="sideBarLinks selected" href="./sourceHome.html">ASSETS</a>
+            <a class="sideBarLinks" href="./sourceTransactions.html">TRANSACTIONS</a>
         </li>
       </ul>
     </div>
@@ -51,7 +53,17 @@
     <div class="mainBody">
 
       <div class="createFormDiv">
+        <div class="assetConvertDiv">
+          <span class="card-text">Name</span>
+          <span class="card-title">Cow Milk (Grade A)</span>
+        </div>
 
+        <div class="amountTransferDiv input-field col s6">
+          <input placeholder="Amount" id="amount" type="text">
+          <label for="amount">Amount</label>
+        </div>
+
+        <a class="btn waves-effect waves-light addAssetAmountBtn">Add</a>
       </div>
     </div>
   </div>

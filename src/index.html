@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>Pista - Sign Up</title>
+  <title>Orenj</title>
 
   <!-- Bootstrap -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
   <!-- CSS for alert box -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
 
 </head>
 
@@ -32,7 +33,7 @@
     <div class="navbar-fixed">
       <nav>
         <div class="nav-wrapper">
-          <a href="#" class="brand-logo">PISTA</a>
+          <a href="#" class="brand-logo">Orenj</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a class="accountNumber"></a></li>
           </ul>
@@ -40,53 +41,22 @@
       </nav>
     </div>
 
-    <div class="signUpForm">
-      <form class="col s6">
-        <div class="row formRow">
-          <div class="input-field col s3"></div>
-          <div class="input-field col s6">
-            <input placeholder="Enter email" id="email" type="text">
-            <label for="email">Email</label>
-          </div>
-          <div class="input-field col s3"></div>
-        </div>
-        <div class="row formRow">
-          <div class="input-field col s3"></div>
-          <div class="input-field col s6">
-            <textarea placeholder="Enter atleast 4 random keywords" id="keywords" class="materialize-textarea"></textarea>
-            <label for="keywords">Keywords</label>
-          </div>
-          <div class="input-field col s3"></div>
-        </div>
-        <div class="row formRow">
-          <div class="input-field col s3"></div>
-          <div class="input-field col s6">
-            <a class="waves-effect waves-light btn signUpBtn">Sign Up</a>
-          </div>
-          <div class="input-field col s3"></div>
-        </div>
-      </form>
-    </div>
-
-    <div class="userDiv">
-      <div class="row">
-        <div class="input-field col s3"></div>
-
-        <div class="col s6">
-          <p class="heading">Public Key</p>
-          <p class="publicKey"></p>
-
-          <a class="btn waves-effect waves-light download">Download Private Key</a>
-        </div>
-        <div class="input-field col s3"></div>
+    <div class="selectUserDiv">
+      <div class="departmentClick">
+        <p class="headingText">DEPARTMENT LOGIN</p>
       </div>
 
-      <div class="row">
-        <div class="input-field col s3"></div>
-        <div class="col s6">
-          <a class="btn waves-effect waves-light check">Check for MetaMask</a>
-        </div>
-        <div class="input-field col s3"></div>
+      <div class="sourceClick">
+        <p class="headingText">SOURCE LOGIN</p>
+      </div>
+    </div>
+
+    <div class="checkUserDiv">
+      <div class="returnUserCheck">
+        <p class="headingText">RETURNING USER</p>
+      </div>
+      <div class="newUserCheck">
+        <p class="headingText">NEW USER</p>
       </div>
     </div>
   </div>
