@@ -11,7 +11,6 @@ var Departments = artifacts.require("./Departments.sol");
 var Sources = artifacts.require("./Sources.sol");
 
 module.exports = function(deployer, accounts) {
-    console.log(accounts);
     deployer.deploy(SafeMath);
     deployer.deploy(Ownable);
     deployer.link(Ownable, Mintable);
