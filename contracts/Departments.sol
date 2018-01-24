@@ -68,7 +68,7 @@ contract Departments is TokenizedAsset {
     /**
      * Method to get a Department's Wallet address from an arbitrary array
      *
-     * @param _index    The index to be fetched
+     * @param index    The index to be fetched
      */
     function getDepartmentAccAddr(uint index) constant returns (address) {
         return departmentAddrs[index];
@@ -99,8 +99,8 @@ contract Departments is TokenizedAsset {
      * @param amount    The number of tokens to be transferred
      * @param assetContractAddr    The asset/token contract address
      */
-    function transferAsset(address from, address to, uint amount, address assetContractAddr) {
+    function transferAsset(address from, address to, uint amount, address assetContractAddr) returns (bool) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
-        asset.transferFrom(from, to, amount);
+        return asset.transferFrom(from, to, amount);
     }
 }

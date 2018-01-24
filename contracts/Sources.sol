@@ -30,7 +30,7 @@ contract Sources is TokenizedAsset {
      * @param _outgoingAsset    The address of the asset/token Contract address that the Source can transfer out to another Source in the value chain
      */
     function createTempSource(string _name, string _email, address _outgoingAsset) {
-        Source memory d = Source(_name, _email, _incomingAsset, _outgoingAsset);
+        Source memory d = Source(_name, _email, _outgoingAsset);
         TempSources[_email] = d;
     }
 
@@ -65,7 +65,7 @@ contract Sources is TokenizedAsset {
     /**
      * Method to get a Source's Wallet address from an arbitrary array
      *
-     * @param _index    The index to be fetched
+     * @param index    The index to be fetched
      */
     function getSourceAccAddr(uint8 index) constant returns (address) {
         return sourceAddrs[index];
@@ -94,9 +94,9 @@ contract Sources is TokenizedAsset {
      * @param amount    The number of tokens to be minted
      * @param assetContractAddr    The asset/token contract address
      */
-    function addAssetAmount(uint amount, address assetContractAddr) {
+    function addAssetAmount(uint amount, address assetContractAddr) returns (bool) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
-        asset.mint(msg.sender, amount);
+        return asset.mint(msg.sender, amount);
     }
 
     /**
@@ -107,8 +107,8 @@ contract Sources is TokenizedAsset {
      * @param amount    The number of tokens to be transferred
      * @param assetContractAddr    The asset/token contract address
      */
-    function transferAsset(address from, address to, uint amount, address assetContractAddr) {
+    function transferAsset(address from, address to, uint amount, address assetContractAddr) returns (bool) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
-        asset.transferFrom(from, to, amount);
+        return asset.transferFrom(from, to, amount);
     }
 }

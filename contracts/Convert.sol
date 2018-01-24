@@ -49,6 +49,6 @@ contract Convert is TokenizedAsset {
         uint diffAmount = expectedAmount.sub(actualAmount);
 
         originalAsset.burn(diffAmount);
-        convertedAsset.mint(msg.sender, actualAmount);
+        bool result = convertedAsset.mint(msg.sender, actualAmount);
     }
 }

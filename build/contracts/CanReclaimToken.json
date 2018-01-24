@@ -61,18 +61,18 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610509806100536000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc3201461005c5780638da5cb5b14610095578063f2fde38b146100ea575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610123565b005b34156100a057600080fd5b6100a8610290565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100f557600080fd5b610121600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506102b5565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561018057600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561022357600080fd5b6102c65a03f1151561023457600080fd5b50505060405180519050905061028c6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff1661040a9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561031057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561034c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15156104b557600080fd5b6102c65a03f115156104c657600080fd5b5050506040518051905015156104d857fe5b5050505600a165627a7a72305820f167e672f58d35ada163944135cf99d72b55b39bd2665de6a9b6d14bcfa511200029",
-  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc3201461005c5780638da5cb5b14610095578063f2fde38b146100ea575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610123565b005b34156100a057600080fd5b6100a8610290565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100f557600080fd5b610121600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506102b5565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561018057600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561022357600080fd5b6102c65a03f1151561023457600080fd5b50505060405180519050905061028c6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff1661040a9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561031057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561034c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15156104b557600080fd5b6102c65a03f115156104c657600080fd5b5050506040518051905015156104d857fe5b5050505600a165627a7a72305820f167e672f58d35ada163944135cf99d72b55b39bd2665de6a9b6d14bcfa511200029",
+  "bytecode": "0x6060604052336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550610509806100536000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc3201461005c5780638da5cb5b14610095578063f2fde38b146100ea575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610123565b005b34156100a057600080fd5b6100a8610290565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100f557600080fd5b610121600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506102b5565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561018057600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561022357600080fd5b6102c65a03f1151561023457600080fd5b50505060405180519050905061028c6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff1661040a9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561031057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561034c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15156104b557600080fd5b6102c65a03f115156104c657600080fd5b5050506040518051905015156104d857fe5b5050505600a165627a7a723058203c07910d765b09e3114dd16f2a81a9d37eea29ac360800ac8385d2e5fd4f41df0029",
+  "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806317ffc3201461005c5780638da5cb5b14610095578063f2fde38b146100ea575b600080fd5b341561006757600080fd5b610093600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610123565b005b34156100a057600080fd5b6100a8610290565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b34156100f557600080fd5b610121600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506102b5565b005b60008060009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561018057600080fd5b8173ffffffffffffffffffffffffffffffffffffffff166370a08231306000604051602001526040518263ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001915050602060405180830381600087803b151561022357600080fd5b6102c65a03f1151561023457600080fd5b50505060405180519050905061028c6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff16828473ffffffffffffffffffffffffffffffffffffffff1661040a9092919063ffffffff16565b5050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561031057600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff161415151561034c57600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b8273ffffffffffffffffffffffffffffffffffffffff1663a9059cbb83836000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b15156104b557600080fd5b6102c65a03f115156104c657600080fd5b5050506040518051905015156104d857fe5b5050505600a165627a7a723058203c07910d765b09e3114dd16f2a81a9d37eea29ac360800ac8385d2e5fd4f41df0029",
   "sourceMap": "384:353:12:-;;;509:10:20;501:5;;:18;;;;;;;;;;;;;;;;;;384:353:12;;;;;;",
   "deployedSourceMap": "384:353:12:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;585:149;;;;;;;;;;;;;;;;;;;;;;;;;;;;238:20:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;834:169;;;;;;;;;;;;;;;;;;;;;;;;;;;;585:149:12;650:15;654:5:20;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;668:5:12;:15;;;684:4;668:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;650:39;;695:34;714:5;;;;;;;;;;;721:7;695:5;:18;;;;:34;;;;;:::i;:::-;585:149;;:::o;238:20:20:-;;;;;;;;;;;;;:::o;834:169::-;654:5;;;;;;;;;;;640:19;;:10;:19;;;632:28;;;;;;;;930:1;910:22;;:8;:22;;;;902:31;;;;;;;;967:8;939:37;;960:5;;;;;;;;;;;939:37;;;;;;;;;;;;990:8;982:5;;:16;;;;;;;;;;;;;;;;;;834:169;:::o;367:120:27:-;456:5;:14;;;471:2;475:5;456:25;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;449:33;;;;;;367:120;;;:::o",
   "source": "pragma solidity ^0.4.18;\n\nimport \"./Ownable.sol\";\nimport \"../token/ERC20Basic.sol\";\nimport \"../token/SafeERC20.sol\";\n\n/**\n * @title Contracts that should be able to recover tokens\n * @author SylTi\n * @dev This allow a contract to recover any ERC20 token received in a contract by transferring the balance to the contract owner.\n * This will prevent any accidental loss of tokens.\n */\ncontract CanReclaimToken is Ownable {\n  using SafeERC20 for ERC20Basic;\n\n  /**\n   * @dev Reclaim all ERC20Basic compatible tokens\n   * @param token ERC20Basic The address of the token contract\n   */\n  function reclaimToken(ERC20Basic token) external onlyOwner {\n    uint256 balance = token.balanceOf(this);\n    token.safeTransfer(owner, balance);\n  }\n\n}\n",
-  "sourcePath": "/opt/lampp/htdocs/pista_latest/contracts/ownership/CanReclaimToken.sol",
+  "sourcePath": "/Users/mayurrelekar/dev/pista/contracts/ownership/CanReclaimToken.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/opt/lampp/htdocs/pista_latest/contracts/ownership/CanReclaimToken.sol",
+      "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/ownership/CanReclaimToken.sol",
       "exportedSymbols": {
         "CanReclaimToken": [
-          892
+          1115
         ]
       }
     },
@@ -86,69 +86,69 @@
             ".18"
           ]
         },
-        "id": 861,
+        "id": 1084,
         "name": "PragmaDirective",
         "src": "0:24:12"
       },
       {
         "attributes": {
-          "SourceUnit": 1192,
-          "absolutePath": "/opt/lampp/htdocs/pista_latest/contracts/ownership/Ownable.sol",
+          "SourceUnit": 1415,
+          "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/ownership/Ownable.sol",
           "file": "./Ownable.sol",
-          "scope": 893,
+          "scope": 1116,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 862,
+        "id": 1085,
         "name": "ImportDirective",
         "src": "26:23:12"
       },
       {
         "attributes": {
-          "SourceUnit": 1405,
-          "absolutePath": "/opt/lampp/htdocs/pista_latest/contracts/token/ERC20Basic.sol",
+          "SourceUnit": 1628,
+          "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/ERC20Basic.sol",
           "file": "../token/ERC20Basic.sol",
-          "scope": 893,
+          "scope": 1116,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 863,
+        "id": 1086,
         "name": "ImportDirective",
         "src": "50:33:12"
       },
       {
         "attributes": {
-          "SourceUnit": 1629,
-          "absolutePath": "/opt/lampp/htdocs/pista_latest/contracts/token/SafeERC20.sol",
+          "SourceUnit": 1852,
+          "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/SafeERC20.sol",
           "file": "../token/SafeERC20.sol",
-          "scope": 893,
+          "scope": 1116,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 864,
+        "id": 1087,
         "name": "ImportDirective",
         "src": "84:32:12"
       },
       {
         "attributes": {
           "contractDependencies": [
-            1191
+            1414
           ],
           "contractKind": "contract",
           "documentation": "@title Contracts that should be able to recover tokens\n@author SylTi\n@dev This allow a contract to recover any ERC20 token received in a contract by transferring the balance to the contract owner.\nThis will prevent any accidental loss of tokens.",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            892,
-            1191
+            1115,
+            1414
           ],
           "name": "CanReclaimToken",
-          "scope": 893
+          "scope": 1116
         },
         "children": [
           {
@@ -162,15 +162,15 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Ownable",
-                  "referencedDeclaration": 1191,
+                  "referencedDeclaration": 1414,
                   "type": "contract Ownable"
                 },
-                "id": 865,
+                "id": 1088,
                 "name": "UserDefinedTypeName",
                 "src": "412:7:12"
               }
             ],
-            "id": 866,
+            "id": 1089,
             "name": "InheritanceSpecifier",
             "src": "412:7:12"
           },
@@ -180,10 +180,10 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "SafeERC20",
-                  "referencedDeclaration": 1628,
+                  "referencedDeclaration": 1851,
                   "type": "library SafeERC20"
                 },
-                "id": 867,
+                "id": 1090,
                 "name": "UserDefinedTypeName",
                 "src": "430:9:12"
               },
@@ -191,15 +191,15 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ERC20Basic",
-                  "referencedDeclaration": 1404,
+                  "referencedDeclaration": 1627,
                   "type": "contract ERC20Basic"
                 },
-                "id": 868,
+                "id": 1091,
                 "name": "UserDefinedTypeName",
                 "src": "444:10:12"
               }
             ],
-            "id": 869,
+            "id": 1092,
             "name": "UsingForDirective",
             "src": "424:31:12"
           },
@@ -210,7 +210,7 @@
               "isConstructor": false,
               "name": "reclaimToken",
               "payable": false,
-              "scope": 892,
+              "scope": 1115,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "external"
@@ -222,7 +222,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "token",
-                      "scope": 891,
+                      "scope": 1114,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "contract ERC20Basic",
@@ -234,20 +234,20 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "ERC20Basic",
-                          "referencedDeclaration": 1404,
+                          "referencedDeclaration": 1627,
                           "type": "contract ERC20Basic"
                         },
-                        "id": 870,
+                        "id": 1093,
                         "name": "UserDefinedTypeName",
                         "src": "607:10:12"
                       }
                     ],
-                    "id": 871,
+                    "id": 1094,
                     "name": "VariableDeclaration",
                     "src": "607:16:12"
                   }
                 ],
-                "id": 872,
+                "id": 1095,
                 "name": "ParameterList",
                 "src": "606:18:12"
               },
@@ -258,7 +258,7 @@
                   ]
                 },
                 "children": [],
-                "id": 875,
+                "id": 1098,
                 "name": "ParameterList",
                 "src": "644:0:12"
               },
@@ -275,16 +275,16 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1165,
+                      "referencedDeclaration": 1388,
                       "type": "modifier ()",
                       "value": "onlyOwner"
                     },
-                    "id": 873,
+                    "id": 1096,
                     "name": "Identifier",
                     "src": "634:9:12"
                   }
                 ],
-                "id": 874,
+                "id": 1097,
                 "name": "ModifierInvocation",
                 "src": "634:9:12"
               },
@@ -293,7 +293,7 @@
                   {
                     "attributes": {
                       "assignments": [
-                        877
+                        1100
                       ]
                     },
                     "children": [
@@ -301,7 +301,7 @@
                         "attributes": {
                           "constant": false,
                           "name": "balance",
-                          "scope": 891,
+                          "scope": 1114,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "uint256",
@@ -314,12 +314,12 @@
                               "name": "uint256",
                               "type": "uint256"
                             },
-                            "id": 876,
+                            "id": 1099,
                             "name": "ElementaryTypeName",
                             "src": "650:7:12"
                           }
                         ],
-                        "id": 877,
+                        "id": 1100,
                         "name": "VariableDeclaration",
                         "src": "650:15:12"
                       },
@@ -342,7 +342,7 @@
                             "attributes": {
                               "argumentTypes": [
                                 {
-                                  "typeIdentifier": "t_contract$_CanReclaimToken_$892",
+                                  "typeIdentifier": "t_contract$_CanReclaimToken_$1115",
                                   "typeString": "contract CanReclaimToken"
                                 }
                               ],
@@ -351,7 +351,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "balanceOf",
-                              "referencedDeclaration": 1386,
+                              "referencedDeclaration": 1609,
                               "type": "function (address) view external returns (uint256)"
                             },
                             "children": [
@@ -361,16 +361,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 871,
+                                  "referencedDeclaration": 1094,
                                   "type": "contract ERC20Basic",
                                   "value": "token"
                                 },
-                                "id": 878,
+                                "id": 1101,
                                 "name": "Identifier",
                                 "src": "668:5:12"
                               }
                             ],
-                            "id": 879,
+                            "id": 1102,
                             "name": "MemberAccess",
                             "src": "668:15:12"
                           },
@@ -380,21 +380,21 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1939,
+                              "referencedDeclaration": 2160,
                               "type": "contract CanReclaimToken",
                               "value": "this"
                             },
-                            "id": 880,
+                            "id": 1103,
                             "name": "Identifier",
                             "src": "684:4:12"
                           }
                         ],
-                        "id": 881,
+                        "id": 1104,
                         "name": "FunctionCall",
                         "src": "668:21:12"
                       }
                     ],
-                    "id": 882,
+                    "id": 1105,
                     "name": "VariableDeclarationStatement",
                     "src": "650:39:12"
                   },
@@ -432,7 +432,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "safeTransfer",
-                              "referencedDeclaration": 1588,
+                              "referencedDeclaration": 1811,
                               "type": "function (contract ERC20Basic,address,uint256)"
                             },
                             "children": [
@@ -442,16 +442,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 871,
+                                  "referencedDeclaration": 1094,
                                   "type": "contract ERC20Basic",
                                   "value": "token"
                                 },
-                                "id": 883,
+                                "id": 1106,
                                 "name": "Identifier",
                                 "src": "695:5:12"
                               }
                             ],
-                            "id": 885,
+                            "id": 1108,
                             "name": "MemberAccess",
                             "src": "695:18:12"
                           },
@@ -461,11 +461,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1139,
+                              "referencedDeclaration": 1362,
                               "type": "address",
                               "value": "owner"
                             },
-                            "id": 886,
+                            "id": 1109,
                             "name": "Identifier",
                             "src": "714:5:12"
                           },
@@ -475,41 +475,41 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 877,
+                              "referencedDeclaration": 1100,
                               "type": "uint256",
                               "value": "balance"
                             },
-                            "id": 887,
+                            "id": 1110,
                             "name": "Identifier",
                             "src": "721:7:12"
                           }
                         ],
-                        "id": 888,
+                        "id": 1111,
                         "name": "FunctionCall",
                         "src": "695:34:12"
                       }
                     ],
-                    "id": 889,
+                    "id": 1112,
                     "name": "ExpressionStatement",
                     "src": "695:34:12"
                   }
                 ],
-                "id": 890,
+                "id": 1113,
                 "name": "Block",
                 "src": "644:90:12"
               }
             ],
-            "id": 891,
+            "id": 1114,
             "name": "FunctionDefinition",
             "src": "585:149:12"
           }
         ],
-        "id": 892,
+        "id": 1115,
         "name": "ContractDefinition",
         "src": "384:353:12"
       }
     ],
-    "id": 893,
+    "id": 1116,
     "name": "SourceUnit",
     "src": "0:738:12"
   },
@@ -519,5 +519,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-21T08:23:23.713Z"
+  "updatedAt": "2018-01-24T06:18:37.288Z"
 }

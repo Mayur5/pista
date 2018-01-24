@@ -44,8 +44,8 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
      * @param _to       The beneficiary of the mint
      * @param _value    The amount to be minted
      */
-    function mint(address _to, uint256 _value) public {
-        super.mint(_to, _value);
+    function mint(address _to, uint256 _value) public returns (bool) {
+        return super.mint(_to, _value);
     }
 
     /**
@@ -55,7 +55,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
      * @param _to    The amount of tokens to burn in mini-RBC
      * @param _amount    The amount of tokens to burn in mini-RBC
      */
-    function transferFrom(address _from, address _to, uint _amount) public {
-        super.transferFrom(_from, _to, _amount);
+    function transferFrom(address _from, address _to, uint _amount) public returns (bool) {
+        return super.transferFrom(_from, _to, _amount);
     }
 }

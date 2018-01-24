@@ -12,21 +12,21 @@ contract TokenizedAssetFactory  is TokenizedAsset {
     /**
      * Method to call the token constructor and save the name of the token and it's contract address
      *
-     * @param _name    The name of the token to be created
-     * @param _symbol    The symbol of the token to be created
+     * @param name    The name of the token to be created
+     * @param symbol    The symbol of the token to be created
      */
     function createAssetContract(string name, string symbol) returns(address) {
         address assetContractAddr = new TokenizedAsset(name, symbol);
         names.push(name);
         contracts.push(assetContractAddr);
 
-        return newContract;
+        return assetContractAddr;
     }
 
     /**
      * Method to fetch a specific asset's name
      *
-     * @param _i    Index to be fetched
+     * @param i    Index to be fetched
      */
     function getName(uint i) constant returns(string) {
         return names[i];
@@ -35,7 +35,7 @@ contract TokenizedAssetFactory  is TokenizedAsset {
     /**
      * Method to fetch a specific asset's contract address
      *
-     * @param _i    Index to be fetched
+     * @param i    Index to be fetched
      */
     function getAddress(uint i) constant returns(address) {
         return contracts[i];
