@@ -5,7 +5,7 @@ import "./TokenizedAsset.sol";
 /**
   * An Asset(Token) Factory Contract to generate arbitrary assets/tokens
 **/
-contract TokenizedAssetFactory  is TokenizedAsset {
+contract TokenizedAssetFactory is TokenizedAsset {
     string[] public names;
     address[] public contracts;
 

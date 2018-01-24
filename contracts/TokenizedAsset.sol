@@ -23,7 +23,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
      * @param _name    The name of the token to be created
      * @param _name    The symbol of the token to be created
      */
-    function TokenizedAsset (string _name, string _symbol) {
+    function TokenizedAsset (string _name, string _symbol) payable {
         name = _name;
         symbol = _symbol;
     }
