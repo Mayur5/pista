@@ -18,7 +18,7 @@ library SafeERC20 {
     assert(token.transferFrom(from, to, value));
   }
 
-  function safeApprove(ERC20 token, address spender, uint256 value) internal {
-    assert(token.approve(spender, value));
-  }
+  // function safeApprove(ERC20 token, address spender, uint256 value) internal {
+  //   assert(token.approve(spender, value));
+  // }
 }
