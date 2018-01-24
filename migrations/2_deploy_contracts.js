@@ -36,14 +36,14 @@ module.exports = function(deployer, accounts) {
 
     deployer.deploy(Departments);
     deployer.link(Departments, SafeMath);
-    deployer.link(Departments, TokenizedAsset);
+    // deployer.link(Departments, TokenizedAsset);
 
     deployer.deploy(Sources);
     deployer.link(Sources, SafeMath);
-    deployer.link(Sources, TokenizedAsset);
+    // deployer.link(Sources, TokenizedAsset);
 
     deployer.deploy(Convert);
     deployer.link(Convert, SafeMath);
-    deployer.link(Convert, TokenizedAsset);
+    // deployer.link(Convert, TokenizedAsset);
 
 };

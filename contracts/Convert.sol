@@ -67,6 +67,8 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
   * Contract also affords for any loss/wastage
 **/
 contract Convert {
+    using SafeMath for uint;
+
     mapping (address => mapping (address => uint)) ConversionRate;
 
     /**
@@ -99,13 +101,13 @@ contract Convert {
      * @param originalAssetContractAddr The original asset/token contract address
      * @param convertedAssetContractAddr The converted asset/token contract address
      */
-    function convertAsset(uint expectedAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) {
+    function convertAsset(uint expectedAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) returns (bool) {
         TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
         TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
 
         uint diffAmount = expectedAmount.sub(actualAmount);
 
         originalAsset.burn(diffAmount);
-        bool result = convertedAsset.mint(msg.sender, actualAmount);
+        return convertedAsset.mint(msg.sender, actualAmount);
     }
 }
