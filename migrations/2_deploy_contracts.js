@@ -7,6 +7,7 @@ var StandardToken = artifacts.require("./token/StandardToken.sol");
 var Ownable = artifacts.require("./ownership/Ownable.sol");
 var Mintable = artifacts.require("./token/MintableToken.sol");
 var TokenizedAssetFactory = artifacts.require("./TokenizedAssetFactory.sol");
+var TokenizedAsset = artifacts.require("./TokenizedAsset.sol");
 var Departments = artifacts.require("./Departments.sol");
 var Sources = artifacts.require("./Sources.sol");
 var Convert = artifacts.require("./Convert.sol");
