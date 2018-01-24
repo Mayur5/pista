@@ -16,33 +16,33 @@ module.exports = function(deployer, accounts) {
     deployer.deploy(SafeMath);
     deployer.deploy(Ownable);
     deployer.link(Ownable, Mintable);
-    deployer.deploy(Mintable, {gas: 3000000});
+    deployer.deploy(Mintable);
 
-    deployer.deploy(BasicToken, {gas: 500000});
+    deployer.deploy(BasicToken);
     deployer.link(BasicToken, SafeMath);
     deployer.link(BasicToken, ERC20Basic);
 
-    deployer.deploy(StandardToken, {gas: 3000000});
+    deployer.deploy(StandardToken);
     deployer.link(StandardToken, BasicToken);
 
-    deployer.deploy(TokenizedAsset, {gas: 3000000});
+    deployer.deploy(TokenizedAsset);
     deployer.link(TokenizedAsset, StandardToken);
     deployer.link(TokenizedAsset, BurnableToken);
     deployer.link(TokenizedAsset, Mintable);
     deployer.link(TokenizedAsset, SafeMath);
 
-    deployer.deploy(TokenizedAssetFactory, {gas: 4500000});
+    deployer.deploy(TokenizedAssetFactory);
     deployer.link(TokenizedAssetFactory, TokenizedAsset);
 
-    deployer.deploy(Departments, {gas: 3000000});
+    deployer.deploy(Departments);
     deployer.link(Departments, SafeMath);
     deployer.link(Departments, TokenizedAsset);
 
-    deployer.deploy(Sources, {gas: 3000000});
+    deployer.deploy(Sources);
     deployer.link(Sources, SafeMath);
     deployer.link(Sources, TokenizedAsset);
 
-    deployer.deploy(Convert, {gas: 3000000});
+    deployer.deploy(Convert);
     deployer.link(Convert, SafeMath);
     deployer.link(Convert, TokenizedAsset);
 
