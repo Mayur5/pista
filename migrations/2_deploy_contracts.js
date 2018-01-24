@@ -23,12 +23,14 @@ module.exports = function(deployer, accounts) {
     deployer.deploy(StandardToken, {gas: 3000000});
     deployer.link(StandardToken, BasicToken);
 
+    deployer.deploy(TokenizedAsset);
+    deployer.link(TokenizedAsset, StandardToken);
+    deployer.link(TokenizedAsset, BurnableToken);
+    deployer.link(TokenizedAsset, Mintable);
+    deployer.link(TokenizedAsset, SafeMath);
+
     deployer.deploy(TokenizedAssetFactory, {gas: 3000000});
-    //deployer.link(TokenizedAssetFactory, StandardToken);
-    //deployer.link(TokenizedAssetFactory, Ownable);
-    deployer.link(TokenizedAssetFactory, BurnableToken);
-    deployer.link(TokenizedAssetFactory, Mintable);
-    deployer.link(TokenizedAssetFactory, SafeMath);
+    deployer.link(TokenizedAssetFactory, TokenizedAsset);
 
     deployer.deploy(Departments, {gas: 3000000});
 
