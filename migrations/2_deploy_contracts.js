@@ -9,6 +9,7 @@ var Mintable = artifacts.require("./token/MintableToken.sol");
 var TokenizedAssetFactory = artifacts.require("./TokenizedAssetFactory.sol");
 var Departments = artifacts.require("./Departments.sol");
 var Sources = artifacts.require("./Sources.sol");
+var Convert = artifacts.require("./Convert.sol");
 
 module.exports = function(deployer, accounts) {
     deployer.deploy(SafeMath);
@@ -33,7 +34,12 @@ module.exports = function(deployer, accounts) {
     deployer.link(TokenizedAssetFactory, TokenizedAsset);
 
     deployer.deploy(Departments, {gas: 3000000});
+    deployer.link(Departments, TokenizedAsset);
 
     deployer.deploy(Sources, {gas: 3000000});
+    deployer.link(Sources, TokenizedAsset);
+
+    deployer.deploy(Convert, {gas: 3000000});
+    deployer.link(Convert, TokenizedAsset);
 
 };
