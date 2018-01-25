@@ -1,40 +1,15 @@
 $(function() {
+  if (typeof web3 !== 'undefined') {
+    web3 = new Web3(web3.currentProvider);
+  } 
+  else {
+    // set the provider you want from Web3.providers
+    web3 = new Web3(new Web3.providers.HttpProvider("http://35.154.203.141:8545"));
+    // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
+  }
   var accountCreated;
 
-  var abi = web3.eth.contract([
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "getDepartmentsSize",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint8"
-        }
-      ],
-      "name": "getDepartmentAccAddr",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
+  var contract = new web3.eth.Contract([
     {
       "constant": false,
       "inputs": [
@@ -53,6 +28,84 @@ $(function() {
         {
           "name": "_outgoingAsset",
           "type": "address"
+        }
+      ],
+      "name": "createTempDepartment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getDepartmentsSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "assetContractAddr",
+          "type": "address"
+        }
+      ],
+      "name": "transferAsset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDepartmentAccAddr",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
         },
         {
           "name": "_accAddr",
@@ -115,9 +168,9 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ]);
+  ], "0x406a54fec90598daed3519caea3cd4bb5f469618");
 
-  var contract = abi.at("0x2949c974dec09777dd16c7291e119d119d324bc4");
+  //var contract = abi.options.at("0x2949c974dec09777dd16c7291e119d119d324bc4");
 
   async function createAccount() {
     let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
@@ -317,7 +370,8 @@ $(function() {
       } 
       else {
         // set the provider you want from Web3.providers
-        web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
+        web3 = new Web3(new Web3.providers.HttpProvider("http://35.154.203.141:8545"));
+        // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
       }
 
       var email = $('#email').val();
@@ -444,8 +498,10 @@ $(function() {
   });
 
   //get departments list
-  contract.getDepartmentsSize(function(error, result){
+  contract.methods.getDepartmentsSize().call(function(error, result){
     var departmentsSize = result;
+    console.log("size", result);
+    
     var deptAddrArray = [];
 
     //get department address
