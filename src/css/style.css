@@ -64,7 +64,7 @@ input[type=text]:not(.browser-default){
 .conversionForm{
 	display: -webkit-box;
 }
-.select-wrapper input.select-dropdown{
+.select-wrapper input.select-dropdown, .incomingAsset, .outgoingAsset{
 	height: 48px !important;	
 	width: 330px !important;	
 	border: 1px solid #C74B1D !important;	
@@ -74,6 +74,7 @@ input[type=text]:not(.browser-default){
 	color: #C74B1D !important;
 	padding: 0 0 0 10px !important;
 	margin-right: 40px !important;
+	margin-bottom: 10px;
 }
 .select-wrapper span.caret{
 	right: 60px !important;
@@ -312,6 +313,7 @@ img{
 }
 .incomingAsset, .outgoingAsset{
 	width: 60%;
+	display: block !important;
 }
 .dropdown-content li>a, .dropdown-content li>span{
 	color: #C74B1D !important;
