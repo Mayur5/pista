@@ -163,11 +163,7 @@ $(function() {
         }
       ], "0xf38abf53d19bebf224064c23dfe0cd503e8d2a5d");
 
-    async function createAsset(assetName, assetSymbol){
-        await tokenContract.methods.createAssetContract(assetName, assetSymbol).call({from: web3.eth.accounts[0]}, function(error, result){
-            return result;
-        });
-    }
+  
     
     $(".addAssetAmountBtn").click(function(){
         var assetName = $("#name").val();
@@ -188,23 +184,34 @@ $(function() {
         .on("error", console.log);
     })
 
+    function getName(index) {
+      return tokenContract.methods.getName(index).call();
+    }
+    function getSymbol(index) {
+      return tokenContract.methods.getSymbol(index).call();
+    }
+
+    function getNameSize(){
+      return tokenContract.methods.getNameSize().call();
+    }
+
+    async function setTableRows(){
+      var assetTable = $("#assetTable tbody");
+      let size = await getNameSize();
+
+      for(var i=0; i<size; i++) {
+
+          let name = await getName(i);
+          let symbol = await getSymbol(i);
+
+          let newRow = "<tr><td>"+name+"</td><td>"+symbol+"</td></tr>";
+          assetTable.append(newRow);
+      }
+    }
+
     $(window).load(function() {
-        var assetTable = $("#assetTable tbody");
-        tokenContract.methods.getNameSize().call(function(error, size){
-            var symbolCounter = 0;
-            for(var i=0; i<size; i++) {
-                let index = i;
-                tokenContract.methods.getName(index).call().then(function(result){
-                    let assetName = result;
-                    tokenContract.methods.getSymbol(index).call().then(function(result){
-                        let assetSymbol = result;
-                        var newRow = "<tr><td>"+assetName+"</td><td>"+assetSymbol+"</td></tr>";
-                        assetTable.append(newRow);
-                    });
-                });
-            }
-        });
-    })
+        setTableRows();
+    });
 
 });
 
