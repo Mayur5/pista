@@ -81,7 +81,7 @@
   "bytecode": "0x6060604052341561000f57600080fd5b6104718061001e6000396000f300606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063190488801461005c5780632589430e146100c857806351152e2b1461014a575b600080fd5b341561006757600080fd5b6100b2600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101ab565b6040518082815260200191505060405180910390f35b34156100d357600080fd5b610130600480803590602001909190803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610231565b604051808215151515815260200191505060405180910390f35b341561015557600080fd5b6101a9600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919080359060200190919050506103a7565b005b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b600080600080859250849150610250878961042c90919063ffffffff16565b90508273ffffffffffffffffffffffffffffffffffffffff166342966c68826040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b15156102c057600080fd5b6102c65a03f115156102d157600080fd5b5050508173ffffffffffffffffffffffffffffffffffffffff166340c10f1933896000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b151561037f57600080fd5b6102c65a03f1151561039057600080fd5b505050604051805190509350505050949350505050565b806000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550505050565b600082821115151561043a57fe5b8183039050929150505600a165627a7a7230582080ce9314a63208ed84724010756232fb2f255fe6173f136b56e15fc7f6c68f9d0029",
   "deployedBytecode": "0x606060405260043610610057576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff168063190488801461005c5780632589430e146100c857806351152e2b1461014a575b600080fd5b341561006757600080fd5b6100b2600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101ab565b6040518082815260200191505060405180910390f35b34156100d357600080fd5b610130600480803590602001909190803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610231565b604051808215151515815260200191505060405180910390f35b341561015557600080fd5b6101a9600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919080359060200190919050506103a7565b005b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b600080600080859250849150610250878961042c90919063ffffffff16565b90508273ffffffffffffffffffffffffffffffffffffffff166342966c68826040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b15156102c057600080fd5b6102c65a03f115156102d157600080fd5b5050508173ffffffffffffffffffffffffffffffffffffffff166340c10f1933896000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b151561037f57600080fd5b6102c65a03f1151561039057600080fd5b505050604051805190509350505050949350505050565b806000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550505050565b600082821115151561043a57fe5b8183039050929150505600a165627a7a7230582080ce9314a63208ed84724010756232fb2f255fe6173f136b56e15fc7f6c68f9d0029",
   "sourceMap": "2040:1895:0:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "2040:1895:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2837:165;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3448:485;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2444:152;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2837:165;2928:4;2951:14;:29;2966:13;2951:29;;;;;;;;;;;;;;;:44;2981:13;2951:44;;;;;;;;;;;;;;;;2944:51;;2837:165;;;;:::o;3448:485::-;3590:4;3606:28;3688:29;3773:15;3652:25;3606:72;;3735:26;3688:74;;3791:32;3810:12;3791:14;:18;;:32;;;;:::i;:::-;3773:50;;3834:13;:18;;;3853:10;3834:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3881:14;:19;;;3901:10;3913:12;3881:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3874:52;;3448:485;;;;;;;;;:::o;2444:152::-;2585:4;2538:14;:29;2553:13;2538:29;;;;;;;;;;;;;;;:44;2568:13;2538:44;;;;;;;;;;;;;;;:51;;;;2444:152;;;:::o;584:110:3:-;642:7;669:1;664;:6;;657:14;;;;;;688:1;684;:5;677:12;;584:110;;;;:::o",
+  "deployedSourceMap": "2040:1895:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2837:165;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3448:485;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2444:152;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2837:165;2928:4;2951:14;:29;2966:13;2951:29;;;;;;;;;;;;;;;:44;2981:13;2951:44;;;;;;;;;;;;;;;;2944:51;;2837:165;;;;:::o;3448:485::-;3590:4;3606:28;3688:29;3773:15;3652:25;3606:72;;3735:26;3688:74;;3791:32;3810:12;3791:14;:18;;:32;;;;:::i;:::-;3773:50;;3834:13;:18;;;3853:10;3834:30;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3881:14;:19;;;3901:10;3913:12;3881:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3874:52;;3448:485;;;;;;;;;:::o;2444:152::-;2585:4;2538:14;:29;2553:13;2538:29;;;;;;;;;;;;;;;:44;2568:13;2538:44;;;;;;;;;;;;;;;:51;;;;2444:152;;;:::o;584:110:8:-;642:7;669:1;664;:6;;657:14;;;;;;688:1;684;:5;677:12;;584:110;;;;:::o",
   "source": "pragma solidity ^0.4.18;\n\nimport './token/StandardToken.sol';\nimport './token/BurnableToken.sol';\nimport './token/MintableToken.sol';\nimport './math/SafeMath.sol';\n\n/**\n  * An ERC20 compliant token generator Contract with all the basic functionality of\n  * Transfer, TransferFrom, GetBalance\n  * Basic ERC20 functionality extended to included token burnability and token mintability\n**/\n\ncontract TokenizedAsset is StandardToken, BurnableToken, MintableToken {\n\n    string  public name;\n    string  public symbol;\n    uint8   public constant decimals = 18;\n\n    /**\n     * Asset/Token constructor\n     *\n     * @param _name    The name of the token to be created\n     * @param _name    The symbol of the token to be created\n     */\n    function TokenizedAsset (string _name, string _symbol) payable {\n        name = _name;\n        symbol = _symbol;\n    }\n\n    /**\n     * Overrides the burn function\n     *\n     * @param _value    The amount of tokens to burn in mini-RBC\n     */\n    function burn(uint256 _value) public {\n        super.burn(_value);\n        Transfer(msg.sender, address(0x0), _value);\n    }\n\n    /**\n     * Overrides the mint function\n     *\n     * @param _to       The beneficiary of the mint\n     * @param _value    The amount to be minted\n     */\n    function mint(address _to, uint256 _value) public returns (bool) {\n        return super.mint(_to, _value);\n    }\n\n    /**\n     * Overrides the transferFrom function\n     *\n     * @param _from    The amount of tokens to burn in mini-RBC\n     * @param _to    The amount of tokens to burn in mini-RBC\n     * @param _amount    The amount of tokens to burn in mini-RBC\n     */\n    function transferFrom(address _from, address _to, uint _amount) public returns (bool) {\n        return super.transferFrom(_from, _to, _amount);\n    }\n}\n\n/**\n  * A Contract to convert one asset/token to another\n  * by burning a specific amount of the original asset/token\n  * and minting a rate calculated amount of the converted asset/tokens\n  * Contract also affords for any loss/wastage\n**/\ncontract Convert {\n    using SafeMath for uint;\n\n    mapping (address => mapping (address => uint)) ConversionRate;\n\n    /**\n     * Method to set an arbitrary conversion rate between a pair of asset/token\n     *\n     * @param incomingAsset The original asset/token contract address\n     * @param incomingAsset The converted asset/token contract address\n     * @param rate The conversion rate\n     */\n    function setConversionRate(address incomingAsset, address outgoingAsset, uint rate) {\n        ConversionRate[incomingAsset][outgoingAsset] = rate;\n    }\n\n    /**\n     * Method to get the conversion rate between a pair of asset/token\n     *\n     * @param incomingAsset The original asset/token contract address\n     * @param incomingAsset The converted asset/token contract address\n     */\n    function getConversionRate(address incomingAsset, address outgoingAsset) constant returns (uint) {\n        return ConversionRate[incomingAsset][outgoingAsset];\n    }\n\n    /**\n     * Method to perform the conversion by burning original asset/token standard\n     * minting converted asset/token\n     *\n     * @param expectedAmount The converted amount expected as per rate\n     * @param actualAmount The actual amount owing to wastage\n     * @param originalAssetContractAddr The original asset/token contract address\n     * @param convertedAssetContractAddr The converted asset/token contract address\n     */\n    function convertAsset(uint expectedAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) returns (bool) {\n        TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);\n        TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);\n\n        uint diffAmount = expectedAmount.sub(actualAmount);\n\n        originalAsset.burn(diffAmount);\n        return convertedAsset.mint(msg.sender, actualAmount);\n    }\n}\n",
   "sourcePath": "/Users/mayurrelekar/dev/pista/contracts/Convert.sol",
   "ast": {
@@ -112,7 +112,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1270,
+          "SourceUnit": 2086,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/StandardToken.sol",
           "file": "./token/StandardToken.sol",
           "scope": 182,
@@ -127,7 +127,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1063,
+          "SourceUnit": 1787,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/BurnableToken.sol",
           "file": "./token/BurnableToken.sol",
           "scope": 182,
@@ -142,7 +142,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1169,
+          "SourceUnit": 1893,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/MintableToken.sol",
           "file": "./token/MintableToken.sol",
           "scope": 182,
@@ -157,7 +157,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 866,
+          "SourceUnit": 1314,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/math/SafeMath.sol",
           "file": "./math/SafeMath.sol",
           "scope": 182,
@@ -173,26 +173,26 @@
       {
         "attributes": {
           "contractDependencies": [
-            921,
-            1007,
-            1062,
-            1079,
-            1108,
-            1168,
-            1269
+            1645,
+            1731,
+            1786,
+            1803,
+            1832,
+            1892,
+            2085
           ],
           "contractKind": "contract",
           "documentation": "An ERC20 compliant token generator Contract with all the basic functionality of\nTransfer, TransferFrom, GetBalance\nBasic ERC20 functionality extended to included token burnability and token mintability*",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             91,
-            1168,
-            921,
-            1062,
-            1269,
-            1007,
-            1079,
-            1108
+            1892,
+            1645,
+            1786,
+            2085,
+            1731,
+            1803,
+            1832
           ],
           "name": "TokenizedAsset",
           "scope": 182
@@ -209,7 +209,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "StandardToken",
-                  "referencedDeclaration": 1269,
+                  "referencedDeclaration": 2085,
                   "type": "contract StandardToken"
                 },
                 "id": 6,
@@ -232,7 +232,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "BurnableToken",
-                  "referencedDeclaration": 1062,
+                  "referencedDeclaration": 1786,
                   "type": "contract BurnableToken"
                 },
                 "id": 8,
@@ -255,7 +255,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "MintableToken",
-                  "referencedDeclaration": 1168,
+                  "referencedDeclaration": 1892,
                   "type": "contract MintableToken"
                 },
                 "id": 10,
@@ -573,7 +573,7 @@
               "payable": false,
               "scope": 91,
               "stateMutability": "nonpayable",
-              "superFunction": 1061,
+              "superFunction": 1785,
               "visibility": "public"
             },
             "children": [
@@ -653,7 +653,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "burn",
-                              "referencedDeclaration": 1061,
+                              "referencedDeclaration": 1785,
                               "type": "function (uint256)"
                             },
                             "children": [
@@ -663,7 +663,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1309,
+                                  "referencedDeclaration": 2125,
                                   "type": "contract super TokenizedAsset",
                                   "value": "super"
                                 },
@@ -736,7 +736,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1107,
+                              "referencedDeclaration": 1831,
                               "type": "function (address,address,uint256)",
                               "value": "Transfer"
                             },
@@ -762,7 +762,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1281,
+                                  "referencedDeclaration": 2097,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -877,7 +877,7 @@
               "payable": false,
               "scope": 91,
               "stateMutability": "nonpayable",
-              "superFunction": 1167,
+              "superFunction": 1891,
               "visibility": "public"
             },
             "children": [
@@ -1012,7 +1012,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "mint",
-                              "referencedDeclaration": 1167,
+                              "referencedDeclaration": 1891,
                               "type": "function (address,uint256) returns (bool)"
                             },
                             "children": [
@@ -1022,7 +1022,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1309,
+                                  "referencedDeclaration": 2125,
                                   "type": "contract super TokenizedAsset",
                                   "value": "super"
                                 },
@@ -1095,7 +1095,7 @@
               "payable": false,
               "scope": 91,
               "stateMutability": "nonpayable",
-              "superFunction": 1268,
+              "superFunction": 2084,
               "visibility": "public"
             },
             "children": [
@@ -1260,7 +1260,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "transferFrom",
-                              "referencedDeclaration": 1268,
+                              "referencedDeclaration": 2084,
                               "type": "function (address,address,uint256) returns (bool)"
                             },
                             "children": [
@@ -1270,7 +1270,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1309,
+                                  "referencedDeclaration": 2125,
                                   "type": "contract super TokenizedAsset",
                                   "value": "super"
                                 },
@@ -1374,7 +1374,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "SafeMath",
-                  "referencedDeclaration": 865,
+                  "referencedDeclaration": 1313,
                   "type": "library SafeMath"
                 },
                 "id": 92,
@@ -2303,7 +2303,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "sub",
-                              "referencedDeclaration": 840,
+                              "referencedDeclaration": 1288,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -2505,7 +2505,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1281,
+                                  "referencedDeclaration": 2097,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -2570,14 +2570,14 @@
     "4224": {
       "events": {},
       "links": {},
-      "address": "0x410baf073f717e147dfe33e33bbc2c50e4f645ed"
+      "address": "0x5a3b4130910ace1611aea7e08a55c7e9c4adf1a6"
     },
-    "1516785236119": {
+    "1517290974858": {
       "events": {},
       "links": {},
-      "address": "0x8f54c2a3340e9bb3848d7fe78c831095c69740b8"
+      "address": "0x115bb2cb2bcad9fdfc8f1183cc297abb2c8dfe99"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-24T10:32:58.408Z"
+  "updatedAt": "2018-01-30T07:40:29.914Z"
 }

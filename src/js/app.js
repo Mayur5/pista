@@ -11,39 +11,18 @@ $(function() {
 
   var contract = new web3.eth.Contract([
     {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_name",
-          "type": "string"
-        },
-        {
-          "name": "_email",
-          "type": "string"
-        },
-        {
-          "name": "_incomingAsset",
-          "type": "address"
-        },
-        {
-          "name": "_outgoingAsset",
-          "type": "address"
-        }
-      ],
-      "name": "createTempDepartment",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "constant": true,
-      "inputs": [],
-      "name": "getDepartmentsSize",
-      "outputs": [
+      "inputs": [
         {
           "name": "",
           "type": "uint256"
+        }
+      ],
+      "name": "names",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
         }
       ],
       "payable": false,
@@ -51,45 +30,52 @@ $(function() {
       "type": "function"
     },
     {
-      "constant": false,
+      "constant": true,
       "inputs": [
         {
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "amount",
+          "name": "",
           "type": "uint256"
-        },
-        {
-          "name": "assetContractAddr",
-          "type": "address"
         }
       ],
-      "name": "transferAsset",
+      "name": "contracts",
       "outputs": [
         {
           "name": "",
-          "type": "bool"
+          "type": "address"
         }
       ],
       "payable": false,
-      "stateMutability": "nonpayable",
+      "stateMutability": "view",
       "type": "function"
     },
     {
       "constant": true,
       "inputs": [
         {
-          "name": "index",
+          "name": "i",
           "type": "uint256"
         }
       ],
-      "name": "getDepartmentAccAddr",
+      "name": "getName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAddress",
       "outputs": [
         {
           "name": "",
@@ -104,73 +90,26 @@ $(function() {
       "constant": false,
       "inputs": [
         {
-          "name": "_email",
+          "name": "name",
           "type": "string"
         },
         {
-          "name": "_accAddr",
+          "name": "symbol",
+          "type": "string"
+        }
+      ],
+      "name": "createAssetContract",
+      "outputs": [
+        {
+          "name": "",
           "type": "address"
         }
       ],
-      "name": "createDepartment",
-      "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "email",
-          "type": "string"
-        }
-      ],
-      "name": "getAccWithEmail",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "_accAddr",
-          "type": "address"
-        }
-      ],
-      "name": "getDepartment",
-      "outputs": [
-        {
-          "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "address"
-        },
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
       "type": "function"
     }
-  ], "0x406a54fec90598daed3519caea3cd4bb5f469618");
-
-  //var contract = abi.options.at("0x2949c974dec09777dd16c7291e119d119d324bc4");
+  ], "0x644adacfa29375aa0a4ea875bb31d47bcff860fc");
 
   async function createAccount() {
     let response = await web3.eth.accounts.create(web3.utils.randomHex(32));

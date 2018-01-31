@@ -65,6 +65,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
 **/
 contract TokenizedAssetFactory {
     string[] public names;
+    string[] public symbols;
     address[] public contracts;
 
     /**
@@ -73,12 +74,13 @@ contract TokenizedAssetFactory {
      * @param name    The name of the token to be created
      * @param symbol    The symbol of the token to be created
      */
-    function createAssetContract(string name, string symbol) returns(address) {
-        address assetContractAddr = new TokenizedAsset(name, symbol);
+    function createAssetContract(string name, string symbol) returns(TokenizedAsset) {
+        TokenizedAsset ta = new TokenizedAsset(name, symbol);
         names.push(name);
-        contracts.push(assetContractAddr);
+        symbols.push(symbol);
+        contracts.push(ta);
 
-        return assetContractAddr;
+        return ta;
     }
 
     /**
@@ -91,11 +93,28 @@ contract TokenizedAssetFactory {
     }
 
     /**
+     * Method to fetch a specific asset's symbol
+     *
+     * @param i    Index to be fetched
+     */
+    function getSymbol(uint i) constant returns(string) {
+        return symbols[i];
+    }
+
+    /**
      * Method to fetch a specific asset's contract address
      *
      * @param i    Index to be fetched
      */
     function getAddress(uint i) constant returns(address) {
         return contracts[i];
+    }
+
+    /**
+     * Method to fetch array size
+     *
+     */
+    function getNameSize() constant returns(uint) {
+        return names.length;
     }
 }

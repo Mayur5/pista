@@ -194,7 +194,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1270,
+          "SourceUnit": 2086,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/StandardToken.sol",
           "file": "./token/StandardToken.sol",
           "scope": 471,
@@ -209,7 +209,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1063,
+          "SourceUnit": 1787,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/BurnableToken.sol",
           "file": "./token/BurnableToken.sol",
           "scope": 471,
@@ -224,7 +224,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1169,
+          "SourceUnit": 1893,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/MintableToken.sol",
           "file": "./token/MintableToken.sol",
           "scope": 471,
@@ -239,7 +239,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 866,
+          "SourceUnit": 1314,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/math/SafeMath.sol",
           "file": "./math/SafeMath.sol",
           "scope": 471,
@@ -255,26 +255,26 @@
       {
         "attributes": {
           "contractDependencies": [
-            921,
-            1007,
-            1062,
-            1079,
-            1108,
-            1168,
-            1269
+            1645,
+            1731,
+            1786,
+            1803,
+            1832,
+            1892,
+            2085
           ],
           "contractKind": "contract",
           "documentation": "An ERC20 compliant token generator Contract with all the basic functionality of\nTransfer, TransferFrom, GetBalance\nBasic ERC20 functionality extended to included token burnability and token mintability*",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             273,
-            1168,
-            921,
-            1062,
-            1269,
-            1007,
-            1079,
-            1108
+            1892,
+            1645,
+            1786,
+            2085,
+            1731,
+            1803,
+            1832
           ],
           "name": "TokenizedAsset",
           "scope": 471
@@ -291,7 +291,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "StandardToken",
-                  "referencedDeclaration": 1269,
+                  "referencedDeclaration": 2085,
                   "type": "contract StandardToken"
                 },
                 "id": 188,
@@ -314,7 +314,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "BurnableToken",
-                  "referencedDeclaration": 1062,
+                  "referencedDeclaration": 1786,
                   "type": "contract BurnableToken"
                 },
                 "id": 190,
@@ -337,7 +337,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "MintableToken",
-                  "referencedDeclaration": 1168,
+                  "referencedDeclaration": 1892,
                   "type": "contract MintableToken"
                 },
                 "id": 192,
@@ -655,7 +655,7 @@
               "payable": false,
               "scope": 273,
               "stateMutability": "nonpayable",
-              "superFunction": 1061,
+              "superFunction": 1785,
               "visibility": "public"
             },
             "children": [
@@ -735,7 +735,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "burn",
-                              "referencedDeclaration": 1061,
+                              "referencedDeclaration": 1785,
                               "type": "function (uint256)"
                             },
                             "children": [
@@ -745,7 +745,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1313,
+                                  "referencedDeclaration": 2129,
                                   "type": "contract super TokenizedAsset",
                                   "value": "super"
                                 },
@@ -818,7 +818,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1107,
+                              "referencedDeclaration": 1831,
                               "type": "function (address,address,uint256)",
                               "value": "Transfer"
                             },
@@ -844,7 +844,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1281,
+                                  "referencedDeclaration": 2097,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -959,7 +959,7 @@
               "payable": false,
               "scope": 273,
               "stateMutability": "nonpayable",
-              "superFunction": 1167,
+              "superFunction": 1891,
               "visibility": "public"
             },
             "children": [
@@ -1094,7 +1094,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "mint",
-                              "referencedDeclaration": 1167,
+                              "referencedDeclaration": 1891,
                               "type": "function (address,uint256) returns (bool)"
                             },
                             "children": [
@@ -1104,7 +1104,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1313,
+                                  "referencedDeclaration": 2129,
                                   "type": "contract super TokenizedAsset",
                                   "value": "super"
                                 },
@@ -1177,7 +1177,7 @@
               "payable": false,
               "scope": 273,
               "stateMutability": "nonpayable",
-              "superFunction": 1268,
+              "superFunction": 2084,
               "visibility": "public"
             },
             "children": [
@@ -1342,7 +1342,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "transferFrom",
-                              "referencedDeclaration": 1268,
+                              "referencedDeclaration": 2084,
                               "type": "function (address,address,uint256) returns (bool)"
                             },
                             "children": [
@@ -1352,7 +1352,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1313,
+                                  "referencedDeclaration": 2129,
                                   "type": "contract super TokenizedAsset",
                                   "value": "super"
                                 },
@@ -4057,14 +4057,14 @@
     "4224": {
       "events": {},
       "links": {},
-      "address": "0x406a54fec90598daed3519caea3cd4bb5f469618"
+      "address": "0xfbfc94e5cec3ca42aa5641db6e0b32c694388648"
     },
-    "1516785236119": {
+    "1517290974858": {
       "events": {},
       "links": {},
-      "address": "0x66b92d24f17b196be0fbe1b273d62ae1791e5136"
+      "address": "0xd380cd7971b314fdac70d0e7ed53f50e5df0bc7d"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-24T10:32:58.398Z"
+  "updatedAt": "2018-01-30T07:40:29.902Z"
 }
