@@ -15,7 +15,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
 
     string  public name;
     string  public symbol;
-    uint8   public constant decimals = 18;
+    uint8   public constant DECIMALS = 18;
 
     /**
      * Asset/Token constructor
@@ -31,7 +31,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the burn function
      *
-     * @param _value    The amount of tokens to burn in mini-RBC
+     * @param _value    The amount of tokens to burn
      */
     function burn(uint256 _value) public {
         super.burn(_value);
@@ -51,9 +51,9 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the transferFrom function
      *
-     * @param _from    The amount of tokens to burn in mini-RBC
-     * @param _to    The amount of tokens to burn in mini-RBC
-     * @param _amount    The amount of tokens to burn in mini-RBC
+     * @param _from    The account to transfer from
+     * @param _to    The account to transfer to
+     * @param _amount    The amount to transfer
      */
     function transferFrom(address _from, address _to, uint _amount) public returns (bool) {
         return super.transferFrom(_from, _to, _amount);
@@ -87,7 +87,7 @@ contract Sources {
      * @param _email    The email of the Source's admin
      * @param _outgoingAsset    The address of the asset/token Contract address that the Source can transfer out to another Source in the value chain
      */
-    function createTempSource(string _name, string _email, address _outgoingAsset) {
+    function createTempSource(string _name, string _email, address _outgoingAsset) public {
         Source memory d = Source(_name, _email, _outgoingAsset);
         TempSources[_email] = d;
     }
@@ -99,7 +99,7 @@ contract Sources {
      * @param _email    The email of the Source's admin
      * @param _accAddr    The wallet address the Source
      */
-    function createSource(string _email, address _accAddr) {
+    function createSource(string _email, address _accAddr) public {
         sourceAddrs.push(_accAddr);
         Source memory d = TempSources[_email];
         Sources[_accAddr] = d;
@@ -113,7 +113,7 @@ contract Sources {
      *
      * @param _accAddr    The wallet address the source
      */
-    function getSource(address _accAddr) constant returns(string, string, address) {
+    function getSource(address _accAddr) public constant returns(string, string, address) {
         string name = Sources[_accAddr].name;
         string email = Sources[_accAddr].email;
         address outgoingAsset = Sources[_accAddr].outgoingAsset;
@@ -125,7 +125,7 @@ contract Sources {
      *
      * @param index    The index to be fetched
      */
-    function getSourceAccAddr(uint8 index) constant returns (address) {
+    function getSourceAccAddr(uint8 index) public constant returns (address) {
         return sourceAddrs[index];
     }
 
@@ -133,7 +133,7 @@ contract Sources {
      * Method to get the size of the arbitrary source address array
      *
      */
-    function getSourcesSize() constant returns (uint) {
+    function getSourcesSize() public constant returns (uint) {
         return sourceAddrs.length;
     }
 
@@ -142,7 +142,7 @@ contract Sources {
      *
      * @param email    The email of the admin of a specific source
      */
-    function getAccWithEmail(string email) constant returns (address) {
+    function getAccWithEmail(string email) public constant returns (address) {
         return emailAccSource[email];
     }
 
@@ -152,7 +152,7 @@ contract Sources {
      * @param amount    The number of tokens to be minted
      * @param assetContractAddr    The asset/token contract address
      */
-    function addAssetAmount(uint amount, address assetContractAddr) returns (bool) {
+    function addAssetAmount(uint amount, address assetContractAddr) public returns (bool) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
         return asset.mint(msg.sender, amount);
     }
@@ -165,7 +165,7 @@ contract Sources {
      * @param amount    The number of tokens to be transferred
      * @param assetContractAddr    The asset/token contract address
      */
-    function transferAsset(address from, address to, uint amount, address assetContractAddr) returns (bool) {
+    function transferAsset(address from, address to, uint amount, address assetContractAddr) public returns (bool) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
         return asset.transferFrom(from, to, amount);
     }

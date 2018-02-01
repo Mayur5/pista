@@ -15,7 +15,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
 
     string  public name;
     string  public symbol;
-    uint8   public constant decimals = 18;
+    uint8   public constant DECIMALS = 18;
 
     /**
      * Asset/Token constructor
@@ -31,7 +31,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the burn function
      *
-     * @param _value    The amount of tokens to burn in mini-RBC
+     * @param _value    The amount of tokens to burn
      */
     function burn(uint256 _value) public {
         super.burn(_value);
@@ -51,9 +51,9 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the transferFrom function
      *
-     * @param _from    The amount of tokens to burn in mini-RBC
-     * @param _to    The amount of tokens to burn in mini-RBC
-     * @param _amount    The amount of tokens to burn in mini-RBC
+     * @param _from    The account to transfer from
+     * @param _to    The account to transfer to
+     * @param _amount    The amount to transfer
      */
     function transferFrom(address _from, address _to, uint _amount) public returns (bool) {
         return super.transferFrom(_from, _to, _amount);
