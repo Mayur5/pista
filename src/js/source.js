@@ -163,7 +163,52 @@ $(function() {
         }
       ], "0xf38abf53d19bebf224064c23dfe0cd503e8d2a5d");
 
-    var deptContract = new web3.eth.Contract([
+    var sourceContract = new web3.eth.Contract([
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "createSource",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getSource",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "constant": false,
       "inputs": [
@@ -176,32 +221,37 @@ $(function() {
           "type": "string"
         },
         {
-          "name": "_incomingAsset",
-          "type": "address"
-        },
-        {
           "name": "_outgoingAsset",
           "type": "address"
         }
       ],
-      "name": "createTempDepartment",
+      "name": "createTempSource",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
     },
     {
-      "constant": true,
-      "inputs": [],
-      "name": "getDepartmentsSize",
+      "constant": false,
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "assetContractAddr",
+          "type": "address"
+        }
+      ],
+      "name": "addAssetAmount",
       "outputs": [
         {
           "name": "",
-          "type": "uint256"
+          "type": "bool"
         }
       ],
       "payable": false,
-      "stateMutability": "view",
+      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -240,10 +290,10 @@ $(function() {
       "inputs": [
         {
           "name": "index",
-          "type": "uint256"
+          "type": "uint8"
         }
       ],
-      "name": "getDepartmentAccAddr",
+      "name": "getSourceAccAddr",
       "outputs": [
         {
           "name": "",
@@ -252,24 +302,6 @@ $(function() {
       ],
       "payable": false,
       "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_email",
-          "type": "string"
-        },
-        {
-          "name": "_accAddr",
-          "type": "address"
-        }
-      ],
-      "name": "createDepartment",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
       "type": "function"
     },
     {
@@ -293,47 +325,27 @@ $(function() {
     },
     {
       "constant": true,
-      "inputs": [
-        {
-          "name": "_accAddr",
-          "type": "address"
-        }
-      ],
-      "name": "getDepartment",
+      "inputs": [],
+      "name": "getSourcesSize",
       "outputs": [
         {
           "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "address"
-        },
-        {
-          "name": "",
-          "type": "address"
+          "type": "uint256"
         }
       ],
       "payable": false,
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xfbfc94e5cec3ca42aa5641db6e0b32c694388648");
+  ], "0xba6b664798c8653c12c262ceb893972ee564b1ee");
 
     $('.createDeptBtn').click(function(){
     	var name = $('#deptName').val();
     	var email = $('#deptEmail').val();
-    	var incomingAsset = web3.utils.toHex($('.incomingAsset').find(":selected").val());
-    	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
+    	var outgoingAsset = $('.outgoingAsset').find(":selected").val();
 
-    	console.log('incomingAsset', $('.incomingAsset').find(":selected").val());
-
-    	deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
-	    	var result = deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
+    	sourceContract.methods.createTempSource(name, email, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
+	    	var result = sourceContract.methods.createTempSource(name, email, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
 	        	console.log("addr", res);
 	     	});	
 	    })
@@ -341,12 +353,12 @@ $(function() {
     		
 	});
 
-	function getDepartment(){
-		return deptContract.methods.getDepartment(index).call();
+	function getSource(){
+		return sourceContract.methods.getSource(index).call();
 	}
 
-	function getDepartmentsSize() {
-	    return deptContract.methods.getDepartmentsSize().call();
+	function getSourcesSize() {
+	    return sourceContract.methods.getSourcesSize().call();
 	}
 
 	function getName(index) {
@@ -364,19 +376,19 @@ $(function() {
 	}
 
 	async function setTableRows() {
-	    var deptTable = $("#departmentTable tbody");
-	    let size = await getDepartmentsSize();
+	    var sourceTable = $("#sourcesTable tbody");
+	    let size = await getSourcesSize();
 
 	    console.log('size', size);
 
 	    for (var i = 0; i < size; i++) {
-	    	let [department] = await Promise.all([getDepartment(i)]);
+	    	let [source] = await Promise.all([getSource(i)]);
 
-	    	console.log('department', department);
+	    	console.log('source', source);
 
 	    	let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
 
-      		deptTable.append(newRow);
+      		sourceTable.append(newRow);
 	    }
 	}
 
