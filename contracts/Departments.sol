@@ -15,7 +15,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
 
     string  public name;
     string  public symbol;
-    uint8   public constant decimals = 18;
+    uint8   public constant DECIMALS = 18;
 
     /**
      * Asset/Token constructor
@@ -31,7 +31,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the burn function
      *
-     * @param _value    The amount of tokens to burn in mini-RBC
+     * @param _value    The amount of tokens to burn
      */
     function burn(uint256 _value) public {
         super.burn(_value);
@@ -51,9 +51,9 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the transferFrom function
      *
-     * @param _from    The amount of tokens to burn in mini-RBC
-     * @param _to    The amount of tokens to burn in mini-RBC
-     * @param _amount    The amount of tokens to burn in mini-RBC
+     * @param _from    The account to transfer from
+     * @param _to    The account to transfer to
+     * @param _amount    The amount to transfer
      */
     function transferFrom(address _from, address _to, uint _amount) public returns (bool) {
         return super.transferFrom(_from, _to, _amount);
@@ -88,7 +88,7 @@ contract Departments {
      * @param _incomingAsset    The address of the asset/token Contract address that the department can receive from a source/department in the value chain
      * @param _outgoingAsset    The address of the asset/token Contract address that the department can transfer out to another department in the value chain
      */
-    function createTempDepartment(string _name, string _email, address _incomingAsset, address _outgoingAsset) {
+    function createTempDepartment(string _name, string _email, address _incomingAsset, address _outgoingAsset) public {
         Department memory d = Department(_name, _email, _incomingAsset, _outgoingAsset);
         TempDepartments[_email] = d;
     }
@@ -100,7 +100,7 @@ contract Departments {
      * @param _email    The email of the department's admin
      * @param _accAddr    The wallet address the department
      */
-    function createDepartment(string _email, address _accAddr) {
+    function createDepartment(string _email, address _accAddr) public {
         departmentAddrs.push(_accAddr);
         Department memory d = TempDepartments[_email];
         Departments[_accAddr] = d;
@@ -114,7 +114,7 @@ contract Departments {
      *
      * @param _accAddr    The wallet address the department
      */
-    function getDepartment(address _accAddr) constant returns(string, string, address, address) {
+    function getDepartment(address _accAddr) public constant returns(string, string, address, address) {
         string name = Departments[_accAddr].name;
         string email = Departments[_accAddr].email;
         address incomingAsset = Departments[_accAddr].incomingAsset;
@@ -127,7 +127,7 @@ contract Departments {
      *
      * @param index    The index to be fetched
      */
-    function getDepartmentAccAddr(uint index) constant returns (address) {
+    function getDepartmentAccAddr(uint index) public constant returns (address) {
         return departmentAddrs[index];
     }
 
@@ -135,7 +135,7 @@ contract Departments {
      * Method to get the size of the arbitrary department address array
      *
      */
-    function getDepartmentsSize() constant returns (uint) {
+    function getDepartmentsSize() public constant returns (uint) {
         return departmentAddrs.length;
     }
 
@@ -144,7 +144,7 @@ contract Departments {
      *
      * @param email    The email of the admin of a specific department
      */
-    function getAccWithEmail(string email) constant returns (address) {
+    function getAccWithEmail(string email) public constant returns (address) {
         return emailAccDepartment[email];
     }
 
@@ -156,7 +156,7 @@ contract Departments {
      * @param amount    The number of tokens to be transferred
      * @param assetContractAddr    The asset/token contract address
      */
-    function transferAsset(address from, address to, uint amount, address assetContractAddr) returns (bool) {
+    function transferAsset(address from, address to, uint amount, address assetContractAddr) public returns (bool) {
         TokenizedAsset asset = TokenizedAsset(assetContractAddr);
         return asset.transferFrom(from, to, amount);
     }

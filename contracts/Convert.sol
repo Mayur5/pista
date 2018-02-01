@@ -15,7 +15,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
 
     string  public name;
     string  public symbol;
-    uint8   public constant decimals = 18;
+    uint8   public constant DECIMALS = 18;
 
     /**
      * Asset/Token constructor
@@ -23,7 +23,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
      * @param _name    The name of the token to be created
      * @param _name    The symbol of the token to be created
      */
-    function TokenizedAsset (string _name, string _symbol) payable {
+    function TokenizedAsset (string _name, string _symbol) payable public {
         name = _name;
         symbol = _symbol;
     }
@@ -31,7 +31,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the burn function
      *
-     * @param _value    The amount of tokens to burn in mini-RBC
+     * @param _value    The amount of tokens to burn
      */
     function burn(uint256 _value) public {
         super.burn(_value);
@@ -51,9 +51,9 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
     /**
      * Overrides the transferFrom function
      *
-     * @param _from    The amount of tokens to burn in mini-RBC
-     * @param _to    The amount of tokens to burn in mini-RBC
-     * @param _amount    The amount of tokens to burn in mini-RBC
+     * @param _from    The account to transfer from
+     * @param _to    The account to transfer to
+     * @param _amount    The amount to transfer
      */
     function transferFrom(address _from, address _to, uint _amount) public returns (bool) {
         return super.transferFrom(_from, _to, _amount);
@@ -78,7 +78,7 @@ contract Convert {
      * @param incomingAsset The converted asset/token contract address
      * @param rate The conversion rate
      */
-    function setConversionRate(address incomingAsset, address outgoingAsset, uint rate) {
+    function setConversionRate(address incomingAsset, address outgoingAsset, uint rate) public {
         ConversionRate[incomingAsset][outgoingAsset] = rate;
     }
 
@@ -88,7 +88,7 @@ contract Convert {
      * @param incomingAsset The original asset/token contract address
      * @param incomingAsset The converted asset/token contract address
      */
-    function getConversionRate(address incomingAsset, address outgoingAsset) constant returns (uint) {
+    function getConversionRate(address incomingAsset, address outgoingAsset) public constant returns (uint) {
         return ConversionRate[incomingAsset][outgoingAsset];
     }
 
@@ -101,7 +101,7 @@ contract Convert {
      * @param originalAssetContractAddr The original asset/token contract address
      * @param convertedAssetContractAddr The converted asset/token contract address
      */
-    function convertAsset(uint expectedAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) returns (bool) {
+    function convertAsset(uint expectedAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) public returns (bool) {
         TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
         TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
 
