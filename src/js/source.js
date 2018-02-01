@@ -339,10 +339,10 @@ $(function() {
     }
   ], "0xba6b664798c8653c12c262ceb893972ee564b1ee");
 
-    $('.createDeptBtn').click(function(){
-    	var name = $('#deptName').val();
-    	var email = $('#deptEmail').val();
-    	var outgoingAsset = $('.outgoingAsset').find(":selected").val();
+    $('.createSourceBtn').click(function(){
+    	var name = $('#sourceName').val();
+    	var email = $('#sourceEmail').val();
+    	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
 
     	sourceContract.methods.createTempSource(name, email, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
 	    	var result = sourceContract.methods.createTempSource(name, email, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
@@ -400,7 +400,6 @@ $(function() {
 
 	      let newRow = `<option value=${address}>${name} - ${symbol}</option>`;
 
-	      $('.incomingAsset').append(newRow);
 	      $('.outgoingAsset').append(newRow);
 	    }
 	}

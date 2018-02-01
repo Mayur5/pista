@@ -117,30 +117,6 @@ $(function() {
     return response;
   }
 
-  async function createTempDepartment(deptName, deptEmail, incomingAsset, outgoingAsset){
-    let response = await contract.createTempDepartment(deptName, deptEmail, incomingAsset, outgoingAsset, deptAddress);
-
-    return response;
-  }
-
-  async function createDepartment(email, address){
-    let response = await contract.createDepartment(email, address);
-
-    return response;
-  }
-
-  async function createTempSource(sourceName, sourceEmail, outgoingAsset){
-    let response = await contract.createTempSource(deptName, deptEmail, outgoingAsset);
-
-    return response;
-  }
-
-  async function createSource(email, address){
-    let response = await contract.createSource(email, address);
-
-    return response;
-  }
-
   async function createWallet(account){
     let response = await web3.eth.accounts.wallet.add(account);
 
@@ -214,12 +190,11 @@ $(function() {
     });
 
     //check if user is valid - sign in user
-    $('.deptSignInBtn').click(function(){
+    /*$('.deptSignInBtn').click(function(){
       if (typeof web3 !== 'undefined') {
           window.web3 = new Web3(web3.currentProvider);
           if (web3.currentProvider.isMetaMask === true) {
             getCurrentAccount().then((result) => {
-              console.log('result', result[0]);
               var currentAccount = result[0];
               //if(account == currentAccount){
                 $('.accountAddr')[0].innerHTML = result[0];
@@ -247,16 +222,16 @@ $(function() {
                   }
                 }
               }
-            });*/
+            });
           }
         }
 
-      /*contract.getAccWithEmail(email, function(error, result){
+      contract.getAccWithEmail(email, function(error, result){
         var account = result.address;
 
         
-      });*/
-    });
+      });
+    });*/
 
     //new user
     $('.newUserCheck').click(function(){
@@ -271,20 +246,20 @@ $(function() {
     });
 
     //new department sign up
-    $('.signUpBtn').click(function(){
+    /*$('.signUpBtn').click(function(){
       /*if (typeof web3 !== 'undefined') {
         web3 = new Web3(web3.currentProvider);
       } 
       else {
         // set the provider you want from Web3.providers
         web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
-      }*/
+      }
 
       var email = $('#email').val();
 
       location.href = 'assets.html';
 
-      /*createAccount().then((result) => {
+      createAccount().then((result) => {
         var account = result;
         createWallet(account).then((result) => {
           accountCreated = result;
@@ -299,11 +274,11 @@ $(function() {
             $('.signUpForm').hide();
           });
         });
-      });*/
-    });
+      });
+    });*/
 
     //new source sign up
-    $('.sourceSignUp').click(function(){
+    /*$('.sourceSignUp').click(function(){
       if (typeof web3 !== 'undefined') {
         web3 = new Web3(web3.currentProvider);
       } 
@@ -331,7 +306,7 @@ $(function() {
           });
         });
       });
-    });
+    });*/
 
     //check if metamask exists
     $('.check').click(function(){
@@ -436,78 +411,6 @@ $(function() {
     });
   });
 
-  //get departments list
-  contract.methods.getDepartmentsSize().call(function(error, result){
-    var departmentsSize = result;
-    console.log("size", result);
-    
-    var deptAddrArray = [];
-
-    //get department address
-    for(var i = 0; i < departmentsSize; i++){
-      contract.getDepartmentAccAddr(i, function(error, result){
-        deptAddrArray.push(result);
-      });
-    }
-
-    //get department details
-    for(var i=0; i < departmentsSize; i++){
-      contract.getDepartment(deptAddrArray[i], function(error, result){
-        $('.departmentTable').append('<tr><td>'+result.name+'</td><td>'+result.email+'</td><td>'+result.incomingAsset+'</td><td>'+result.outgoingAsset+'</td></tr>')
-      });
-    }
-  });
-
-  //function to get source list
-  contract.getSourcesSize(function(error, result){
-    var sourcesSize = result;
-    var sourceAddrArray = [];
-
-    //get source address
-    for(var i = 0; i < sourcesSize; i++){
-      contract.getSourceAccAddr(i, function(error, result){
-        sourceAddrArray.push(result);
-      });
-    }
-
-    //get source details
-    for(var i=0; i < sourcesSize; i++){
-      contract.getSource(sourceAddrArray[i], function(error, result){
-        $('.sourcesTable').append('<tr><td>'+result.name+'</td><td>'+result.email+'</td><td>'+result.outgoingAsset+'</td></tr>')
-      });
-    }
-  });
-
-  //function to create temporary source 
-  $('.createSourceBtn').click(function(){
-    var sourceName = $('#sourceName').val();
-    var sourceEmail = $('#sourceEmail').val();
-    var outgoingAsset = $('.outgoingAsset').find(":selected").val();
-
-    createTempSource(sourceName, sourceEmail, outgoingAsset).then((result) => {
-      console.log("result", result);
-    });
-  });
-
-  //function to convert an asset by a department
-  $('.convertAssetBtn').click(function(){
-    var assetName = $('#assetName').val();
-    var expectedAmount = $('#expectedAmount').val();
-    var actualAmount = $('#actualAmount').val();
-    var originalAssetAddr;
-    var convertedAssetAddr;
-
-    getContractAddress(assetName).then((result) => {
-      originalAssetAddr = result.address;
-      getContractAddress(assetName).then((result) => {
-        convertedAssetAddr = result.address;
-
-        convertAsset(expectedAmount, actualAmount, originalAssetAddr, convertedAssetAddr).then((result) => {
-          console.log('result', result);
-        });
-      });
-    });
-  });
 
   //function to add amount to asset by source
   $('.addAssetAmountBtn').click(function(){
