@@ -10,158 +10,196 @@ $(function() {
     }
 
     var tokenContract = new web3.eth.Contract([
+    {
+      "constant": true,
+      "inputs": [
         {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "name": "names",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "name": "contracts",
-          "outputs": [
-            {
-              "name": "",
-              "type": "address"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "i",
-              "type": "uint256"
-            }
-          ],
-          "name": "getSymbol",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "i",
-              "type": "uint256"
-            }
-          ],
-          "name": "getName",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [],
-          "name": "getNameSize",
-          "outputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "i",
-              "type": "uint256"
-            }
-          ],
-          "name": "getAddress",
-          "outputs": [
-            {
-              "name": "",
-              "type": "address"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "name": "symbols",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": false,
-          "inputs": [
-            {
-              "name": "name",
-              "type": "string"
-            },
-            {
-              "name": "symbol",
-              "type": "string"
-            }
-          ],
-          "name": "createAssetContract",
-          "outputs": [
-            {
-              "name": "",
-              "type": "address"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "type": "function"
+          "name": "",
+          "type": "uint256"
         }
-      ], "0xf38abf53d19bebf224064c23dfe0cd503e8d2a5d");
+      ],
+      "name": "names",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "contracts",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSymbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getNameSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_assetAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getContractSymbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "symbols",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        }
+      ],
+      "name": "createAssetContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_assetAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getContractName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
 
     var sourceContract = new web3.eth.Contract([
     {
@@ -435,6 +473,11 @@ $(function() {
     return sourceContract.methods.getSource(addr).call();
   }
 
+  //get asset name from address
+  function getAssetName(assetAddr){
+    return tokenContract.methods.getContractName(assetAddr).call();
+  }
+
   //get assets data
 	function getName(index) {
 	    return tokenContract.methods.getName(index).call();
@@ -459,7 +502,9 @@ $(function() {
 	    	let [sourceEmail] = await Promise.all([getTempSourceEmail(i)]);
         let [source] = await Promise.all([getTempSource(sourceEmail)]);
 
-	    	let newRow = `<tr><td>${source[0]}</td><td>${source[1]}</td><td>${source[2]}</td><td>Pending</td></tr>`;
+        let [outgoingAssetName] = await Promise.all([getAssetName(source[2])]);
+
+	    	let newRow = `<tr><td>${source[0]}</td><td>${source[1]}</td><td>${outgoingAssetName}</td><td>Pending</td></tr>`;
 
       	sourceTable.append(newRow);
 	    }
@@ -469,7 +514,9 @@ $(function() {
         let [sourceAddr] = await Promise.all([getSourceEmail(i)]);
         let [source] = await Promise.all([getSource(sourceAddr)]);
 
-        let newRow = `<tr><td>${source[0]}</td><td>${source[1]}</td><td>${source[2]}</td><td>Completed</td></tr>`;
+        let [outgoingAssetName] = await Promise.all([getAssetName(source[2])]);
+
+        let newRow = `<tr><td>${source[0]}</td><td>${source[1]}</td><td>${outgoingAssetName}</td><td>Completed</td></tr>`;
 
         sourceTable.append(newRow);
       }
