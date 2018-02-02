@@ -458,9 +458,9 @@ $(function() {
     }
 
     for (var i = 0; i < size; i++) {
-    	let [department] = await Promise.all([getDepartmentAccAddr(i)]);
+    	let [departmentAddr] = await Promise.all([getDepartmentAccAddr(i)]);
 
-      let [deptData] = await Promise.all([getDepartment(i)]);
+      let [deptData] = await Promise.all([getDepartment(departmentAddr)]);
 
     	let newRow = `<tr><td>${deptData[0]}</td><td>${deptData[1]}</td><td>${deptData[2]}</td><td>${deptData[3]}</td><td>Completed</td></tr>`;
 

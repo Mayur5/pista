@@ -44,7 +44,7 @@ input[type=text]:not(.browser-default){
 	margin-bottom: 20px !important;
 	margin-top: 10px !important;
 }
-.convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn, .addAssetAmountBtn, .createDeptBtn{
+.download, .continue, .sourceSignUp, .continueSourceBtn, .convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn, .addAssetAmountBtn, .createDeptBtn, .createSourceBtn{
 	background-color: #C74B1D !important;
 	color: #fff !important;
 	border-radius: 16px !important;
