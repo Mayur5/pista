@@ -23,7 +23,7 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
      * @param _name    The name of the token to be created
      * @param _name    The symbol of the token to be created
      */
-    function TokenizedAsset (string _name, string _symbol) payable {
+    function TokenizedAsset (string _name, string _symbol) public payable {
         name = _name;
         symbol = _symbol;
     }
@@ -68,17 +68,23 @@ contract TokenizedAssetFactory {
     string[] public symbols;
     address[] public contracts;
 
+    mapping (address => string) AddressName;
+    mapping (address => string) AddressSymbol;
+
     /**
      * Method to call the token constructor and save the name of the token and it's contract address
      *
      * @param name    The name of the token to be created
      * @param symbol    The symbol of the token to be created
      */
-    function createAssetContract(string name, string symbol) returns(TokenizedAsset) {
+    function createAssetContract(string name, string symbol) public returns(TokenizedAsset) {
         TokenizedAsset ta = new TokenizedAsset(name, symbol);
         names.push(name);
         symbols.push(symbol);
         contracts.push(ta);
+
+        AddressName[ta] = name;
+        AddressSymbol[ta] = symbol;
 
         return ta;
     }
@@ -88,7 +94,7 @@ contract TokenizedAssetFactory {
      *
      * @param i    Index to be fetched
      */
-    function getName(uint i) constant returns(string) {
+    function getName(uint i) public constant returns(string) {
         return names[i];
     }
 
@@ -97,7 +103,7 @@ contract TokenizedAssetFactory {
      *
      * @param i    Index to be fetched
      */
-    function getSymbol(uint i) constant returns(string) {
+    function getSymbol(uint i) public constant returns(string) {
         return symbols[i];
     }
 
@@ -106,7 +112,7 @@ contract TokenizedAssetFactory {
      *
      * @param i    Index to be fetched
      */
-    function getAddress(uint i) constant returns(address) {
+    function getAddress(uint i) public constant returns(address) {
         return contracts[i];
     }
 
@@ -114,7 +120,25 @@ contract TokenizedAssetFactory {
      * Method to fetch array size
      *
      */
-    function getNameSize() constant returns(uint) {
+    function getNameSize() public constant returns(uint) {
         return names.length;
+    }
+
+    /**
+     * Method to fetch Contract Name using the Asset's Contract Address
+     *
+     * @param _assetAddr The Asset's Contract Address
+     */
+    function getContractName(address _assetAddr) public constant returns(string) {
+        return AddressName[_assetAddr];
+    }
+
+    /**
+     * Method to fetch Contract Symbol using the Asset's Contract Address
+     *
+     * @param _assetAddr The Asset's Contract Address
+     */
+    function getContractSymbol(address _assetAddr) public constant returns(string) {
+        return AddressSymbol[_assetAddr];
     }
 }
