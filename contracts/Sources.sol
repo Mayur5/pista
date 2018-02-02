@@ -73,9 +73,10 @@ contract Sources {
     }
 
     address[] sourceAddrs;
+    string[] tempSourceEmails;
 
     mapping (string => Source) TempSources;
-    mapping (address => Source) Sources;
+    mapping (address => Source) _Sources;
 
     mapping (string => address) emailAccSource;
 
@@ -88,6 +89,7 @@ contract Sources {
      * @param _outgoingAsset    The address of the asset/token Contract address that the Source can transfer out to another Source in the value chain
      */
     function createTempSource(string _name, string _email, address _outgoingAsset) public {
+        tempSourceEmails.push(_email);
         Source memory d = Source(_name, _email, _outgoingAsset);
         TempSources[_email] = d;
     }
@@ -102,22 +104,43 @@ contract Sources {
     function createSource(string _email, address _accAddr) public {
         sourceAddrs.push(_accAddr);
         Source memory d = TempSources[_email];
-        Sources[_accAddr] = d;
+        _Sources[_accAddr] = d;
 
         delete TempSources[_email];
         emailAccSource[_email] = _accAddr;
     }
 
     /**
+     * Method to get a Source using it's email
+     *
+     * @param _email    The email the source
+     */
+    function getTempSource(string _email) public constant returns(string, string, address) {
+        string name = TempSources[_email].name;
+        string email = TempSources[_email].email;
+        address outgoingAsset = TempSources[_email].outgoingAsset;
+        return(name, email, outgoingAsset);
+    }
+    
+    /**
      * Method to get a Source using it's wallet address
      *
      * @param _accAddr    The wallet address the source
      */
     function getSource(address _accAddr) public constant returns(string, string, address) {
-        string name = Sources[_accAddr].name;
-        string email = Sources[_accAddr].email;
-        address outgoingAsset = Sources[_accAddr].outgoingAsset;
+        string name = _Sources[_accAddr].name;
+        string email = _Sources[_accAddr].email;
+        address outgoingAsset = _Sources[_accAddr].outgoingAsset;
         return(name, email, outgoingAsset);
+    }
+
+    /**
+     * Method to get a Temp Source's email from an arbitrary array
+     *
+     * @param index    The index to be fetched
+     */
+    function getTempSourceEmail(uint index) public constant returns (string) {
+        return tempSourceEmails[index];
     }
 
     /**
@@ -125,8 +148,16 @@ contract Sources {
      *
      * @param index    The index to be fetched
      */
-    function getSourceAccAddr(uint8 index) public constant returns (address) {
+    function getSourceAccAddr(uint index) public constant returns (address) {
         return sourceAddrs[index];
+    }
+
+    /**
+     * Method to get the size of the arbitrary temp source email array
+     *
+     */
+    function getTempSourcesSize() public constant returns (uint) {
+        return tempSourceEmails.length;
     }
 
     /**
