@@ -336,7 +336,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x539dbe002066236c22451313d1741705d526469a");
+  ], "0xab0f91358130bbf37772edda1637ee3a6a4a8e0f");
 
     $('.createDeptBtn').click(function(){
     	var name = $('#deptName').val();
@@ -355,9 +355,12 @@ $(function() {
     		
 	});
 
-	function getDepartment(){
+	function getDepartment(index){
 		return deptContract.methods.getDepartment(index).call();
 	}
+  function getTempDepartment(index){
+    return deptContract.methods.getTempDepartmentEmail(index).call();
+  }
 
 	function getDepartmentsSize() {
 	    return deptContract.methods.getDepartmentsSize().call();
@@ -392,13 +395,11 @@ $(function() {
 	    console.log('temp size', tempSize);
 
       for (var i = 0; i < tempSize; i++) {
-        let [tempDepartment] = await Promise.all([getTempDepartment(i)]);
+        let [tempDeptEmail] = await Promise.all([getTempDepartment(i)]);
+        console.log('tempDeptEmail', tempDeptEmail);
 
-        console.log('department', department);
-
-        let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
-
-          deptTable.append(newRow);
+        //let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
+        //deptTable.append(newRow);
       }
 
 	    for (var i = 0; i < size; i++) {
