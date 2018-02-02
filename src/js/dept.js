@@ -257,8 +257,58 @@ $(function() {
           "type": "uint256"
         }
       ],
+      "name": "getTempDepartmentEmail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
       "name": "getDepartmentAccAddr",
       "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
+        }
+      ],
+      "name": "getTempDepartment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        },
         {
           "name": "",
           "type": "address"
@@ -338,38 +388,47 @@ $(function() {
     }
   ], "0xab0f91358130bbf37772edda1637ee3a6a4a8e0f");
 
-    $('.createDeptBtn').click(function(){
-    	var name = $('#deptName').val();
-    	var email = $('#deptEmail').val();
-    	var incomingAsset = web3.utils.toHex($('.incomingAsset').find(":selected").val());
-    	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
+  //on create department button click
+  $('.createDeptBtn').click(function(){
+  	var name = $('#deptName').val();
+  	var email = $('#deptEmail').val();
+  	var incomingAsset = web3.utils.toHex($('.incomingAsset').find(":selected").val());
+  	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
 
-    	console.log('incomingAsset', $('.incomingAsset').find(":selected").val());
-
-    	deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
-	    	var result = deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-	        	console.log("addr", res);
-	     	});	
-	    })
-	    .on("error", console.log);
-    		
+  	deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
+    	var result = deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
+        	console.log("addr", res);
+     	});	
+    })
+    .on("error", console.log);		
 	});
 
-	function getDepartment(index){
-		return deptContract.methods.getDepartment(index).call();
+  //functions to get department list
+  function getDepartmentsSize() {
+    return deptContract.methods.getDepartmentsSize().call();
+  }
+	function getDepartmentAccAddr(index){
+		return deptContract.methods.getDepartmentAccAddr(index).call();
 	}
-  function getTempDepartment(index){
+  function getDepartment(addr){
+    return deptContract.methods.getDepartment(addr).call();
+  }
+
+  //functions to get temp department lisr
+  function getTempDepartmentsSize() {
+    return deptContract.methods.getTempDepartmentsSize().call();
+  }
+  function getTempDepartmentEmail(index){
     return deptContract.methods.getTempDepartmentEmail(index).call();
   }
-
-	function getDepartmentsSize() {
-	    return deptContract.methods.getDepartmentsSize().call();
-  }
-  
-  function getTempDepartmentsSize() {
-      return deptContract.methods.getTempDepartmentsSize().call();
+  function getTempDepartment(email){
+    return deptContract.methods.getTempDepartment(email).call();
   }
 
+  //functions to get asset data
+  function getNameSize() {
+    return tokenContract.methods.getNameSize().call();
+  }
 	function getName(index) {
 	    return tokenContract.methods.getName(index).call();
 	}
@@ -380,39 +439,36 @@ $(function() {
 		return tokenContract.methods.getAddress(index).call();
 	}
 
-	function getNameSize() {
-		return tokenContract.methods.getNameSize().call();
-	}
-
+  //function to display department data
 	async function setTableRows() {
-	    var deptTable = $("#departmentTable tbody");
-	    let size = await getDepartmentsSize();
+    var deptTable = $("#departmentTable tbody");
+    let size = await getDepartmentsSize();
+    
+    let tempSize = await getTempDepartmentsSize();
 
-      console.log('size', size);
-      
-      let tempSize = await getTempDepartmentsSize();
+    for (var i = 0; i < tempSize; i++) {
+      let [tempDeptEmail] = await Promise.all([getTempDepartmentEmail(i)]);
 
-	    console.log('temp size', tempSize);
+      let [tempDept] = await Promise.all([getTempDepartment(tempDeptEmail)]);
 
-      for (var i = 0; i < tempSize; i++) {
-        let [tempDeptEmail] = await Promise.all([getTempDepartment(i)]);
-        console.log('tempDeptEmail', tempDeptEmail);
+      //get asset name, symbol from address
 
-        //let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
-        //deptTable.append(newRow);
-      }
+      let newRow = `<tr><td>${tempDept[0]}</td><td>${tempDept[1]}</td><td>${tempDept[2]}</td><td>${tempDept[3]}</td><td>Pending</td></tr>`;
+      deptTable.append(newRow);
+    }
 
-	    for (var i = 0; i < size; i++) {
-	    	let [department] = await Promise.all([getDepartment(i)]);
+    for (var i = 0; i < size; i++) {
+    	let [department] = await Promise.all([getDepartmentAccAddr(i)]);
 
-	    	console.log('department', department);
+      let [deptData] = await Promise.all([getDepartment(i)]);
 
-	    	let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
+    	let newRow = `<tr><td>${deptData[0]}</td><td>${deptData[1]}</td><td>${deptData[2]}</td><td>${deptData[3]}</td><td>Completed</td></tr>`;
 
-      		deptTable.append(newRow);
-	    }
+    	deptTable.append(newRow);
+    }
 	}
 
+  //function to display asset list
 	async function getAssetList() {
 		let size = await getNameSize();
         for (var i = 0; i < size; i++) {
@@ -426,12 +482,9 @@ $(function() {
 	    }
 	}
 
-    $(window).load(function() {
-
-    	setTableRows();
-    	getAssetList();
-
-    });
-
+  $(window).load(function() {
+  	setTableRows();
+  	getAssetList();
+  });
 
 });
