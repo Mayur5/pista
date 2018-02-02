@@ -164,165 +164,179 @@ $(function() {
       ], "0xf38abf53d19bebf224064c23dfe0cd503e8d2a5d");
 
     var deptContract = new web3.eth.Contract([
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_name",
-          "type": "string"
-        },
-        {
-          "name": "_email",
-          "type": "string"
-        },
-        {
-          "name": "_incomingAsset",
-          "type": "address"
-        },
-        {
-          "name": "_outgoingAsset",
-          "type": "address"
-        }
-      ],
-      "name": "createTempDepartment",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [],
-      "name": "getDepartmentsSize",
-      "outputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "name": "assetContractAddr",
-          "type": "address"
-        }
-      ],
-      "name": "transferAsset",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
-          "type": "uint256"
-        }
-      ],
-      "name": "getDepartmentAccAddr",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_email",
-          "type": "string"
-        },
-        {
-          "name": "_accAddr",
-          "type": "address"
-        }
-      ],
-      "name": "createDepartment",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "email",
-          "type": "string"
-        }
-      ],
-      "name": "getAccWithEmail",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "_accAddr",
-          "type": "address"
-        }
-      ],
-      "name": "getDepartment",
-      "outputs": [
-        {
-          "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "address"
-        },
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    }
-  ], "0xfbfc94e5cec3ca42aa5641db6e0b32c694388648");
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_name",
+            "type": "string"
+          },
+          {
+            "name": "_email",
+            "type": "string"
+          },
+          {
+            "name": "_incomingAsset",
+            "type": "address"
+          },
+          {
+            "name": "_outgoingAsset",
+            "type": "address"
+          }
+        ],
+        "name": "createTempDepartment",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "getDepartmentsSize",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [],
+        "name": "getTempDepartmentsSize",
+        "outputs": [
+          {
+            "name": "",
+            "type": "uint256"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "from",
+            "type": "address"
+          },
+          {
+            "name": "to",
+            "type": "address"
+          },
+          {
+            "name": "amount",
+            "type": "uint256"
+          },
+          {
+            "name": "assetContractAddr",
+            "type": "address"
+          }
+        ],
+        "name": "transferAsset",
+        "outputs": [
+          {
+            "name": "",
+            "type": "bool"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "index",
+            "type": "uint256"
+          }
+        ],
+        "name": "getDepartmentAccAddr",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": false,
+        "inputs": [
+          {
+            "name": "_email",
+            "type": "string"
+          },
+          {
+            "name": "_accAddr",
+            "type": "address"
+          }
+        ],
+        "name": "createDepartment",
+        "outputs": [],
+        "payable": false,
+        "stateMutability": "nonpayable",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "email",
+            "type": "string"
+          }
+        ],
+        "name": "getAccWithEmail",
+        "outputs": [
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "constant": true,
+        "inputs": [
+          {
+            "name": "_accAddr",
+            "type": "address"
+          }
+        ],
+        "name": "getDepartment",
+        "outputs": [
+          {
+            "name": "",
+            "type": "string"
+          },
+          {
+            "name": "",
+            "type": "string"
+          },
+          {
+            "name": "",
+            "type": "address"
+          },
+          {
+            "name": "",
+            "type": "address"
+          }
+        ],
+        "payable": false,
+        "stateMutability": "view",
+        "type": "function"
+      }
+    ], "0x539dbe002066236c22451313d1741705d526469a");
 
     $('.createDeptBtn').click(function(){
     	var name = $('#deptName').val();
@@ -347,7 +361,11 @@ $(function() {
 
 	function getDepartmentsSize() {
 	    return deptContract.methods.getDepartmentsSize().call();
-	}
+  }
+  
+  function getTempDepartmentsSize() {
+      return deptContract.methods.getTempDepartmentsSize().call();
+  }
 
 	function getName(index) {
 	    return tokenContract.methods.getName(index).call();
@@ -367,7 +385,11 @@ $(function() {
 	    var deptTable = $("#departmentTable tbody");
 	    let size = await getDepartmentsSize();
 
-	    console.log('size', size);
+      console.log('size', size);
+      
+      let tempSize = await getTempDepartmentsSize();
+
+	    console.log('temp size', tempSize);
 
 	    for (var i = 0; i < size; i++) {
 	    	let [department] = await Promise.all([getDepartment(i)]);

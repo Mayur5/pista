@@ -73,6 +73,7 @@ contract Departments {
     }
 
     address[] departmentAddrs;
+    string[] tempDepartmentEmails;
 
     mapping (string => Department) TempDepartments;
     mapping (address => Department) Departments;
@@ -89,6 +90,7 @@ contract Departments {
      * @param _outgoingAsset    The address of the asset/token Contract address that the department can transfer out to another department in the value chain
      */
     function createTempDepartment(string _name, string _email, address _incomingAsset, address _outgoingAsset) public {
+        tempDepartmentEmails.push(_email);
         Department memory d = Department(_name, _email, _incomingAsset, _outgoingAsset);
         TempDepartments[_email] = d;
     }
@@ -129,6 +131,14 @@ contract Departments {
      */
     function getDepartmentAccAddr(uint index) public constant returns (address) {
         return departmentAddrs[index];
+    }
+
+    /**
+     * Method to get the size of the arbitrary temp department address array
+     *
+     */
+    function getTempDepartmentsSize() public constant returns (uint) {
+        return tempDepartmentEmails.length;
     }
 
     /**
