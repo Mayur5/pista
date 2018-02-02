@@ -112,6 +112,19 @@ contract Departments {
     }
 
     /**
+     * Method to get a Temp Department using it's email
+     *
+     * @param _email    The email the department
+     */
+    function getTempDepartment(string _email) public constant returns(string, string, address, address) {
+        string name = TempDepartments[_email].name;
+        string email = TempDepartments[_email].email;
+        address incomingAsset = TempDepartments[_email].incomingAsset;
+        address outgoingAsset = TempDepartments[_email].outgoingAsset;
+        return(name, email, incomingAsset, outgoingAsset);
+    }
+
+    /**
      * Method to get a Department using it's wallet address
      *
      * @param _accAddr    The wallet address the department
@@ -122,6 +135,15 @@ contract Departments {
         address incomingAsset = Departments[_accAddr].incomingAsset;
         address outgoingAsset = Departments[_accAddr].outgoingAsset;
         return(name, email, incomingAsset, outgoingAsset);
+    }
+
+    /**
+     * Method to get a Temp Department's Email from an arbitrary array
+     *
+     * @param index    The index to be fetched
+     */
+    function getTempDepartmentEmail(uint index) public constant returns (string) {
+        return tempDepartmentEmails[index];
     }
 
     /**
