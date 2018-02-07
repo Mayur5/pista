@@ -2,7 +2,7 @@ pragma solidity ^0.4.18;
 
 import './token/StandardToken.sol';
 import './token/BurnableToken.sol';
-import './token/MintableToken.sol';
+//import './token/MintableToken.sol';
 import './math/SafeMath.sol';
 
 /**
