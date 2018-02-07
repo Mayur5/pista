@@ -199,7 +199,7 @@ $(function () {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x854e819b203607b0c0bb1ca48db5ed4fe2bfc64b");
+  ], "0x261e020a1c38d95dbe34afd20fb1166766f52189");
 
 
   $(".addAssetAmountBtn").click(function () {
@@ -216,6 +216,7 @@ $(function () {
     tokenContract.methods.createAssetContract(assetName, assetSymbol).send({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
       var result = tokenContract.methods.createAssetContract(assetName, assetSymbol).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
         console.log("addr", res);
+        location.href = './asset.html';
       });
     })
       .on("error", console.log);
