@@ -199,8 +199,7 @@ $(function () {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x84f3398adb869ec64ba85f130af6e52d81cba5f4");
-
+  ], "0x854e819b203607b0c0bb1ca48db5ed4fe2bfc64b");
 
 
   $(".addAssetAmountBtn").click(function () {
@@ -232,6 +231,9 @@ $(function () {
   function getNameSize() {
     return tokenContract.methods.getNameSize().call();
   }
+  function getAddress(index){
+    return tokenContract.methods.getAddress(index).call();
+  }
 
   async function setTableRows() {
     var assetTable = $("#assetTable tbody");
@@ -239,7 +241,8 @@ $(function () {
 
     for (var i = 0; i < size; i++) {
 
-      let [name, symbol] = await Promise.all([getName(i), getSymbol(i)]);
+      let [name, symbol, address] = await Promise.all([getName(i), getSymbol(i), getAddress(i)]);
+      console.log('address', address);
 
       let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
 
