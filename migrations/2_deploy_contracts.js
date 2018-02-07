@@ -25,7 +25,7 @@ module.exports = function(deployer, accounts) {
     deployer.deploy(StandardToken);
     deployer.link(StandardToken, BasicToken);
 
-    // deployer.deploy(TokenizedAsset);
+    deployer.deploy(TokenizedAsset);
     // deployer.link(TokenizedAsset, StandardToken);
     // deployer.link(TokenizedAsset, BurnableToken);
     // deployer.link(TokenizedAsset, Mintable);
