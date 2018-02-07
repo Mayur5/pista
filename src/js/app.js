@@ -9,120 +9,6 @@ $(function() {
   }
   var accountCreated;
 
-  var contract = new web3.eth.Contract([
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "names",
-      "outputs": [
-        {
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "",
-          "type": "uint256"
-        }
-      ],
-      "name": "contracts",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "i",
-          "type": "uint256"
-        }
-      ],
-      "name": "getName",
-      "outputs": [
-        {
-          "name": "",
-          "type": "string"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "i",
-          "type": "uint256"
-        }
-      ],
-      "name": "getAddress",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "name",
-          "type": "string"
-        },
-        {
-          "name": "symbol",
-          "type": "string"
-        }
-      ],
-      "name": "createAssetContract",
-      "outputs": [
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    }
-  ], "0x644adacfa29375aa0a4ea875bb31d47bcff860fc");
-
-  async function createAccount() {
-    let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
-
-    return response;
-  }
-
-  async function createWallet(account){
-    let response = await web3.eth.accounts.wallet.add(account);
-
-    return response;
-  }
-
   async function getContractAddress(assetName){
     let response = await contract.getAssetContractAddress(assetName);
 
@@ -147,12 +33,6 @@ $(function() {
     return response;
   }
 
-  async function getCurrentAccount(){
-    let response = await web3.eth.getAccounts();
-
-    return response;
-  }
-
   async function setConversionRate(incomingAsset, outgoingAsset, rate){
     let response = await contract.setConversionRate(incomingAsset, outgoingAsset, rate);
 
@@ -160,11 +40,10 @@ $(function() {
   }
 
   $(window).load(function() {
-    var userEmail;
+    var userEmail = localStorage.getItem('userEmail');
+    console.log('userEmail', userEmail);
 
     $('select').material_select();
-
-    $('.accountNumber')[0].innerHTML = 'farmer@src.com';
 
     //on user type select
     $('.departmentClick').click(function(){
@@ -189,162 +68,15 @@ $(function() {
         location.href = 'sourceSignIn.html';
     });
 
-    //check if user is valid - sign in user
-    /*$('.deptSignInBtn').click(function(){
-      if (typeof web3 !== 'undefined') {
-          window.web3 = new Web3(web3.currentProvider);
-          if (web3.currentProvider.isMetaMask === true) {
-            getCurrentAccount().then((result) => {
-              var currentAccount = result[0];
-              //if(account == currentAccount){
-                $('.accountAddr')[0].innerHTML = result[0];
-                $('.signUpForm').hide();
-                $('.errorDiv').hide();
-                $('.successDiv').show();
-              //}
-            });
-          }
-          else{
-                $('.signUpForm').hide();
-                $('.errorDiv').show();
-                $('.successDiv').hide();
-            /*$.confirm({
-              title: 'No web3? You should consider trying MetaMask!',
-              content: '',
-              useBootstrap: false,
-              type: 'red',
-              buttons: {
-                continue: {
-                  text: '',
-                  btnClass: 'downloadBtn',
-                  action: function(){
-                    window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
-                  }
-                }
-              }
-            });
-          }
-        }
-
-      contract.getAccWithEmail(email, function(error, result){
-        var account = result.address;
-
-        
-      });
-    });*/
-
     //new user
     $('.newUserCheck').click(function(){
       var userType = localStorage.getItem('user');
 
-      if(user == 'department'){
+      if(userType == 'department'){
         location.href = 'signUp.html';
       }
       else{
         location.href = 'sourceSignUp.html';
-      }
-    });
-
-    //new department sign up
-    /*$('.signUpBtn').click(function(){
-      /*if (typeof web3 !== 'undefined') {
-        web3 = new Web3(web3.currentProvider);
-      } 
-      else {
-        // set the provider you want from Web3.providers
-        web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
-      }
-
-      var email = $('#email').val();
-
-      location.href = 'assets.html';
-
-      createAccount().then((result) => {
-        var account = result;
-        createWallet(account).then((result) => {
-          accountCreated = result;
-
-          createDepartment(email, accountCreated.address).then((result) => {
-            console.log('result', result);
-
-            $('.accountNumber')[0].innerHTML = accountCreated.address;
-            $('.publicKey')[0].innerHTML = accountCreated.address;
-
-            $('.userDiv').show();
-            $('.signUpForm').hide();
-          });
-        });
-      });
-    });*/
-
-    //new source sign up
-    /*$('.sourceSignUp').click(function(){
-      if (typeof web3 !== 'undefined') {
-        web3 = new Web3(web3.currentProvider);
-      } 
-      else {
-        // set the provider you want from Web3.providers
-        web3 = new Web3(new Web3.providers.HttpProvider("http://35.154.203.141:8545"));
-        // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
-      }
-
-      var email = $('#email').val();
-
-      createAccount().then((result) => {
-        var account = result;
-        createWallet(account).then((result) => {
-          accountCreated = result;
-
-          createSource(email, accountCreated.address).then((result) => {
-            console.log('result', result);
-
-            $('.accountNumber')[0].innerHTML = accountCreated.address;
-            $('.publicKey')[0].innerHTML = accountCreated.address;
-
-            $('.userDiv').show();
-            $('.signUpForm').hide();
-          });
-        });
-      });
-    });*/
-
-    //check if metamask exists
-    $('.check').click(function(){
-      if (typeof web3 !== 'undefined') {
-        // Use Mist/MetaMask's provider
-        window.web3 = new Web3(web3.currentProvider);
-        $.confirm({
-          title: 'MetaMask detected!',
-          content: 'Please ensure you are on the test network.',
-          useBootstrap: false,
-          type: 'green',
-          buttons: {
-            continue: {
-              text: 'Click here to continue',
-              action: function(){
-                location.href = 'assets.html';
-              }
-            }
-          }
-        });
-      } 
-      else {
-        $.confirm({
-          title: 'No web3? You should consider trying MetaMask!',
-          content: '',
-          useBootstrap: false,
-          type: 'red',
-          buttons: {
-            continue: {
-              text: '',
-              btnClass: 'downloadBtn',
-              action: function(){
-                window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
-                location.href = './metamaskHelp.html';
-              }
-            }
-          }
-        });
       }
     });
 
@@ -357,22 +89,6 @@ $(function() {
     $('.continueSourceBtn').click(function(){
       location.href = './sourceHome.html';
     });
-  });
-
-  //download private key
-  $('.download').click(function(){
-    var privateKey = accountCreated.privateKey;
-
-    var a = window.document.createElement('a');
-    a.href = window.URL.createObjectURL(new Blob([privateKey], {type: 'text'}));
-    a.download = 'privateKey.txt';
-
-    // Append anchor to body.
-    document.body.appendChild(a);
-    a.click();
-
-    // Remove anchor from body
-    document.body.removeChild(a);
   });
 
   //go to user sign up page

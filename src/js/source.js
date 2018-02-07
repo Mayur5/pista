@@ -10,160 +10,212 @@ $(function() {
     }
 
     var tokenContract = new web3.eth.Contract([
+    {
+      "constant": true,
+      "inputs": [
         {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "name": "names",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "name": "contracts",
-          "outputs": [
-            {
-              "name": "",
-              "type": "address"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "i",
-              "type": "uint256"
-            }
-          ],
-          "name": "getSymbol",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "i",
-              "type": "uint256"
-            }
-          ],
-          "name": "getName",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [],
-          "name": "getNameSize",
-          "outputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "i",
-              "type": "uint256"
-            }
-          ],
-          "name": "getAddress",
-          "outputs": [
-            {
-              "name": "",
-              "type": "address"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": true,
-          "inputs": [
-            {
-              "name": "",
-              "type": "uint256"
-            }
-          ],
-          "name": "symbols",
-          "outputs": [
-            {
-              "name": "",
-              "type": "string"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "view",
-          "type": "function"
-        },
-        {
-          "constant": false,
-          "inputs": [
-            {
-              "name": "name",
-              "type": "string"
-            },
-            {
-              "name": "symbol",
-              "type": "string"
-            }
-          ],
-          "name": "createAssetContract",
-          "outputs": [
-            {
-              "name": "",
-              "type": "address"
-            }
-          ],
-          "payable": false,
-          "stateMutability": "nonpayable",
-          "type": "function"
+          "name": "",
+          "type": "uint256"
         }
-      ], "0xf38abf53d19bebf224064c23dfe0cd503e8d2a5d");
+      ],
+      "name": "names",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "contracts",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSymbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getNameSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_assetAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getContractSymbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "symbols",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        }
+      ],
+      "name": "createAssetContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_assetAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getContractName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
 
     var sourceContract = new web3.eth.Contract([
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTempSourcesSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
     {
       "constant": false,
       "inputs": [
@@ -290,11 +342,38 @@ $(function() {
       "inputs": [
         {
           "name": "index",
-          "type": "uint8"
+          "type": "uint256"
         }
       ],
       "name": "getSourceAccAddr",
       "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
+        }
+      ],
+      "name": "getTempSource",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
         {
           "name": "",
           "type": "address"
@@ -336,31 +415,71 @@ $(function() {
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTempSourceEmail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
-  ], "0xba6b664798c8653c12c262ceb893972ee564b1ee");
+  ], "0x3082127c61974365f9c99054830a2572c477f6c7");
 
-    $('.createSourceBtn').click(function(){
-    	var name = $('#sourceName').val();
-    	var email = $('#sourceEmail').val();
-    	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
+  $('.createSourceBtn').click(function(){
+  	var name = $('#sourceName').val();
+  	var email = $('#sourceEmail').val();
+  	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
 
-    	sourceContract.methods.createTempSource(name, email, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
-	    	var result = sourceContract.methods.createTempSource(name, email, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-	        	console.log("addr", res);
-	     	});	
-	    })
-	    .on("error", console.log);
+  	sourceContract.methods.createTempSource(name, email, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
+    	var result = sourceContract.methods.createTempSource(name, email, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
+        	console.log("addr", res);
+          location.href = './sources.html';
+     	});	
+    })
+    .on("error", console.log);
     		
 	});
 
-	function getSource(){
-		return sourceContract.methods.getSource(index).call();
+  //get temporary source list
+  function getTempSourcesSize() {
+    return sourceContract.methods.getTempSourcesSize().call();
+  }
+	function getTempSourceEmail(index){
+		return sourceContract.methods.getTempSourceEmail(index).call();
 	}
+  function getTempSource(email){
+    return sourceContract.methods.getTempSource(email).call();
+  }
 
-	function getSourcesSize() {
-	    return sourceContract.methods.getSourcesSize().call();
-	}
+  //get sources list
+  function getSourcesSize() {
+    return sourceContract.methods.getSourcesSize().call();
+  }
+  function getSourceEmail(index){
+    return sourceContract.methods.getSourceAccAddr(index).call();
+  }
+  function getSource(addr){
+    return sourceContract.methods.getSource(addr).call();
+  }
 
+  //get asset name from address
+  function getAssetName(assetAddr){
+    return tokenContract.methods.getContractName(assetAddr).call();
+  }
+
+  //get assets data
 	function getName(index) {
 	    return tokenContract.methods.getName(index).call();
 	}
@@ -370,26 +489,38 @@ $(function() {
 	function getAddress(index){
 		return tokenContract.methods.getAddress(index).call();
 	}
-
 	function getNameSize() {
 		return tokenContract.methods.getNameSize().call();
 	}
 
 	async function setTableRows() {
 	    var sourceTable = $("#sourcesTable tbody");
-	    let size = await getSourcesSize();
+	    let tempSize = await getTempSourcesSize();
+      let size = await getSourcesSize();
 
-	    console.log('size', size);
+      //get temp sources
+	    for (var i = 0; i < tempSize; i++) {
+	    	let [sourceEmail] = await Promise.all([getTempSourceEmail(i)]);
+        let [source] = await Promise.all([getTempSource(sourceEmail)]);
 
-	    for (var i = 0; i < size; i++) {
-	    	let [source] = await Promise.all([getSource(i)]);
+        let [outgoingAssetName] = await Promise.all([getAssetName(source[2])]);
 
-	    	console.log('source', source);
+	    	let newRow = `<tr><td>${source[0]}</td><td>${source[1]}</td><td>${outgoingAssetName}</td><td>Pending</td></tr>`;
 
-	    	let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
-
-      		sourceTable.append(newRow);
+      	sourceTable.append(newRow);
 	    }
+
+      //get sources
+      for (var i = 0; i < size; i++) {
+        let [sourceAddr] = await Promise.all([getSourceEmail(i)]);
+        let [source] = await Promise.all([getSource(sourceAddr)]);
+
+        let [outgoingAssetName] = await Promise.all([getAssetName(source[2])]);
+
+        let newRow = `<tr><td>${source[0]}</td><td>${source[1]}</td><td>${outgoingAssetName}</td><td>Completed</td></tr>`;
+
+        sourceTable.append(newRow);
+      }
 	}
 
 	async function getAssetList() {
@@ -404,12 +535,12 @@ $(function() {
 	    }
 	}
 
-    $(window).load(function() {
+  $(window).load(function() {
 
-    	setTableRows();
-    	getAssetList();
+  	setTableRows();
+  	getAssetList();
 
-    });
+  });
 
 
 });

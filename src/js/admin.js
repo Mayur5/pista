@@ -104,6 +104,25 @@ $(function () {
       "constant": true,
       "inputs": [
         {
+          "name": "_assetAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getContractSymbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
           "name": "i",
           "type": "uint256"
         }
@@ -160,8 +179,27 @@ $(function () {
       "payable": false,
       "stateMutability": "nonpayable",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_assetAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getContractName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
     }
-  ], "0xf38abf53d19bebf224064c23dfe0cd503e8d2a5d");
+  ], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
 
 
 
