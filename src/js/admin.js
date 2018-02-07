@@ -199,7 +199,7 @@ $(function () {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
+  ], "0x84f3398adb869ec64ba85f130af6e52d81cba5f4");
 
 
 

@@ -424,7 +424,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x879d212866730673d969d17332613f68e1dffc98");
+  ], "0x84a1c7d0527e5828ba9f7b0627c6ff36713df78e");
 
   //on create department button click
   $('.createDeptBtn').click(function(){
