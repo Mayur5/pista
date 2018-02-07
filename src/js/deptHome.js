@@ -1,17 +1,15 @@
-$(function() {
-    if (typeof web3 !== 'undefined') {
-      web3 = new Web3(web3.currentProvider);
-    } 
-    else {
-      // set the provider you want from Web3.providers
-      //  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
-       web3 = new Web3(new Web3.providers.HttpProvider("http://35.154.203.141:8545"));
-      // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
-    }
+$(function(){
+	if (typeof web3 !== 'undefined') {
+    window.web3 = new Web3(web3.currentProvider);
+  } 
+  else {
+    // set the provider you want from Web3.providers
+    //  web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"));
+     web3 = new Web3(new Web3.providers.HttpProvider("http://35.154.203.141:8545"));
+    // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
+  }
 
-    var accountCreated;
-
-    var deptContract = new web3.eth.Contract([
+	var deptContract = new web3.eth.Contract([
     {
       "constant": false,
       "inputs": [
@@ -233,18 +231,22 @@ $(function() {
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    }
-  ], "0x879d212866730673d969d17332613f68e1dffc98");
+    }], "0x879d212866730673d969d17332613f68e1dffc98");
 
-    var sourceContract = new web3.eth.Contract([
+	var tokenContract = new web3.eth.Contract([
     {
       "constant": true,
-      "inputs": [],
-      "name": "getTempSourcesSize",
-      "outputs": [
+      "inputs": [
         {
           "name": "",
           "type": "uint256"
+        }
+      ],
+      "name": "names",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
         }
       ],
       "payable": false,
@@ -252,135 +254,14 @@ $(function() {
       "type": "function"
     },
     {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_email",
-          "type": "string"
-        },
-        {
-          "name": "_accAddr",
-          "type": "address"
-        }
-      ],
-      "name": "createSource",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
       "constant": true,
       "inputs": [
         {
-          "name": "_accAddr",
-          "type": "address"
-        }
-      ],
-      "name": "getSource",
-      "outputs": [
-        {
           "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "address"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "view",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "_name",
-          "type": "string"
-        },
-        {
-          "name": "_email",
-          "type": "string"
-        },
-        {
-          "name": "_outgoingAsset",
-          "type": "address"
-        }
-      ],
-      "name": "createTempSource",
-      "outputs": [],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "name": "assetContractAddr",
-          "type": "address"
-        }
-      ],
-      "name": "addAssetAmount",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": false,
-      "inputs": [
-        {
-          "name": "from",
-          "type": "address"
-        },
-        {
-          "name": "to",
-          "type": "address"
-        },
-        {
-          "name": "amount",
-          "type": "uint256"
-        },
-        {
-          "name": "assetContractAddr",
-          "type": "address"
-        }
-      ],
-      "name": "transferAsset",
-      "outputs": [
-        {
-          "name": "",
-          "type": "bool"
-        }
-      ],
-      "payable": false,
-      "stateMutability": "nonpayable",
-      "type": "function"
-    },
-    {
-      "constant": true,
-      "inputs": [
-        {
-          "name": "index",
           "type": "uint256"
         }
       ],
-      "name": "getSourceAccAddr",
+      "name": "contracts",
       "outputs": [
         {
           "name": "",
@@ -395,23 +276,15 @@ $(function() {
       "constant": true,
       "inputs": [
         {
-          "name": "_email",
-          "type": "string"
+          "name": "i",
+          "type": "uint256"
         }
       ],
-      "name": "getTempSource",
+      "name": "getSymbol",
       "outputs": [
         {
           "name": "",
           "type": "string"
-        },
-        {
-          "name": "",
-          "type": "string"
-        },
-        {
-          "name": "",
-          "type": "address"
         }
       ],
       "payable": false,
@@ -422,15 +295,15 @@ $(function() {
       "constant": true,
       "inputs": [
         {
-          "name": "email",
-          "type": "string"
+          "name": "i",
+          "type": "uint256"
         }
       ],
-      "name": "getAccWithEmail",
+      "name": "getName",
       "outputs": [
         {
           "name": "",
-          "type": "address"
+          "type": "string"
         }
       ],
       "payable": false,
@@ -440,7 +313,7 @@ $(function() {
     {
       "constant": true,
       "inputs": [],
-      "name": "getSourcesSize",
+      "name": "getNameSize",
       "outputs": [
         {
           "name": "",
@@ -455,11 +328,11 @@ $(function() {
       "constant": true,
       "inputs": [
         {
-          "name": "index",
-          "type": "uint256"
+          "name": "_assetAddr",
+          "type": "address"
         }
       ],
-      "name": "getTempSourceEmail",
+      "name": "getContractSymbol",
       "outputs": [
         {
           "name": "",
@@ -469,88 +342,176 @@ $(function() {
       "payable": false,
       "stateMutability": "view",
       "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "i",
+          "type": "uint256"
+        }
+      ],
+      "name": "getAddress",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "symbols",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "name",
+          "type": "string"
+        },
+        {
+          "name": "symbol",
+          "type": "string"
+        }
+      ],
+      "name": "createAssetContract",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_assetAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getContractName",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
+
+	var currentAccount = localStorage.getItem('currentAccount');
+  var incomingAssetName;
+  var outgoingAssetName;
+  var incomingAssetAddress;
+  var outgoingAssetAddress;
+
+	function getAssetName(assetAddr){
+		return tokenContract.methods.getContractName(assetAddr).call();
+	}
+	function getAssetSymbol(assetAddr){
+		return tokenContract.methods.getContractSymbol(assetAddr).call();
+	}
+
+  function getDepartmentsSize() {
+    return deptContract.methods.getDepartmentsSize().call();
+  }
+  function getDepartmentAccAddr(index){
+    return deptContract.methods.getDepartmentAccAddr(index).call();
+  }
+  function getDepartment(addr){
+    return deptContract.methods.getDepartment(addr).call();
+  }
+  function assetTransfer(to, amount){
+    var outgoingAssetAddr = web3.utils.toHex(outgoingAssetAddress);
+    var from = web3.utils.toHex(currentAccount);
+    var to = web3.utils.toHex(to);
+
+    deptContract.methods.transferAsset(from, to, amount, outgoingAssetAddr).send().on("receipt", function (receipt) {
+     var result = deptContract.methods.transferAsset(from, to, amount, outgoingAssetAddr).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
+        console.log("addr", res);
+      });
+    })
+      .on("error", console.log);
+  }
+
+	async function getDepartmentDetails() {
+		let department = await deptContract.methods.getDepartment(currentAccount).call();
+
+		let [incomingAssetName, incomingAssetSymbol] = await Promise.all([getAssetName(department[2]), getAssetSymbol(department[2])]);
+		let [outgoingAssetName, outgoingAssetSymbol] = await Promise.all([getAssetName(department[3]), getAssetSymbol(department[3])]);
+
+		incomingAssetName = incomingAssetName;
+    outgoingAssetName = outgoingAssetName;
+    incomingAssetAddress = department[2];
+    outgoingAssetAddress = department[3];
+
+    $('.incomingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+incomingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+incomingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount"></span>');
+		$('.outgoingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+outgoingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+outgoingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount"></span>')
+	   
+    $('.assetConvertDiv').append('<span class="card-text">Name</span><span class="card-title">'+incomingAssetName+'</span><span class="card-text">Balance</span><span class="card-title">500 '+incomingAssetSymbol+'</span>');
+  }
+
+  async function getDepartmentList(){
+    let size = await getDepartmentsSize();
+
+    for (var i = 0; i < size; i++) {
+      let [departmentAddr] = await Promise.all([getDepartmentAccAddr(i)]);
+
+      let [deptData] = await Promise.all([getDepartment(departmentAddr)]);
+
+      let newRow = `<option value=${departmentAddr}>${deptData[0]}</option>`;
+
+      $('.selectedDepartment').append(newRow);
     }
-  ], "0x3082127c61974365f9c99054830a2572c477f6c7");
-
-  async function createAccount() {
-    let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
-    return response;
   }
 
-  async function createWallet(account){
-    let response = await web3.eth.accounts.wallet.add(account);
-    return response;
+  async function transferAsset(selectedDepartment, amount){
+    let result = await assetTransfer(selectedDepartment, amount);
+    console.log('result', result);
   }
 
-  //department sign up
-  $('.signUpBtn').click(function(){
-  	var email = $('#deptEmail').val();
+	$(window).load(function(){
+		getDepartmentDetails();
+    getDepartmentList();
 
-    createAccount().then((result) => {
-      var account = result;
-      createWallet(account).then((result) => {
-        accountCreated = result;
-        var accountAddress = accountCreated.address;
+		$('.accountNumber')[0].innerHTML = currentAccount;
 
-        deptContract.methods.createDepartment(email, accountAddress).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
-          var result = deptContract.methods.createDepartment(email, accountAddress).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-            console.log("addr", res);
+    //on convert asset
+    $('.convertAssetBtn').click(function(){
 
-            $('.accountNumber')[0].innerHTML = email;
-            $('.publicKey')[0].innerHTML = accountCreated.address;
-
-            $('.userDiv').show();
-            $('.signUpForm').hide();
-          }); 
-        })
-        .on("error", console.log);
-
-      });
     });
 
-  });
-
-  //source sign up
-  $('.sourceSignUp').click(function(){
-    var email = $('#sourceEmail').val();
-
-    createAccount().then((result) => {
-      var account = result;
-      createWallet(account).then((result) => {
-        accountCreated = result;
-        var accountAddress = accountCreated.address;
-
-        sourceContract.methods.createSource(email, accountAddress).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
-          var result = sourceContract.methods.createSource(email, accountAddress).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-            console.log("addr", res);
-
-            $('.accountNumber')[0].innerHTML = accountCreated.address;
-            $('.publicKey')[0].innerHTML = accountCreated.address;
-
-            $('.userDiv').show();
-            $('.signUpForm').hide();
-          }); 
-        })
-        .on("error", console.log);
-      });
+    //on transfer asset
+    $('.transferBtn').click(function(){
+      var selectedDepartment = web3.utils.toHex($('.selectedDepartment').find(":selected").val());
+      var amount = $('#amount').val();
+      transferAsset(selectedDepartment, amount);
     });
-      
-  });
 
-  //download private key
-  $('.download').click(function(){
-    var privateKey = accountCreated.privateKey;
-
-    var a = window.document.createElement('a');
-    a.href = window.URL.createObjectURL(new Blob([privateKey], {type: 'text'}));
-    a.download = 'privateKey.txt';
-
-    // Append anchor to body.
-    document.body.appendChild(a);
-    a.click();
-
-    // Remove anchor from body
-    document.body.removeChild(a);
-  });
-
+	});
 });

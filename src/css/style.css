@@ -75,6 +75,7 @@ input[type=text]:not(.browser-default){
 	padding: 0 0 0 10px !important;
 	margin-right: 40px !important;
 	margin-bottom: 10px;
+	display: block !important;
 }
 .select-wrapper span.caret{
 	right: 60px !important;
@@ -185,7 +186,7 @@ table{
 .headingText{
 	border-bottom: 5px solid; 
 }
-.signUpBtn, .deptSignInBtn, .assetType, .deptContBtn{
+.signUpBtn, .deptSignInBtn, .assetType, .deptContBtn, .srcSignInBtn{
 	background-color: #fff !important;
 	color: #C74B1D !important;
 	font-size: 36px !important;
@@ -274,6 +275,7 @@ input[type=text]:not(.browser-default):focus:not([readonly])+label{
 }
 .select-wrapper.selectedDepartment{
 	width: 60%;
+	display: block !important;
 }
 .amountTransferDiv{
 	margin-top: 45px !important;
@@ -317,4 +319,8 @@ img{
 }
 .dropdown-content li>a, .dropdown-content li>span{
 	color: #C74B1D !important;
+}
+
+select{
+	display: block !important;
 }

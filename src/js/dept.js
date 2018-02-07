@@ -436,6 +436,8 @@ $(function() {
   	deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
     	var result = deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
         	console.log("addr", res);
+
+          location.href = './departments.html';
      	});	
     })
     .on("error", console.log);		
@@ -505,7 +507,7 @@ $(function() {
 
       let [deptData] = await Promise.all([getDepartment(departmentAddr)]);
 
-      let [incomingAssetName, outgoingAssetName] = await Promise.all([getAssetName(tempDept[2]), getAssetName(tempDept[3])]);
+      let [incomingAssetName, outgoingAssetName] = await Promise.all([getAssetName(deptData[2]), getAssetName(deptData[3])]);
 
     	let newRow = `<tr><td>${deptData[0]}</td><td>${deptData[1]}</td><td>${incomingAssetName}</td><td>${outgoingAssetName}</td><td>Completed</td></tr>`;
 

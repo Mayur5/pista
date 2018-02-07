@@ -33,12 +33,6 @@ $(function() {
     return response;
   }
 
-  async function getCurrentAccount(){
-    let response = await web3.eth.getAccounts();
-
-    return response;
-  }
-
   async function setConversionRate(incomingAsset, outgoingAsset, rate){
     let response = await contract.setConversionRate(incomingAsset, outgoingAsset, rate);
 
@@ -46,7 +40,8 @@ $(function() {
   }
 
   $(window).load(function() {
-    var userEmail;
+    var userEmail = localStorage.getItem('userEmail');
+    console.log('userEmail', userEmail);
 
     $('select').material_select();
 
@@ -73,50 +68,6 @@ $(function() {
         location.href = 'sourceSignIn.html';
     });
 
-    //check if user is valid - sign in user
-    /*$('.deptSignInBtn').click(function(){
-      if (typeof web3 !== 'undefined') {
-          window.web3 = new Web3(web3.currentProvider);
-          if (web3.currentProvider.isMetaMask === true) {
-            getCurrentAccount().then((result) => {
-              var currentAccount = result[0];
-              //if(account == currentAccount){
-                $('.accountAddr')[0].innerHTML = result[0];
-                $('.signUpForm').hide();
-                $('.errorDiv').hide();
-                $('.successDiv').show();
-              //}
-            });
-          }
-          else{
-                $('.signUpForm').hide();
-                $('.errorDiv').show();
-                $('.successDiv').hide();
-            /*$.confirm({
-              title: 'No web3? You should consider trying MetaMask!',
-              content: '',
-              useBootstrap: false,
-              type: 'red',
-              buttons: {
-                continue: {
-                  text: '',
-                  btnClass: 'downloadBtn',
-                  action: function(){
-                    window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
-                  }
-                }
-              }
-            });
-          }
-        }
-
-      contract.getAccWithEmail(email, function(error, result){
-        var account = result.address;
-
-        
-      });
-    });*/
-
     //new user
     $('.newUserCheck').click(function(){
       var userType = localStorage.getItem('user');
@@ -126,46 +77,6 @@ $(function() {
       }
       else{
         location.href = 'sourceSignUp.html';
-      }
-    });
-
-    //check if metamask exists
-    $('.check').click(function(){
-      if (typeof web3 !== 'undefined') {
-        // Use Mist/MetaMask's provider
-        window.web3 = new Web3(web3.currentProvider);
-        $.confirm({
-          title: 'MetaMask detected!',
-          content: 'Please ensure you are on the test network.',
-          useBootstrap: false,
-          type: 'green',
-          buttons: {
-            continue: {
-              text: 'Click here to continue',
-              action: function(){
-                location.href = 'assets.html';
-              }
-            }
-          }
-        });
-      } 
-      else {
-        $.confirm({
-          title: 'No web3? You should consider trying MetaMask!',
-          content: '',
-          useBootstrap: false,
-          type: 'red',
-          buttons: {
-            continue: {
-              text: '',
-              btnClass: 'downloadBtn',
-              action: function(){
-                window.open("https://chrome.google.com/webstore/detail/metamask/nkbihfbeogaeaoehlefnkodbefgpgknn?hl=en");
-                location.href = './metamaskHelp.html';
-              }
-            }
-          }
-        });
       }
     });
 
