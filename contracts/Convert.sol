@@ -70,6 +70,7 @@ contract Convert {
     using SafeMath for uint;
 
     mapping (address => mapping (address => uint)) ConversionRate;
+    uint256[] rates;
 
     /**
      * Method to set an arbitrary conversion rate between a pair of asset/token
@@ -80,6 +81,11 @@ contract Convert {
      */
     function setConversionRate(address incomingAsset, address outgoingAsset, uint rate) public {
         ConversionRate[incomingAsset][outgoingAsset] = rate;
+        rates.push(rate);
+    }
+
+    function getRatesLength() public constant returns (uint256) {
+        return rates.length;
     }
 
     /**
