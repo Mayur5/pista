@@ -12,240 +12,240 @@ $(function(){
   var tokenAssetAddr;
 
 	var sourceContract = new web3.eth.Contract([
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "getTempSourcesSize",
-        "outputs": [
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "_email",
-            "type": "string"
-          },
-          {
-            "name": "_accAddr",
-            "type": "address"
-          }
-        ],
-        "name": "createSource",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "_accAddr",
-            "type": "address"
-          }
-        ],
-        "name": "getSource",
-        "outputs": [
-          {
-            "name": "",
-            "type": "string"
-          },
-          {
-            "name": "",
-            "type": "string"
-          },
-          {
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "_name",
-            "type": "string"
-          },
-          {
-            "name": "_email",
-            "type": "string"
-          },
-          {
-            "name": "_outgoingAsset",
-            "type": "address"
-          }
-        ],
-        "name": "createTempSource",
-        "outputs": [],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "amount",
-            "type": "uint256"
-          },
-          {
-            "name": "assetContractAddr",
-            "type": "address"
-          }
-        ],
-        "name": "addAssetAmount",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": false,
-        "inputs": [
-          {
-            "name": "from",
-            "type": "address"
-          },
-          {
-            "name": "to",
-            "type": "address"
-          },
-          {
-            "name": "amount",
-            "type": "uint256"
-          },
-          {
-            "name": "assetContractAddr",
-            "type": "address"
-          }
-        ],
-        "name": "transferAsset",
-        "outputs": [
-          {
-            "name": "",
-            "type": "bool"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "nonpayable",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "index",
-            "type": "uint256"
-          }
-        ],
-        "name": "getSourceAccAddr",
-        "outputs": [
-          {
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "_email",
-            "type": "string"
-          }
-        ],
-        "name": "getTempSource",
-        "outputs": [
-          {
-            "name": "",
-            "type": "string"
-          },
-          {
-            "name": "",
-            "type": "string"
-          },
-          {
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "email",
-            "type": "string"
-          }
-        ],
-        "name": "getAccWithEmail",
-        "outputs": [
-          {
-            "name": "",
-            "type": "address"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [],
-        "name": "getSourcesSize",
-        "outputs": [
-          {
-            "name": "",
-            "type": "uint256"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      },
-      {
-        "constant": true,
-        "inputs": [
-          {
-            "name": "index",
-            "type": "uint256"
-          }
-        ],
-        "name": "getTempSourceEmail",
-        "outputs": [
-          {
-            "name": "",
-            "type": "string"
-          }
-        ],
-        "payable": false,
-        "stateMutability": "view",
-        "type": "function"
-      }
-    ], "0xa5b947591f6b506e51be105b4061c21ebe6b61b7");
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTempSourcesSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "createSource",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getSource",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_outgoingAsset",
+          "type": "address"
+        }
+      ],
+      "name": "createTempSource",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "assetContractAddr",
+          "type": "address"
+        }
+      ],
+      "name": "addAssetAmount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "assetContractAddr",
+          "type": "address"
+        }
+      ],
+      "name": "transferAsset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getSourceAccAddr",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
+        }
+      ],
+      "name": "getTempSource",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "email",
+          "type": "string"
+        }
+      ],
+      "name": "getAccWithEmail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getSourcesSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTempSourceEmail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ], "0x770d7b195bc3b73dde3dc40fb7d0b3912d680c69");
 
 	var tokenContract = new web3.eth.Contract([
     {
@@ -436,7 +436,233 @@ $(function(){
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    }], "0x84f3398adb869ec64ba85f130af6e52d81cba5f4");
+    }
+  ], "0x261e020a1c38d95dbe34afd20fb1166766f52189");
+
+  var deptContract = new web3.eth.Contract([
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_incomingAsset",
+          "type": "address"
+        },
+        {
+          "name": "_outgoingAsset",
+          "type": "address"
+        }
+      ],
+      "name": "createTempDepartment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getDepartmentsSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTempDepartmentsSize",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256"
+        },
+        {
+          "name": "assetContractAddr",
+          "type": "address"
+        }
+      ],
+      "name": "transferAsset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getTempDepartmentEmail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256"
+        }
+      ],
+      "name": "getDepartmentAccAddr",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
+        }
+      ],
+      "name": "getTempDepartment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_email",
+          "type": "string"
+        },
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "createDepartment",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "email",
+          "type": "string"
+        }
+      ],
+      "name": "getAccWithEmail",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_accAddr",
+          "type": "address"
+        }
+      ],
+      "name": "getDepartment",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "string"
+        },
+        {
+          "name": "",
+          "type": "address"
+        },
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ], "0xada27bdc5b4657a66186008abe6676934add81f0");
 
   var tokenAssetContract;
 
@@ -450,8 +676,18 @@ $(function(){
 	}
 
   function getBalance(){
-    console.log('currentAccount', currentAccount);
     return tokenAssetContract.methods.balanceOf(currentAccount).call();
+  }
+
+  //functions to get department list
+  function getDepartmentsSize() {
+    return deptContract.methods.getDepartmentsSize().call();
+  }
+  function getDepartmentAccAddr(index){
+    return deptContract.methods.getDepartmentAccAddr(index).call();
+  }
+  function getDepartment(addr){
+    return deptContract.methods.getDepartment(addr).call();
   }
 
 	async function getSourceDetails() {
@@ -501,7 +737,7 @@ $(function(){
           "type": "address"
         },
         {
-          "name": "_amount",
+          "name": "_value",
           "type": "uint256"
         }
       ],
@@ -538,7 +774,7 @@ $(function(){
           "type": "address"
         },
         {
-          "name": "_value",
+          "name": "_amount",
           "type": "uint256"
         }
       ],
@@ -742,20 +978,45 @@ $(function(){
   ], tokenAssetAddr);
 
 		let [outgoingAssetName, outgoingAssetSymbol] = await Promise.all([getAssetName(source[2]), getAssetSymbol(source[2])]);
+    let balance = await getBalance();
 
-		$('.outgoingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+outgoingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+outgoingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount"></span>')
+		$('.outgoingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+outgoingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+outgoingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount">'+balance+'</span>')
     $('.assetConvertDiv').append('<span class="card-text">Name</span><span class="card-title">'+outgoingAssetName+' ('+outgoingAssetSymbol+')</span>');
     
-    let balance = await getBalance();
-    console.log('balance', balance);
   }
 
   async function addAsset(amount){
     tokenAssetContract.methods.mint(currentAccount, amount).send({from: currentAccount, gas: 300000 }).on("receipt", function (receipt) {
 
       var result = tokenAssetContract.methods.mint(currentAccount, amount).call({ from: currentAccount }, function (error, res) {
-        console.log("res", res);
-        console.log("error", error);
+        if(res){
+          location.href = 'sourceHome.html';
+        }
+      });
+    })
+      .on("error two", console.log);
+  }
+
+  async function getDepartmentList(){
+    let size = await getDepartmentsSize();
+
+    for (var i = 0; i < size; i++) {
+      let [departmentAddr] = await Promise.all([getDepartmentAccAddr(i)]);
+
+      let [deptData] = await Promise.all([getDepartment(departmentAddr)]);
+
+      let newRow = `<option value=${departmentAddr}>${deptData[0]}</option>`;
+      $('.selectedDepartment').append(newRow);
+    }
+  }
+
+  async function transferAsset(amount, department){
+    tokenAssetContract.methods.transfer(department, amount).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
+
+      var result = tokenAssetContract.methods.transfer(department, amount).call({ from: currentAccount }, function (error, res) {
+        if(res){
+          location.href = 'sourceHome.html';
+        }
       });
     })
       .on("error two", console.log);
@@ -763,12 +1024,22 @@ $(function(){
 
 	$(window).load(function(){
 		getSourceDetails();
+    getDepartmentList();
+
 		$('.accountNumber')[0].innerHTML = currentAccount;
 
+    //mint asset
     $('.addAssetAmountBtn').click(function(){
       var amount = $('#amount').val();
       addAsset(amount);
+    });
 
+    //transfer asset to department
+    $('.transferBtn').click(function(){
+      var amount = $('#amount').val();
+      var department = web3.utils.toHex($('.selectedDepartment').find(":selected").val());
+
+      transferAsset(amount, department);
     });
 
 	});

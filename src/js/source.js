@@ -199,7 +199,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x84f3398adb869ec64ba85f130af6e52d81cba5f4");
+  ], "0x261e020a1c38d95dbe34afd20fb1166766f52189");
 
     var sourceContract = new web3.eth.Contract([
     {
@@ -435,7 +435,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xa5b947591f6b506e51be105b4061c21ebe6b61b7");
+  ], "0x770d7b195bc3b73dde3dc40fb7d0b3912d680c69");
 
   $('.createSourceBtn').click(function(){
   	var name = $('#sourceName').val();
