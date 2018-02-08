@@ -315,6 +315,10 @@ $(function () {
     return tokenContract.methods.getAddress(index).call();
   }
 
+  function getRate(incoming, outgoing){
+    return convertContract.methods.getConversionRate(incoming, outgoing).call();
+  }
+
   async function setTableRows() {
     var assetTable = $("#assetTable tbody");
     let size = await getNameSize();
@@ -337,6 +341,9 @@ $(function () {
       var result = convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
         console.log("addr", res);
         console.log('error', error);
+
+        let [rate] = await getRate(incomingAssetAddr, outgoingAssetAddr);
+        console.log('rate', rate);
         //location.href = './assets.html';
       });
     })
