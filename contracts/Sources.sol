@@ -23,41 +23,41 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
      * @param _name    The name of the token to be created
      * @param _name    The symbol of the token to be created
      */
-    function TokenizedAsset (string _name, string _symbol) payable {
+    function TokenizedAsset (string _name, string _symbol) public payable {
         name = _name;
         symbol = _symbol;
     }
 
-    /**
-     * Overrides the burn function
-     *
-     * @param _value    The amount of tokens to burn
-     */
-    function burn(uint256 _value) public {
-        super.burn(_value);
-        Transfer(msg.sender, address(0x0), _value);
-    }
+    // /**
+    //  * Overrides the burn function
+    //  *
+    //  * @param _value    The amount of tokens to burn
+    //  */
+    // function burn(uint256 _value) public {
+    //     super.burn(_value);
+    //     Transfer(msg.sender, address(0x0), _value);
+    // }
 
-    /**
-     * Overrides the mint function
-     *
-     * @param _to       The beneficiary of the mint
-     * @param _value    The amount to be minted
-     */
-    function mint(address _to, uint256 _value) public returns (bool) {
-        return super.mint(_to, _value);
-    }
+    // /**
+    //  * Overrides the mint function
+    //  *
+    //  * @param _to       The beneficiary of the mint
+    //  * @param _value    The amount to be minted
+    //  */
+    // function mint(address _to, uint256 _value) public returns (bool) {
+    //     return super.mint(_to, _value);
+    // }
 
-    /**
-     * Overrides the transferFrom function
-     *
-     * @param _from    The account to transfer from
-     * @param _to    The account to transfer to
-     * @param _amount    The amount to transfer
-     */
-    function transferFrom(address _from, address _to, uint _amount) public returns (bool) {
-        return super.transferFrom(_from, _to, _amount);
-    }
+    // /**
+    //  * Overrides the transferFrom function
+    //  *
+    //  * @param _from    The account to transfer from
+    //  * @param _to    The account to transfer to
+    //  * @param _amount    The amount to transfer
+    //  */
+    // function transferFrom(address _from, address _to, uint _amount) public returns (bool) {
+    //     return super.transferFrom(_from, _to, _amount);
+    // }
 }
 
 /**
