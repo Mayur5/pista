@@ -497,6 +497,7 @@ $(function() {
 		//on department sign in
 		$('.deptSignInBtn').click(function(){
 			var email = $('#email').val();
+      console.log('email', email);
 
 			if (typeof web3 !== 'undefined') {
 				window.web3 = new Web3(web3.currentProvider);
@@ -511,6 +512,7 @@ $(function() {
 			if (web3.currentProvider.isMetaMask === true) {
 
 				getAccWithEmail(email).then((result) => {
+          console.log('result', result);
 					if(result == currentAccount){
 						localStorage.setItem('currentAccount', currentAccount);
 						$('.accountAddr')[0].innerHTML = currentAccount;

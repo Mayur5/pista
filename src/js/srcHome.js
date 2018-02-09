@@ -986,6 +986,7 @@ $(function(){
   }
 
   async function addAsset(amount){
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
     tokenAssetContract.methods.mint(currentAccount, amount).send({from: currentAccount, gas: 300000 }).on("receipt", function (receipt) {
 
       var result = tokenAssetContract.methods.mint(currentAccount, amount).call({ from: currentAccount }, function (error, res) {
@@ -1011,6 +1012,7 @@ $(function(){
   }
 
   async function transferAsset(amount, department){
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
     tokenAssetContract.methods.transfer(department, amount).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
 
       var result = tokenAssetContract.methods.transfer(department, amount).call({ from: currentAccount }, function (error, res) {

@@ -257,6 +257,20 @@ $(function () {
       "type": "function"
     },
     {
+      "constant": true,
+      "inputs": [],
+      "name": "getRatesLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
       "constant": false,
       "inputs": [
         {
@@ -278,7 +292,7 @@ $(function () {
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ], "0xc7984bf2675d287af1140c2416a060371559bd14");
+  ], "0x9ce43e6c873b02125604064aa82132c38f0b2ac6");
 
 
   $(".addAssetAmountBtn").click(function () {
@@ -291,7 +305,7 @@ $(function () {
     } else {
       assetAmount = parseInt(assetAmount);
     }
-
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
     tokenContract.methods.createAssetContract(assetName, assetSymbol).send({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
       var result = tokenContract.methods.createAssetContract(assetName, assetSymbol).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
         console.log("addr", res);
@@ -319,6 +333,10 @@ $(function () {
     return convertContract.methods.getConversionRate(incoming, outgoing).call();
   }
 
+  function getLength(){
+    return convertContract.methods.getRatesLength().call();
+  }
+
   async function setTableRows() {
     var assetTable = $("#assetTable tbody");
     let size = await getNameSize();
@@ -337,17 +355,19 @@ $(function () {
   }
 
   async function convertAsset(rate, incomingAssetAddr, outgoingAssetAddr){
-    convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas:300000}).on("receipt", function (receipt) {
-      var result = convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-        console.log("addr", res);
-        console.log('error', error);
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+      let convertRes = await convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas:300000}).on("receipt", function (receipt) {
+        var result = convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
+          console.log("res", res);
+          console.log('error', error);
+          //location.href = './assets.html';
+        });
+        
+      })
+        .on("error", console.log);
 
-        let [rate] = await getRate(incomingAssetAddr, outgoingAssetAddr);
-        console.log('rate', rate);
-        //location.href = './assets.html';
-      });
-    })
-      .on("error", console.log);
+    let convertRate = await getRate(incomingAssetAddr, outgoingAssetAddr);
+    let length = await getLength();
   }
 
   $(window).load(function () {
@@ -358,7 +378,9 @@ $(function () {
       var incomingAssetAddr = web3.utils.toHex($('.incomingAsset').find(":selected").val());
       var outgoingAssetAddr = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
       var conversionRate = $('#outgoingAmount').val();
+
       convertAsset(conversionRate, incomingAssetAddr, outgoingAssetAddr);
+
     });
 
   });

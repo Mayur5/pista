@@ -104,8 +104,13 @@ input[type=text]:not(.browser-default){
     margin: 30px 45px 0 0;
     color: #666;
 }
-.assetConvertDiv{
+.assetConvertDiv, .convertedAssetDiv{
 	display: grid;
+	margin-right: 20%;
+}
+
+.assetsDiv{
+	display: flex;
 }
 
 th{
@@ -323,4 +328,8 @@ img{
 
 select{
 	display: block !important;
+}
+
+.toast{
+	background-color: #C74B1D !important;
 }

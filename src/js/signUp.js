@@ -491,6 +491,7 @@ $(function() {
       createWallet(account).then((result) => {
         accountCreated = result;
         var accountAddress = accountCreated.address;
+        Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
 
         deptContract.methods.createDepartment(email, accountAddress).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
           var result = deptContract.methods.createDepartment(email, accountAddress).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
@@ -519,6 +520,8 @@ $(function() {
       createWallet(account).then((result) => {
         accountCreated = result;
         var accountAddress = accountCreated.address;
+        
+        Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
 
         sourceContract.methods.createSource(email, accountAddress).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
           var result = sourceContract.methods.createSource(email, accountAddress).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {

@@ -442,6 +442,8 @@ $(function() {
   	var email = $('#sourceEmail').val();
   	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
 
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+    
   	sourceContract.methods.createTempSource(name, email, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
     	var result = sourceContract.methods.createTempSource(name, email, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
         	console.log("addr", res);

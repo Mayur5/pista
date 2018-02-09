@@ -433,6 +433,7 @@ $(function() {
   	var incomingAsset = web3.utils.toHex($('.incomingAsset').find(":selected").val());
   	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
 
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
   	deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
     	var result = deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
         	console.log("addr", res);
