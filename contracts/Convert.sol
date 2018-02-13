@@ -111,7 +111,7 @@ contract Convert {
         TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
         TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
 
-        originalAsset.burn(originalAssetAmount);
+        originalAsset.burn(msg.sender, originalAssetAmount);
         return convertedAsset.mint(msg.sender, actualAmount);
     }
 }
