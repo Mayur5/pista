@@ -199,9 +199,9 @@ $(function () {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x4a92a44cc57035509ab5d86f0f28cd38af75c090");
+  ], "0x4021631c5287686b924b0f088543e77b5c0422ca");
 
-  var convertContract = new web3.eth.Contract([
+  var convertContract = new web3.eth.Contract( [
     {
       "constant": true,
       "inputs": [
@@ -292,7 +292,7 @@ $(function () {
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ], "0x91c2a6fd8ffe83ff04bdce57ead9e80b9652cdbf");
+  ], "0x854640405c93e3f180296673ece399edf4a03c35");
 
 
   $(".addAssetAmountBtn").click(function () {
