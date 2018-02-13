@@ -245,7 +245,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x770d7b195bc3b73dde3dc40fb7d0b3912d680c69");
+  ], "0xe31d8129aed6de142fa0c97ea67b6b96717db8fc");
 
 	var tokenContract = new web3.eth.Contract([
     {
@@ -437,7 +437,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x261e020a1c38d95dbe34afd20fb1166766f52189");
+  ], "0x91ed4ee10c89d812aee5761a18f40d33c865f267");
 
   var deptContract = new web3.eth.Contract([
     {
@@ -662,7 +662,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xada27bdc5b4657a66186008abe6676934add81f0");
+  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
 
   var tokenAssetContract;
 
@@ -693,8 +693,6 @@ $(function(){
 	async function getSourceDetails() {
 		let source = await sourceContract.methods.getSource(currentAccount).call();
     tokenAssetAddr = source[2];
-
-    console.log('tokenAssetAddr', tokenAssetAddr);
 
     tokenAssetContract = new web3.eth.Contract([
     {
@@ -986,12 +984,23 @@ $(function(){
   }
 
   async function addAsset(amount){
-    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+    if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+      Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+      return false;
+    }
+    
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
     tokenAssetContract.methods.mint(currentAccount, amount).send({from: currentAccount, gas: 300000 }).on("receipt", function (receipt) {
 
       var result = tokenAssetContract.methods.mint(currentAccount, amount).call({ from: currentAccount }, function (error, res) {
         if(res){
+          Materialize.Toast.removeAll();
+          console.log('res', res);
           location.href = 'sourceHome.html';
+        }
+        if(error){
+          console.log('error', error);
         }
       });
     })
@@ -1012,11 +1021,22 @@ $(function(){
   }
 
   async function transferAsset(amount, department){
-    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+    if(department == '0x0'){
+      Materialize.toast('Please select a department first.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+      return false;
+    }
+    if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+      Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+      return false;
+    }
+
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
     tokenAssetContract.methods.transfer(department, amount).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
 
       var result = tokenAssetContract.methods.transfer(department, amount).call({ from: currentAccount }, function (error, res) {
         if(res){
+          Materialize.Toast.removeAll();
           location.href = 'sourceHome.html';
         }
       });
@@ -1045,4 +1065,11 @@ $(function(){
     });
 
 	});
+
+  $(document).on('click', '#toast-container .toast', function() {
+    $(this).fadeOut(function(){
+      $(this).remove();
+    });
+  });
+
 });

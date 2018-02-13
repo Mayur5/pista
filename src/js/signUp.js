@@ -234,7 +234,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xada27bdc5b4657a66186008abe6676934add81f0");
+  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
 
     var sourceContract = new web3.eth.Contract([
     {
@@ -470,7 +470,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x770d7b195bc3b73dde3dc40fb7d0b3912d680c69");
+  ], "0xe31d8129aed6de142fa0c97ea67b6b96717db8fc");
 
   async function createAccount() {
     let response = await web3.eth.accounts.create(web3.utils.randomHex(32));
@@ -486,17 +486,22 @@ $(function() {
   $('.signUpBtn').click(function(){
   	var email = $('#deptEmail').val();
 
+    if(email == ''){
+      Materialize.toast('Please enter email first. <span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+      return false;
+    }
+
     createAccount().then((result) => {
       var account = result;
       createWallet(account).then((result) => {
         accountCreated = result;
         var accountAddress = accountCreated.address;
-        Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+        Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
 
         deptContract.methods.createDepartment(email, accountAddress).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
           var result = deptContract.methods.createDepartment(email, accountAddress).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-            console.log("addr", res);
 
+            Materialize.Toast.removeAll();
             $('.accountNumber')[0].innerHTML = email;
             $('.publicKey')[0].innerHTML = accountCreated.address;
 
@@ -515,17 +520,24 @@ $(function() {
   $('.sourceSignUp').click(function(){
     var email = $('#sourceEmail').val();
 
+    if(email == ''){
+      Materialize.toast('Please enter email first. <span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+      return false;
+    }
+
     createAccount().then((result) => {
       var account = result;
       createWallet(account).then((result) => {
         accountCreated = result;
         var accountAddress = accountCreated.address;
         
-        Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+        Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
 
         sourceContract.methods.createSource(email, accountAddress).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
           var result = sourceContract.methods.createSource(email, accountAddress).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
             console.log("addr", res);
+
+            Materialize.Toast.removeAll();
 
             $('.accountNumber')[0].innerHTML = accountCreated.address;
             $('.publicKey')[0].innerHTML = accountCreated.address;
@@ -554,6 +566,12 @@ $(function() {
 
     // Remove anchor from body
     document.body.removeChild(a);
+  });
+
+  $(document).on('click', '#toast-container .toast', function() {
+    $(this).fadeOut(function(){
+      $(this).remove();
+    });
   });
 
 });

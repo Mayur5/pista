@@ -232,7 +232,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xada27bdc5b4657a66186008abe6676934add81f0");
+  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
 
 	var sourceContract = new web3.eth.Contract([
     {
@@ -468,7 +468,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x770d7b195bc3b73dde3dc40fb7d0b3912d680c69");
+  ], "0xe31d8129aed6de142fa0c97ea67b6b96717db8fc");
 
 	var currentAccount;
 
@@ -497,7 +497,6 @@ $(function() {
 		//on department sign in
 		$('.deptSignInBtn').click(function(){
 			var email = $('#email').val();
-      console.log('email', email);
 
 			if (typeof web3 !== 'undefined') {
 				window.web3 = new Web3(web3.currentProvider);

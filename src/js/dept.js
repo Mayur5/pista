@@ -199,7 +199,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x261e020a1c38d95dbe34afd20fb1166766f52189");
+  ], "0x91ed4ee10c89d812aee5761a18f40d33c865f267");
 
     var deptContract = new web3.eth.Contract([
     {
@@ -424,7 +424,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xada27bdc5b4657a66186008abe6676934add81f0");
+  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
 
   //on create department button click
   $('.createDeptBtn').click(function(){
@@ -433,12 +433,13 @@ $(function() {
   	var incomingAsset = web3.utils.toHex($('.incomingAsset').find(":selected").val());
   	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
 
-    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
   	deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
     	var result = deptContract.methods.createTempDepartment(name, email, incomingAsset, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-        	console.log("addr", res);
-
-          location.href = './departments.html';
+      	console.log("addr", res);
+        Materialize.Toast.removeAll();
+        location.href = './departments.html';
      	});	
     })
     .on("error", console.log);		
@@ -533,6 +534,12 @@ $(function() {
   $(window).load(function() {
   	setTableRows();
   	getAssetList();
+  });
+
+  $(document).on('click', '#toast-container .toast', function() {
+    $(this).fadeOut(function(){
+      $(this).remove();
+    });
   });
 
 });

@@ -235,7 +235,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xada27bdc5b4657a66186008abe6676934add81f0");
+  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
 
 	var tokenContract = new web3.eth.Contract([
     {
@@ -427,7 +427,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x261e020a1c38d95dbe34afd20fb1166766f52189");
+  ], "0x91ed4ee10c89d812aee5761a18f40d33c865f267");
 
   var convertContract = new web3.eth.Contract([
     {
@@ -520,7 +520,7 @@ $(function(){
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ], "0x9ce43e6c873b02125604064aa82132c38f0b2ac6");
+  ], "0x9770d5cf47927e2f4a0afe56f0f556b803cf5e83");
 
   var incomingAssetTokenAddr;
   var outgoingAssetTokenAddr;
@@ -568,6 +568,8 @@ $(function(){
     var outgoingAssetTokenAddr = department[3];
     let incomingAssetAddr = department[2];
     let outgoingAssetAddr = department[3];
+
+    console.log('incomingAssetTokenAddr', incomingAssetTokenAddr);
 
     incomingAssetContract = new web3.eth.Contract([
     {
@@ -1136,8 +1138,6 @@ $(function(){
     rate = await getRate(web3.utils.toHex(department[2]), web3.utils.toHex(department[3]));
     let incomingBalance = await getBalance();
     let outgoingBalance = await getOutgoingBalance();
-
-    console.log('rate', rate);
 		
     incomingAssetName = incomingAssetName;
     outgoingAssetName = outgoingAssetName;
@@ -1168,11 +1168,13 @@ $(function(){
   }
 
   async function transferAsset(department, amount){
-    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
     outgoingAssetContract.methods.transfer(department, amount).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
 
       var result = outgoingAssetContract.methods.transfer(department, amount).call({ from: currentAccount }, function (error, res) {
         if(res){
+          Materialize.Toast.removeAll();
           location.href = 'home.html';
         }
       });
@@ -1180,13 +1182,15 @@ $(function(){
       .on("error two", console.log);
   }
 
-  async function convertAsset(expectedAmount, actualAmount){
-    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
-    convertContract.methods.convertAsset(expectedAmount, actualAmount, incomingAssetAddress, outgoingAssetAddress).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
+  async function convertAsset(amount, actualAmount){
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
+    convertContract.methods.convertAsset(amount, actualAmount, incomingAssetAddress, outgoingAssetAddress).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
 
       var result = convertContract.methods.convertAsset(department, amount).call({ from: currentAccount }, function (error, res) {
-        console.log('res', res);
+
         if(res){
+          Materialize.Toast.removeAll();
           location.href = './home.html';
         }
       });
@@ -1203,15 +1207,23 @@ $(function(){
     //on convert asset
     $('.convertAssetBtn').click(function(){
       var amount = $('#amount').val();
+        if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+        Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+        return false;
+      }
       var expectedAmount = $('#expectedAmount').val();
       var actualAmount = $('#actualAmount').val();
-      convertAsset(expectedAmount, actualAmount);
+      convertAsset(amount, actualAmount);
     });
 
     //on transfer asset
     $('.transferBtn').click(function(){
       var selectedDepartment = web3.utils.toHex($('.selectedDepartment').find(":selected").val());
       var amount = $('#amount').val();
+      if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+        Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+        return false;
+      }
       transferAsset(selectedDepartment, amount);
     });
 
@@ -1221,6 +1233,12 @@ $(function(){
       expectedAmount = rate*amount;
       $('#expectedAmount').val(expectedAmount);
       $('#actualAmount').val(expectedAmount);
+    });
+
+    $(document).on('click', '#toast-container .toast', function() {
+      $(this).fadeOut(function(){
+        $(this).remove();
+      });
     });
 
 	});

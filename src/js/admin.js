@@ -199,7 +199,7 @@ $(function () {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x261e020a1c38d95dbe34afd20fb1166766f52189");
+  ], "0x91ed4ee10c89d812aee5761a18f40d33c865f267");
 
   var convertContract = new web3.eth.Contract([
     {
@@ -292,7 +292,7 @@ $(function () {
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ], "0x9ce43e6c873b02125604064aa82132c38f0b2ac6");
+  ], "0x9770d5cf47927e2f4a0afe56f0f556b803cf5e83");
 
 
   $(".addAssetAmountBtn").click(function () {
@@ -305,10 +305,11 @@ $(function () {
     } else {
       assetAmount = parseInt(assetAmount);
     }
-    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
     tokenContract.methods.createAssetContract(assetName, assetSymbol).send({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
       var result = tokenContract.methods.createAssetContract(assetName, assetSymbol).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-        console.log("addr", res);
+        Materialize.Toast.removeAll();
         location.href = './assets.html';
       });
     })
@@ -355,16 +356,17 @@ $(function () {
   }
 
   async function convertAsset(rate, incomingAssetAddr, outgoingAssetAddr){
-    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.', 6000);
-      let convertRes = await convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas:300000}).on("receipt", function (receipt) {
-        var result = convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-          console.log("res", res);
-          console.log('error', error);
-          //location.href = './assets.html';
-        });
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
+    let convertRes = await convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas:300000}).on("receipt", function (receipt) {
+      var result = convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
         
-      })
-        .on("error", console.log);
+        Materialize.Toast.removeAll();
+        location.href = './assets.html';
+      });
+      
+    })
+      .on("error", console.log);
 
     let convertRate = await getRate(incomingAssetAddr, outgoingAssetAddr);
     let length = await getLength();
@@ -383,6 +385,12 @@ $(function () {
 
     });
 
+  });
+
+  $(document).on('click', '#toast-container .toast', function() {
+    $(this).fadeOut(function(){
+      $(this).remove();
+    });
   });
 
 });
