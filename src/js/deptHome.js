@@ -520,7 +520,7 @@ $(function(){
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ], "0xb553525ed7ee628f0ed92b578d3632cc1bdb3bd3");
+  ], "0x45eb4e4793c2e864c912604a1effdc45537e9d84");
 
   var incomingAssetTokenAddr;
   var outgoingAssetTokenAddr;
@@ -1142,6 +1142,9 @@ $(function(){
     incomingAssetAddress = department[2];
     outgoingAssetAddress = department[3];
 
+    console.log('incomingAssetAddress', incomingAssetAddress);
+    console.log('outgoingAssetAddress', outgoingAssetAddress);
+
     $('.incomingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+incomingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+incomingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount">'+incomingBalance+'</span>');
 
 		$('.outgoingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+outgoingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+outgoingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount">'+outgoingBalance+'</span>')
@@ -1181,6 +1184,7 @@ $(function(){
   }
 
   async function convertAsset(amount, actualAmount){
+
     Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
 
     convertContract.methods.convertAsset(amount, actualAmount, incomingAssetAddress, outgoingAssetAddress).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
