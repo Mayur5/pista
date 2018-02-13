@@ -245,7 +245,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0xe31d8129aed6de142fa0c97ea67b6b96717db8fc");
+  ], "0xb9de6d7be1df4bd6586e3799635fb26efed04696");
 
 	var tokenContract = new web3.eth.Contract([
     {
@@ -437,7 +437,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x91ed4ee10c89d812aee5761a18f40d33c865f267");
+  ], "0x4a92a44cc57035509ab5d86f0f28cd38af75c090");
 
   var deptContract = new web3.eth.Contract([
     {
@@ -662,7 +662,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
+  ], "0x94dab3bfd2b48c5eb3bdbc532602480aeffffe16");
 
   var tokenAssetContract;
 
@@ -984,7 +984,7 @@ $(function(){
   }
 
   async function addAsset(amount){
-    if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+    if(amount == '' || amount == '0' || amount < 0 || !(parseInt(amount) === parseInt(amount, 10)) ){
       Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
       return false;
     }
@@ -1025,7 +1025,7 @@ $(function(){
       Materialize.toast('Please select a department first.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
       return false;
     }
-    if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+    if(amount == '' || amount == '0' || amount < 0 || !(parseInt(amount) === parseInt(amount, 10)) ){
       Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
       return false;
     }

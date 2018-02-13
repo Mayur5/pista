@@ -235,7 +235,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
+  ], "0x94dab3bfd2b48c5eb3bdbc532602480aeffffe16");
 
 	var tokenContract = new web3.eth.Contract([
     {
@@ -427,7 +427,7 @@ $(function(){
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x91ed4ee10c89d812aee5761a18f40d33c865f267");
+  ], "0x4a92a44cc57035509ab5d86f0f28cd38af75c090");
 
   var convertContract = new web3.eth.Contract([
     {
@@ -457,7 +457,7 @@ $(function(){
       "constant": false,
       "inputs": [
         {
-          "name": "expectedAmount",
+          "name": "originalAssetAmount",
           "type": "uint256"
         },
         {
@@ -520,7 +520,7 @@ $(function(){
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ], "0x9770d5cf47927e2f4a0afe56f0f556b803cf5e83");
+  ], "0xb553525ed7ee628f0ed92b578d3632cc1bdb3bd3");
 
   var incomingAssetTokenAddr;
   var outgoingAssetTokenAddr;
@@ -568,8 +568,6 @@ $(function(){
     var outgoingAssetTokenAddr = department[3];
     let incomingAssetAddr = department[2];
     let outgoingAssetAddr = department[3];
-
-    console.log('incomingAssetTokenAddr', incomingAssetTokenAddr);
 
     incomingAssetContract = new web3.eth.Contract([
     {
@@ -1187,8 +1185,9 @@ $(function(){
 
     convertContract.methods.convertAsset(amount, actualAmount, incomingAssetAddress, outgoingAssetAddress).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
 
-      var result = convertContract.methods.convertAsset(department, amount).call({ from: currentAccount }, function (error, res) {
-
+      var result = convertContract.methods.convertAsset(amount, actualAmount, incomingAssetAddress, outgoingAssetAddress).call({ from: currentAccount }, function (error, res) {
+        console.log('res', res);
+        console.log('error', error);
         if(res){
           Materialize.Toast.removeAll();
           location.href = './home.html';
@@ -1206,8 +1205,8 @@ $(function(){
 
     //on convert asset
     $('.convertAssetBtn').click(function(){
-      var amount = $('#amount').val();
-        if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+      var amount = parseInt($('#amount').val());
+      if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10))){
         Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
         return false;
       }

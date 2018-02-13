@@ -199,7 +199,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x91ed4ee10c89d812aee5761a18f40d33c865f267");
+  ], "0x4a92a44cc57035509ab5d86f0f28cd38af75c090");
 
     var deptContract = new web3.eth.Contract([
     {
@@ -424,7 +424,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x45a1ff5082f95e3e1887398f4f100010302bebf0");
+  ], "0x94dab3bfd2b48c5eb3bdbc532602480aeffffe16");
 
   //on create department button click
   $('.createDeptBtn').click(function(){
