@@ -17,7 +17,7 @@ module.exports = function(deployer, accounts) {
     // deployer.deploy(Ownable);
     // deployer.link(Ownable, Mintable);
     // deployer.deploy(Mintable);
-    // deployer.deploy(BurnableToken);
+    deployer.deploy(BurnableToken);
 
     // deployer.deploy(BasicToken);
     // deployer.link(BasicToken, SafeMath);
