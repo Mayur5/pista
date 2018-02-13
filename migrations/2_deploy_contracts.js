@@ -13,28 +13,28 @@ var Sources = artifacts.require("./Sources.sol");
 var Convert = artifacts.require("./Convert.sol");
 
 module.exports = function(deployer, accounts) {
-    deployer.deploy(SafeMath);
-    deployer.deploy(Ownable);
-    deployer.link(Ownable, Mintable);
-    deployer.deploy(Mintable);
-    deployer.deploy(BurnableToken);
+    // deployer.deploy(SafeMath);
+    // deployer.deploy(Ownable);
+    // deployer.link(Ownable, Mintable);
+    // deployer.deploy(Mintable);
+    // deployer.deploy(BurnableToken);
 
-    deployer.deploy(BasicToken);
-    deployer.link(BasicToken, SafeMath);
-    deployer.link(BasicToken, ERC20Basic);
+    // deployer.deploy(BasicToken);
+    // deployer.link(BasicToken, SafeMath);
+    // deployer.link(BasicToken, ERC20Basic);
 
-    deployer.deploy(StandardToken);
-    deployer.link(StandardToken, BasicToken);
+    // deployer.deploy(StandardToken);
+    // deployer.link(StandardToken, BasicToken);
 
-    deployer.deploy(TokenizedAsset);
+    // deployer.deploy(TokenizedAsset);
 
-    deployer.deploy(TokenizedAssetFactory);
+    // deployer.deploy(TokenizedAssetFactory);
 
-    deployer.deploy(Departments);
-    deployer.link(Departments, SafeMath);
+    // deployer.deploy(Departments);
+    // deployer.link(Departments, SafeMath);
 
-    deployer.deploy(Sources);
-    deployer.link(Sources, SafeMath);
+    // deployer.deploy(Sources);
+    // deployer.link(Sources, SafeMath);
 
     deployer.deploy(Convert);
     deployer.link(Convert, SafeMath);
