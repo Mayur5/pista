@@ -102,18 +102,16 @@ contract Convert {
      * Method to perform the conversion by burning original asset/token standard
      * minting converted asset/token
      *
-     * @param expectedAmount The converted amount expected as per rate
+     * @param originalAssetAmount The amount of the original asset to be converted
      * @param actualAmount The actual amount owing to wastage
      * @param originalAssetContractAddr The original asset/token contract address
      * @param convertedAssetContractAddr The converted asset/token contract address
      */
-    function convertAsset(uint expectedAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) public returns (bool) {
+    function convertAsset(uint originalAssetAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) public returns (bool) {
         TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
         TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
 
-        uint diffAmount = expectedAmount.sub(actualAmount);
-
-        originalAsset.burn(diffAmount);
+        originalAsset.burn(originalAssetAmount);
         return convertedAsset.mint(msg.sender, actualAmount);
     }
 }
