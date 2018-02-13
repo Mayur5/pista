@@ -292,7 +292,7 @@ $(function () {
       "stateMutability": "nonpayable",
       "type": "function"
     }
-  ], "0x6c243863593da06e2c1b1f3f4733d80ee3a0d5c8");
+  ], "0x91c2a6fd8ffe83ff04bdce57ead9e80b9652cdbf");
 
 
   $(".addAssetAmountBtn").click(function () {
