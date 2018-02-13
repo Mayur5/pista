@@ -108,10 +108,10 @@ contract Convert {
      * @param convertedAssetContractAddr The converted asset/token contract address
      */
     function convertAsset(uint originalAssetAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) public returns (bool) {
-        //TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
-        TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
+        TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);
+        //TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);
 
-        //originalAsset.burn(originalAssetAmount);
-        return convertedAsset.mint(msg.sender, actualAmount);
+        originalAsset.burn(originalAssetAmount);
+        //return convertedAsset.mint(msg.sender, actualAmount);
     }
 }

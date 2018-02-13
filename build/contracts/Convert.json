@@ -92,18 +92,18 @@
       "type": "function"
     }
   ],
-  "bytecode": "0x6060604052341561000f57600080fd5b6104748061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806319048880146100675780632589430e146100d3578063381c5cb51461015557806351152e2b1461017e575b600080fd5b341561007257600080fd5b6100bd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101df565b6040518082815260200191505060405180910390f35b34156100de57600080fd5b61013b600480803590602001909190803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610265565b604051808215151515815260200191505060405180910390f35b341561016057600080fd5b61016861033c565b6040518082815260200191505060405180910390f35b341561018957600080fd5b6101dd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610349565b005b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b6000808290508073ffffffffffffffffffffffffffffffffffffffff166340c10f1933876000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b151561031657600080fd5b6102c65a03f1151561032757600080fd5b50505060405180519050915050949350505050565b6000600180549050905090565b806000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550600180548060010182816103dd91906103f7565b916000526020600020900160008390919091505550505050565b81548183558181151161041e5781836000526020600020918201910161041d9190610423565b5b505050565b61044591905b80821115610441576000816000905550600101610429565b5090565b905600a165627a7a723058209d987b3f0028ce8175f4d9822c55cf149cb7ba107479310a8be7442155ca5de40029",
-  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806319048880146100675780632589430e146100d3578063381c5cb51461015557806351152e2b1461017e575b600080fd5b341561007257600080fd5b6100bd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101df565b6040518082815260200191505060405180910390f35b34156100de57600080fd5b61013b600480803590602001909190803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610265565b604051808215151515815260200191505060405180910390f35b341561016057600080fd5b61016861033c565b6040518082815260200191505060405180910390f35b341561018957600080fd5b6101dd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610349565b005b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b6000808290508073ffffffffffffffffffffffffffffffffffffffff166340c10f1933876000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200182815260200192505050602060405180830381600087803b151561031657600080fd5b6102c65a03f1151561032757600080fd5b50505060405180519050915050949350505050565b6000600180549050905090565b806000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002081905550600180548060010182816103dd91906103f7565b916000526020600020900160008390919091505550505050565b81548183558181151161041e5781836000526020600020918201910161041d9190610423565b5b505050565b61044591905b80821115610441576000816000905550600101610429565b5090565b905600a165627a7a723058209d987b3f0028ce8175f4d9822c55cf149cb7ba107479310a8be7442155ca5de40029",
+  "bytecode": "0x6060604052341561000f57600080fd5b61042e8061001e6000396000f300606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806319048880146100675780632589430e146100d3578063381c5cb51461015557806351152e2b1461017e575b600080fd5b341561007257600080fd5b6100bd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101df565b6040518082815260200191505060405180910390f35b34156100de57600080fd5b61013b600480803590602001909190803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610265565b604051808215151515815260200191505060405180910390f35b341561016057600080fd5b6101686102f6565b6040518082815260200191505060405180910390f35b341561018957600080fd5b6101dd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610303565b005b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b6000808390508073ffffffffffffffffffffffffffffffffffffffff166342966c68876040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b15156102d957600080fd5b6102c65a03f115156102ea57600080fd5b50505050949350505050565b6000600180549050905090565b806000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055506001805480600101828161039791906103b1565b916000526020600020900160008390919091505550505050565b8154818355818115116103d8578183600052602060002091820191016103d791906103dd565b5b505050565b6103ff91905b808211156103fb5760008160009055506001016103e3565b5090565b905600a165627a7a72305820e98e105b663aea7d6db9ee91a37973b9cc3271287dcd6d20334d77aadb55a8ac0029",
+  "deployedBytecode": "0x606060405260043610610062576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806319048880146100675780632589430e146100d3578063381c5cb51461015557806351152e2b1461017e575b600080fd5b341561007257600080fd5b6100bd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506101df565b6040518082815260200191505060405180910390f35b34156100de57600080fd5b61013b600480803590602001909190803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610265565b604051808215151515815260200191505060405180910390f35b341561016057600080fd5b6101686102f6565b6040518082815260200191505060405180910390f35b341561018957600080fd5b6101dd600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091908035906020019091905050610303565b005b60008060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b6000808390508073ffffffffffffffffffffffffffffffffffffffff166342966c68876040518263ffffffff167c010000000000000000000000000000000000000000000000000000000002815260040180828152602001915050600060405180830381600087803b15156102d957600080fd5b6102c65a03f115156102ea57600080fd5b50505050949350505050565b6000600180549050905090565b806000808573ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055506001805480600101828161039791906103b1565b916000526020600020900160008390919091505550505050565b8154818355818115116103d8578183600052602060002091820191016103d791906103dd565b5b505050565b6103ff91905b808211156103fb5760008160009055506001016103e3565b5090565b905600a165627a7a72305820e98e105b663aea7d6db9ee91a37973b9cc3271287dcd6d20334d77aadb55a8ac0029",
   "sourceMap": "2075:2034:0:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "2075:2034:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3028:172;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3658:449;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2691:96;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2500:185;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3028:172;3126:4;3149:14;:29;3164:13;3149:29;;;;;;;;;;;;;;;:44;3179:13;3149:44;;;;;;;;;;;;;;;;3142:51;;3028:172;;;;:::o;3658:449::-;3812:4;3912:29;3959:26;3912:74;;4055:14;:19;;;4075:10;4087:12;4055:45;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;4048:52;;3658:449;;;;;;;:::o;2691:96::-;2742:7;2768:5;:12;;;;2761:19;;2691:96;:::o;2500:185::-;2648:4;2601:14;:29;2616:13;2601:29;;;;;;;;;;;;;;;:44;2631:13;2601:44;;;;;;;;;;;;;;;:51;;;;2662:5;:16;;;;;;;;;;;:::i;:::-;;;;;;;;;;2673:4;2662:16;;;;;;;2500:185;;;:::o;2075:2034::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
-  "source": "pragma solidity ^0.4.18;\n\nimport './token/StandardToken.sol';\nimport './token/BurnableToken.sol';\nimport './token/MintableToken.sol';\nimport './math/SafeMath.sol';\n\n/**\n  * An ERC20 compliant token generator Contract with all the basic functionality of\n  * Transfer, TransferFrom, GetBalance\n  * Basic ERC20 functionality extended to included token burnability and token mintability\n**/\n\ncontract TokenizedAsset is StandardToken, BurnableToken, MintableToken {\n\n    string  public name;\n    string  public symbol;\n    uint8   public constant DECIMALS = 18;\n\n    /**\n     * Asset/Token constructor\n     *\n     * @param _name    The name of the token to be created\n     * @param _name    The symbol of the token to be created\n     */\n    function TokenizedAsset (string _name, string _symbol) public payable {\n        name = _name;\n        symbol = _symbol;\n    }\n\n    // /**\n    //  * Overrides the burn function\n    //  *\n    //  * @param _value    The amount of tokens to burn\n    //  */\n    // function burn(uint256 _value) public {\n    //     super.burn(_value);\n    //     Transfer(msg.sender, address(0x0), _value);\n    // }\n\n    // /**\n    //  * Overrides the mint function\n    //  *\n    //  * @param _to       The beneficiary of the mint\n    //  * @param _value    The amount to be minted\n    //  */\n    // function mint(address _to, uint256 _value) public returns (bool) {\n    //     return super.mint(_to, _value);\n    // }\n\n    // /**\n    //  * Overrides the transferFrom function\n    //  *\n    //  * @param _from    The account to transfer from\n    //  * @param _to    The account to transfer to\n    //  * @param _amount    The amount to transfer\n    //  */\n    // function transferFrom(address _from, address _to, uint _amount) public returns (bool) {\n    //     return super.transferFrom(_from, _to, _amount);\n    // }\n}\n\n/**\n  * A Contract to convert one asset/token to another\n  * by burning a specific amount of the original asset/token\n  * and minting a rate calculated amount of the converted asset/tokens\n  * Contract also affords for any loss/wastage\n**/\ncontract Convert {\n    using SafeMath for uint;\n\n    mapping (address => mapping (address => uint)) ConversionRate;\n    uint256[] rates;\n\n    /**\n     * Method to set an arbitrary conversion rate between a pair of asset/token\n     *\n     * @param incomingAsset The original asset/token contract address\n     * @param incomingAsset The converted asset/token contract address\n     * @param rate The conversion rate\n     */\n    function setConversionRate(address incomingAsset, address outgoingAsset, uint rate) public {\n        ConversionRate[incomingAsset][outgoingAsset] = rate;\n        rates.push(rate);\n    }\n\n    function getRatesLength() public constant returns (uint256) {\n        return rates.length;\n    }\n\n    /**\n     * Method to get the conversion rate between a pair of asset/token\n     *\n     * @param incomingAsset The original asset/token contract address\n     * @param incomingAsset The converted asset/token contract address\n     */\n    function getConversionRate(address incomingAsset, address outgoingAsset) public constant returns (uint) {\n        return ConversionRate[incomingAsset][outgoingAsset];\n    }\n\n    /**\n     * Method to perform the conversion by burning original asset/token standard\n     * minting converted asset/token\n     *\n     * @param originalAssetAmount The amount of the original asset to be converted\n     * @param actualAmount The actual amount owing to wastage\n     * @param originalAssetContractAddr The original asset/token contract address\n     * @param convertedAssetContractAddr The converted asset/token contract address\n     */\n    function convertAsset(uint originalAssetAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) public returns (bool) {\n        //TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);\n        TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);\n\n        //originalAsset.burn(originalAssetAmount);\n        return convertedAsset.mint(msg.sender, actualAmount);\n    }\n}\n",
+  "deployedSourceMap": "2075:2034:0:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3028:172;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3658:449;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2691:96;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2500:185;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3028:172;3126:4;3149:14;:29;3164:13;3149:29;;;;;;;;;;;;;;;:44;3179:13;3149:44;;;;;;;;;;;;;;;;3142:51;;3028:172;;;;:::o;3658:449::-;3812:4;3828:28;3874:25;3828:72;;3997:13;:18;;;4016:19;3997:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;3658:449;;;;;;;:::o;2691:96::-;2742:7;2768:5;:12;;;;2761:19;;2691:96;:::o;2500:185::-;2648:4;2601:14;:29;2616:13;2601:29;;;;;;;;;;;;;;;:44;2631:13;2601:44;;;;;;;;;;;;;;;:51;;;;2662:5;:16;;;;;;;;;;;:::i;:::-;;;;;;;;;;2673:4;2662:16;;;;;;;2500:185;;;:::o;2075:2034::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "source": "pragma solidity ^0.4.18;\n\nimport './token/StandardToken.sol';\nimport './token/BurnableToken.sol';\nimport './token/MintableToken.sol';\nimport './math/SafeMath.sol';\n\n/**\n  * An ERC20 compliant token generator Contract with all the basic functionality of\n  * Transfer, TransferFrom, GetBalance\n  * Basic ERC20 functionality extended to included token burnability and token mintability\n**/\n\ncontract TokenizedAsset is StandardToken, BurnableToken, MintableToken {\n\n    string  public name;\n    string  public symbol;\n    uint8   public constant DECIMALS = 18;\n\n    /**\n     * Asset/Token constructor\n     *\n     * @param _name    The name of the token to be created\n     * @param _name    The symbol of the token to be created\n     */\n    function TokenizedAsset (string _name, string _symbol) public payable {\n        name = _name;\n        symbol = _symbol;\n    }\n\n    // /**\n    //  * Overrides the burn function\n    //  *\n    //  * @param _value    The amount of tokens to burn\n    //  */\n    // function burn(uint256 _value) public {\n    //     super.burn(_value);\n    //     Transfer(msg.sender, address(0x0), _value);\n    // }\n\n    // /**\n    //  * Overrides the mint function\n    //  *\n    //  * @param _to       The beneficiary of the mint\n    //  * @param _value    The amount to be minted\n    //  */\n    // function mint(address _to, uint256 _value) public returns (bool) {\n    //     return super.mint(_to, _value);\n    // }\n\n    // /**\n    //  * Overrides the transferFrom function\n    //  *\n    //  * @param _from    The account to transfer from\n    //  * @param _to    The account to transfer to\n    //  * @param _amount    The amount to transfer\n    //  */\n    // function transferFrom(address _from, address _to, uint _amount) public returns (bool) {\n    //     return super.transferFrom(_from, _to, _amount);\n    // }\n}\n\n/**\n  * A Contract to convert one asset/token to another\n  * by burning a specific amount of the original asset/token\n  * and minting a rate calculated amount of the converted asset/tokens\n  * Contract also affords for any loss/wastage\n**/\ncontract Convert {\n    using SafeMath for uint;\n\n    mapping (address => mapping (address => uint)) ConversionRate;\n    uint256[] rates;\n\n    /**\n     * Method to set an arbitrary conversion rate between a pair of asset/token\n     *\n     * @param incomingAsset The original asset/token contract address\n     * @param incomingAsset The converted asset/token contract address\n     * @param rate The conversion rate\n     */\n    function setConversionRate(address incomingAsset, address outgoingAsset, uint rate) public {\n        ConversionRate[incomingAsset][outgoingAsset] = rate;\n        rates.push(rate);\n    }\n\n    function getRatesLength() public constant returns (uint256) {\n        return rates.length;\n    }\n\n    /**\n     * Method to get the conversion rate between a pair of asset/token\n     *\n     * @param incomingAsset The original asset/token contract address\n     * @param incomingAsset The converted asset/token contract address\n     */\n    function getConversionRate(address incomingAsset, address outgoingAsset) public constant returns (uint) {\n        return ConversionRate[incomingAsset][outgoingAsset];\n    }\n\n    /**\n     * Method to perform the conversion by burning original asset/token standard\n     * minting converted asset/token\n     *\n     * @param originalAssetAmount The amount of the original asset to be converted\n     * @param actualAmount The actual amount owing to wastage\n     * @param originalAssetContractAddr The original asset/token contract address\n     * @param convertedAssetContractAddr The converted asset/token contract address\n     */\n    function convertAsset(uint originalAssetAmount, uint actualAmount, address originalAssetContractAddr, address convertedAssetContractAddr) public returns (bool) {\n        TokenizedAsset originalAsset = TokenizedAsset(originalAssetContractAddr);\n        //TokenizedAsset convertedAsset = TokenizedAsset(convertedAssetContractAddr);\n\n        originalAsset.burn(originalAssetAmount);\n        //return convertedAsset.mint(msg.sender, actualAmount);\n    }\n}\n",
   "sourcePath": "/Users/mayurrelekar/dev/pista/contracts/Convert.sol",
   "ast": {
     "attributes": {
       "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/Convert.sol",
       "exportedSymbols": {
         "Convert": [
-          124
+          123
         ],
         "TokenizedAsset": [
           35
@@ -126,10 +126,10 @@
       },
       {
         "attributes": {
-          "SourceUnit": 654,
+          "SourceUnit": 617,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/StandardToken.sol",
           "file": "./token/StandardToken.sol",
-          "scope": 125,
+          "scope": 124,
           "symbolAliases": [
             null
           ],
@@ -141,10 +141,10 @@
       },
       {
         "attributes": {
-          "SourceUnit": 449,
+          "SourceUnit": 412,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/BurnableToken.sol",
           "file": "./token/BurnableToken.sol",
-          "scope": 125,
+          "scope": 124,
           "symbolAliases": [
             null
           ],
@@ -156,10 +156,10 @@
       },
       {
         "attributes": {
-          "SourceUnit": 553,
+          "SourceUnit": 516,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/token/MintableToken.sol",
           "file": "./token/MintableToken.sol",
-          "scope": 125,
+          "scope": 124,
           "symbolAliases": [
             null
           ],
@@ -171,10 +171,10 @@
       },
       {
         "attributes": {
-          "SourceUnit": 259,
+          "SourceUnit": 222,
           "absolutePath": "/Users/mayurrelekar/dev/pista/contracts/math/SafeMath.sol",
           "file": "./math/SafeMath.sol",
-          "scope": 125,
+          "scope": 124,
           "symbolAliases": [
             null
           ],
@@ -187,29 +187,29 @@
       {
         "attributes": {
           "contractDependencies": [
-            314,
-            400,
-            448,
-            465,
-            494,
-            552,
-            653
+            277,
+            363,
+            411,
+            428,
+            457,
+            515,
+            616
           ],
           "contractKind": "contract",
           "documentation": "An ERC20 compliant token generator Contract with all the basic functionality of\nTransfer, TransferFrom, GetBalance\nBasic ERC20 functionality extended to included token burnability and token mintability*",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             35,
-            552,
-            314,
-            448,
-            653,
-            400,
-            465,
-            494
+            515,
+            277,
+            411,
+            616,
+            363,
+            428,
+            457
           ],
           "name": "TokenizedAsset",
-          "scope": 125
+          "scope": 124
         },
         "children": [
           {
@@ -223,7 +223,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "StandardToken",
-                  "referencedDeclaration": 653,
+                  "referencedDeclaration": 616,
                   "type": "contract StandardToken"
                 },
                 "id": 6,
@@ -246,7 +246,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "BurnableToken",
-                  "referencedDeclaration": 448,
+                  "referencedDeclaration": 411,
                   "type": "contract BurnableToken"
                 },
                 "id": 8,
@@ -269,7 +269,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "MintableToken",
-                  "referencedDeclaration": 552,
+                  "referencedDeclaration": 515,
                   "type": "contract MintableToken"
                 },
                 "id": 10,
@@ -592,10 +592,10 @@
           "documentation": "A Contract to convert one asset/token to another\nby burning a specific amount of the original asset/token\nand minting a rate calculated amount of the converted asset/tokens\nContract also affords for any loss/wastage*",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            124
+            123
           ],
           "name": "Convert",
-          "scope": 125
+          "scope": 124
         },
         "children": [
           {
@@ -604,7 +604,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "SafeMath",
-                  "referencedDeclaration": 258,
+                  "referencedDeclaration": 221,
                   "type": "library SafeMath"
                 },
                 "id": 36,
@@ -629,7 +629,7 @@
             "attributes": {
               "constant": false,
               "name": "ConversionRate",
-              "scope": 124,
+              "scope": 123,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "mapping(address => mapping(address => uint256))",
@@ -693,7 +693,7 @@
             "attributes": {
               "constant": false,
               "name": "rates",
-              "scope": 124,
+              "scope": 123,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "uint256[] storage ref",
@@ -736,7 +736,7 @@
               ],
               "name": "setConversionRate",
               "payable": false,
-              "scope": 124,
+              "scope": 123,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1046,7 +1046,7 @@
               ],
               "name": "getRatesLength",
               "payable": false,
-              "scope": 124,
+              "scope": 123,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1159,7 +1159,7 @@
               ],
               "name": "getConversionRate",
               "payable": false,
-              "scope": 124,
+              "scope": 123,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1361,7 +1361,7 @@
               ],
               "name": "convertAsset",
               "payable": false,
-              "scope": 124,
+              "scope": 123,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1373,7 +1373,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "originalAssetAmount",
-                      "scope": 123,
+                      "scope": 122,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1399,7 +1399,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "actualAmount",
-                      "scope": 123,
+                      "scope": 122,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -1425,7 +1425,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "originalAssetContractAddr",
-                      "scope": 123,
+                      "scope": 122,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1451,7 +1451,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "convertedAssetContractAddr",
-                      "scope": 123,
+                      "scope": 122,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1484,7 +1484,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 123,
+                      "scope": 122,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1523,8 +1523,8 @@
                       {
                         "attributes": {
                           "constant": false,
-                          "name": "convertedAsset",
-                          "scope": 123,
+                          "name": "originalAsset",
+                          "scope": 122,
                           "stateVariable": false,
                           "storageLocation": "default",
                           "type": "contract TokenizedAsset",
@@ -1541,12 +1541,12 @@
                             },
                             "id": 109,
                             "name": "UserDefinedTypeName",
-                            "src": "3912:14:0"
+                            "src": "3828:14:0"
                           }
                         ],
                         "id": 110,
                         "name": "VariableDeclaration",
-                        "src": "3912:29:0"
+                        "src": "3828:28:0"
                       },
                       {
                         "attributes": {
@@ -1580,7 +1580,7 @@
                             },
                             "id": 111,
                             "name": "Identifier",
-                            "src": "3944:14:0"
+                            "src": "3859:14:0"
                           },
                           {
                             "attributes": {
@@ -1588,28 +1588,25 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 104,
+                              "referencedDeclaration": 102,
                               "type": "address",
-                              "value": "convertedAssetContractAddr"
+                              "value": "originalAssetContractAddr"
                             },
                             "id": 112,
                             "name": "Identifier",
-                            "src": "3959:26:0"
+                            "src": "3874:25:0"
                           }
                         ],
                         "id": 113,
                         "name": "FunctionCall",
-                        "src": "3944:42:0"
+                        "src": "3859:41:0"
                       }
                     ],
                     "id": 114,
                     "name": "VariableDeclarationStatement",
-                    "src": "3912:74:0"
+                    "src": "3828:72:0"
                   },
                   {
-                    "attributes": {
-                      "functionReturnParameters": 108
-                    },
                     "children": [
                       {
                         "attributes": {
@@ -1622,17 +1619,13 @@
                           "names": [
                             null
                           ],
-                          "type": "bool",
+                          "type": "tuple()",
                           "type_conversion": false
                         },
                         "children": [
                           {
                             "attributes": {
                               "argumentTypes": [
-                                {
-                                  "typeIdentifier": "t_address",
-                                  "typeString": "address"
-                                },
                                 {
                                   "typeIdentifier": "t_uint256",
                                   "typeString": "uint256"
@@ -1642,9 +1635,9 @@
                               "isLValue": false,
                               "isPure": false,
                               "lValueRequested": false,
-                              "member_name": "mint",
-                              "referencedDeclaration": 551,
-                              "type": "function (address,uint256) external returns (bool)"
+                              "member_name": "burn",
+                              "referencedDeclaration": 410,
+                              "type": "function (uint256) external"
                             },
                             "children": [
                               {
@@ -1655,47 +1648,16 @@
                                   ],
                                   "referencedDeclaration": 110,
                                   "type": "contract TokenizedAsset",
-                                  "value": "convertedAsset"
+                                  "value": "originalAsset"
                                 },
                                 "id": 115,
                                 "name": "Identifier",
-                                "src": "4055:14:0"
+                                "src": "3997:13:0"
                               }
                             ],
-                            "id": 116,
+                            "id": 117,
                             "name": "MemberAccess",
-                            "src": "4055:19:0"
-                          },
-                          {
-                            "attributes": {
-                              "argumentTypes": null,
-                              "isConstant": false,
-                              "isLValue": false,
-                              "isPure": false,
-                              "lValueRequested": false,
-                              "member_name": "sender",
-                              "referencedDeclaration": null,
-                              "type": "address"
-                            },
-                            "children": [
-                              {
-                                "attributes": {
-                                  "argumentTypes": null,
-                                  "overloadedDeclarations": [
-                                    null
-                                  ],
-                                  "referencedDeclaration": 665,
-                                  "type": "msg",
-                                  "value": "msg"
-                                },
-                                "id": 117,
-                                "name": "Identifier",
-                                "src": "4075:3:0"
-                              }
-                            ],
-                            "id": 118,
-                            "name": "MemberAccess",
-                            "src": "4075:10:0"
+                            "src": "3997:18:0"
                           },
                           {
                             "attributes": {
@@ -1703,41 +1665,41 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 100,
+                              "referencedDeclaration": 98,
                               "type": "uint256",
-                              "value": "actualAmount"
+                              "value": "originalAssetAmount"
                             },
-                            "id": 119,
+                            "id": 118,
                             "name": "Identifier",
-                            "src": "4087:12:0"
+                            "src": "4016:19:0"
                           }
                         ],
-                        "id": 120,
+                        "id": 119,
                         "name": "FunctionCall",
-                        "src": "4055:45:0"
+                        "src": "3997:39:0"
                       }
                     ],
-                    "id": 121,
-                    "name": "Return",
-                    "src": "4048:52:0"
+                    "id": 120,
+                    "name": "ExpressionStatement",
+                    "src": "3997:39:0"
                   }
                 ],
-                "id": 122,
+                "id": 121,
                 "name": "Block",
                 "src": "3818:289:0"
               }
             ],
-            "id": 123,
+            "id": 122,
             "name": "FunctionDefinition",
             "src": "3658:449:0"
           }
         ],
-        "id": 124,
+        "id": 123,
         "name": "ContractDefinition",
         "src": "2075:2034:0"
       }
     ],
-    "id": 125,
+    "id": 124,
     "name": "SourceUnit",
     "src": "0:4110:0"
   },
@@ -1749,7 +1711,7 @@
     "4224": {
       "events": {},
       "links": {},
-      "address": "0xb553525ed7ee628f0ed92b578d3632cc1bdb3bd3"
+      "address": "0x45eb4e4793c2e864c912604a1effdc45537e9d84"
     },
     "1517290974858": {
       "events": {},
@@ -1758,5 +1720,5 @@
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-13T08:13:14.041Z"
+  "updatedAt": "2018-02-13T09:23:53.314Z"
 }
