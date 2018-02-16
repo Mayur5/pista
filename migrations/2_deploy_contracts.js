@@ -15,8 +15,8 @@ var Convert = artifacts.require("./Convert.sol");
 module.exports = function(deployer, accounts) {
     deployer.deploy(SafeMath);
     deployer.deploy(Mintable);
-    deployer.deploy(BurnableToken);
-    
+    //deployer.deploy(BurnableToken);
+
     deployer.link(Ownable, Mintable);
     deployer.deploy(Ownable);
 
@@ -25,7 +25,7 @@ module.exports = function(deployer, accounts) {
     deployer.deploy(BasicToken);
 
     deployer.link(StandardToken, BasicToken);
-    deployer.link(StandardToken, BurnableToken);
+    //deployer.link(StandardToken, BurnableToken);
     deployer.deploy(StandardToken);
     
 
