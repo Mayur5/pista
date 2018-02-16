@@ -1,7 +1,6 @@
 pragma solidity ^0.4.18;
 
 import './token/StandardToken.sol';
-import './token/BurnableToken.sol';
 import './token/MintableToken.sol';
 import './math/SafeMath.sol';
 
@@ -11,7 +10,7 @@ import './math/SafeMath.sol';
   * Basic ERC20 functionality extended to included token burnability and token mintability
 **/
 
-contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
+contract TokenizedAsset is StandardToken, MintableToken {
 
     string  public name;
     string  public symbol;
@@ -28,15 +27,15 @@ contract TokenizedAsset is StandardToken, BurnableToken, MintableToken {
         symbol = _symbol;
     }
 
-    // /**
-    //  * Overrides the burn function
-    //  *
-    //  * @param _value    The amount of tokens to burn
-    //  */
-    // function burn(uint256 _value) public {
-    //     super.burn(_value);
-    //     Transfer(msg.sender, address(0x0), _value);
-    // }
+    /**
+     * Overrides the burn function
+     *
+     * @param burner    The account from which to burn
+     * @param _value    The amount of tokens to burn
+     */
+    function burn(address burner, uint256 _value) public {
+        balances[burner] = balances[burner].sub(_value);
+    }
 
     // /**
     //  * Overrides the mint function
