@@ -44,7 +44,7 @@ input[type=text]:not(.browser-default){
 	margin-bottom: 20px !important;
 	margin-top: 10px !important;
 }
-.download, .continue, .sourceSignUp, .continueSourceBtn, .convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn, .addAssetAmountBtn, .createDeptBtn, .createSourceBtn{
+.download, .continue, .sourceSignUp, .continueSourceBtn, .startTransferBtn, .convertBtn, .transferBtn, .addBtn, .createBtn, .conversionRateBtn, .convertAssetBtn, .addAssetAmountBtn, .createDeptBtn, .createSourceBtn{
 	background-color: #C74B1D !important;
 	color: #fff !important;
 	border-radius: 16px !important;
@@ -104,8 +104,13 @@ input[type=text]:not(.browser-default){
     margin: 30px 45px 0 0;
     color: #666;
 }
-.assetConvertDiv{
+.assetConvertDiv, .convertedAssetDiv{
 	display: grid;
+	margin-right: 20%;
+}
+
+.assetsDiv{
+	display: flex;
 }
 
 th{
@@ -323,4 +328,18 @@ img{
 
 select{
 	display: block !important;
+}
+
+.toast{
+	background-color: #1C247F !important;
+}
+#toast-container{
+	top: auto !important;
+    right: auto !important;
+    bottom: 10%;
+    left: 27%;
+}
+.closeBtn{
+	margin-left: 20px;
+	cursor: pointer;
 }

@@ -199,7 +199,7 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
+  ], "0x0ce62bd2f9a81a5fee071e6629aa9a604baaad60");
 
     var sourceContract = new web3.eth.Contract([
     {
@@ -435,16 +435,19 @@ $(function() {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x3082127c61974365f9c99054830a2572c477f6c7");
+  ], "0x13478f8b86faa20622d4fa2a238b2d953fc72cee");
 
   $('.createSourceBtn').click(function(){
   	var name = $('#sourceName').val();
   	var email = $('#sourceEmail').val();
   	var outgoingAsset = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
 
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+    
   	sourceContract.methods.createTempSource(name, email, outgoingAsset).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
     	var result = sourceContract.methods.createTempSource(name, email, outgoingAsset).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-        	console.log("addr", res);
+        	
+          Materialize.Toast.removeAll();
           location.href = './sources.html';
      	});	
     })
@@ -540,6 +543,12 @@ $(function() {
   	setTableRows();
   	getAssetList();
 
+  });
+
+  $(document).on('click', '#toast-container .toast', function() {
+    $(this).fadeOut(function(){
+      $(this).remove();
+    });
   });
 
 

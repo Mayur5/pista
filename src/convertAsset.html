@@ -25,6 +25,7 @@
   <!-- CSS for alert box -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
   <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 </head>
 
@@ -53,11 +54,20 @@
     <div class="mainBody">
 
       <div class="createFormDiv">
-        <div class="assetConvertDiv">
+        <div class="assetsDiv">
+          <div class="assetConvertDiv">
+          </div>
+          <div class="convertedAssetDiv">
+          </div>
         </div>
 
         <div class="assetConvertInput input-field col s6">
-          <input placeholder="Expected Amount" id="expectedAmount" type="text">
+          <input placeholder="Amount" id="amount" type="text">
+          <label for="amount">Amount to convert</label>
+        </div>
+
+        <div class="assetConvertInput input-field col s6">
+          <input disabled placeholder="Expected Amount" id="expectedAmount" type="text">
           <label for="expectedAmount">Expected Amount</label>
         </div>
 

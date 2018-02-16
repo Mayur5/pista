@@ -199,8 +199,100 @@ $(function () {
       "stateMutability": "view",
       "type": "function"
     }
-  ], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
+  ], "0x0ce62bd2f9a81a5fee071e6629aa9a604baaad60");
 
+  var convertContract = new web3.eth.Contract([
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "incomingAsset",
+          "type": "address"
+        },
+        {
+          "name": "outgoingAsset",
+          "type": "address"
+        }
+      ],
+      "name": "getConversionRate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "originalAssetAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "actualAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "originalAssetContractAddr",
+          "type": "address"
+        },
+        {
+          "name": "convertedAssetContractAddr",
+          "type": "address"
+        }
+      ],
+      "name": "convertAsset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getRatesLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "incomingAsset",
+          "type": "address"
+        },
+        {
+          "name": "outgoingAsset",
+          "type": "address"
+        },
+        {
+          "name": "rate",
+          "type": "uint256"
+        }
+      ],
+      "name": "setConversionRate",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ], "0xae07eb344069664dcbbb9a99748005c805a5e3c6");
 
 
   $(".addAssetAmountBtn").click(function () {
@@ -213,10 +305,12 @@ $(function () {
     } else {
       assetAmount = parseInt(assetAmount);
     }
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
 
     tokenContract.methods.createAssetContract(assetName, assetSymbol).send({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas: 3000000 }).on("receipt", function (receipt) {
       var result = tokenContract.methods.createAssetContract(assetName, assetSymbol).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-        console.log("addr", res);
+        Materialize.Toast.removeAll();
+        location.href = './assets.html';
       });
     })
       .on("error", console.log);
@@ -232,6 +326,17 @@ $(function () {
   function getNameSize() {
     return tokenContract.methods.getNameSize().call();
   }
+  function getAddress(index){
+    return tokenContract.methods.getAddress(index).call();
+  }
+
+  function getRate(incoming, outgoing){
+    return convertContract.methods.getConversionRate(incoming, outgoing).call();
+  }
+
+  function getLength(){
+    return convertContract.methods.getRatesLength().call();
+  }
 
   async function setTableRows() {
     var assetTable = $("#assetTable tbody");
@@ -239,16 +344,53 @@ $(function () {
 
     for (var i = 0; i < size; i++) {
 
-      let [name, symbol] = await Promise.all([getName(i), getSymbol(i)]);
+      let [name, symbol, address] = await Promise.all([getName(i), getSymbol(i), getAddress(i)]);
 
       let newRow = `<tr><td>${name}</td><td>${symbol}</td></tr>`;
+      let newOption = `<option value=${address}>${name} - ${symbol}</option>`;
 
+      $('.incomingAsset').append(newOption);
+      $('.outgoingAsset').append(newOption);
       assetTable.append(newRow);
     }
   }
 
+  async function convertAsset(rate, incomingAssetAddr, outgoingAssetAddr){
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
+    let convertRes = await convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).send({from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c", gas:300000}).on("receipt", function (receipt) {
+      var result = convertContract.methods.setConversionRate(incomingAssetAddr, outgoingAssetAddr, rate).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
+        
+        Materialize.Toast.removeAll();
+        location.href = './assets.html';
+      });
+      
+    })
+      .on("error", console.log);
+
+    let convertRate = await getRate(incomingAssetAddr, outgoingAssetAddr);
+    let length = await getLength();
+  }
+
   $(window).load(function () {
     setTableRows();
+
+    //set conversion rate
+    $('.conversionRateBtn').click(function(){
+      var incomingAssetAddr = web3.utils.toHex($('.incomingAsset').find(":selected").val());
+      var outgoingAssetAddr = web3.utils.toHex($('.outgoingAsset').find(":selected").val());
+      var conversionRate = $('#outgoingAmount').val();
+
+      convertAsset(conversionRate, incomingAssetAddr, outgoingAssetAddr);
+
+    });
+
+  });
+
+  $(document).on('click', '#toast-container .toast', function() {
+    $(this).fadeOut(function(){
+      $(this).remove();
+    });
   });
 
 });

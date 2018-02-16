@@ -9,6 +9,9 @@ $(function(){
     // web3 = new Web3(new Web3.providers.HttpProvider("https://ropsten.infura.io/AzPNR6IGk31xJWmPGDte"));
   }
 
+  var incomingAssetContract;
+  var outgoingAssetContract;
+
 	var deptContract = new web3.eth.Contract([
     {
       "constant": false,
@@ -231,7 +234,8 @@ $(function(){
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    }], "0x879d212866730673d969d17332613f68e1dffc98");
+    }
+  ], "0x702a6274740a4d21f288cb644264835fd2c83621");
 
 	var tokenContract = new web3.eth.Contract([
     {
@@ -422,13 +426,113 @@ $(function(){
       "payable": false,
       "stateMutability": "view",
       "type": "function"
-    }], "0x504a4aa06275c88d6bd535436b39fc327b178c97");
+    }
+  ], "0x0ce62bd2f9a81a5fee071e6629aa9a604baaad60");
+
+  var convertContract = new web3.eth.Contract([
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "incomingAsset",
+          "type": "address"
+        },
+        {
+          "name": "outgoingAsset",
+          "type": "address"
+        }
+      ],
+      "name": "getConversionRate",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "originalAssetAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "actualAmount",
+          "type": "uint256"
+        },
+        {
+          "name": "originalAssetContractAddr",
+          "type": "address"
+        },
+        {
+          "name": "convertedAssetContractAddr",
+          "type": "address"
+        }
+      ],
+      "name": "convertAsset",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getRatesLength",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "incomingAsset",
+          "type": "address"
+        },
+        {
+          "name": "outgoingAsset",
+          "type": "address"
+        },
+        {
+          "name": "rate",
+          "type": "uint256"
+        }
+      ],
+      "name": "setConversionRate",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ], "0xae07eb344069664dcbbb9a99748005c805a5e3c6");
+
+  var incomingAssetTokenAddr;
+  var outgoingAssetTokenAddr;
 
 	var currentAccount = localStorage.getItem('currentAccount');
   var incomingAssetName;
   var outgoingAssetName;
   var incomingAssetAddress;
   var outgoingAssetAddress;
+  var amount;
+  var expectedAmount;
+  var rate;
 
 	function getAssetName(assetAddr){
 		return tokenContract.methods.getContractName(assetAddr).call();
@@ -446,34 +550,616 @@ $(function(){
   function getDepartment(addr){
     return deptContract.methods.getDepartment(addr).call();
   }
-  function assetTransfer(to, amount){
-    var outgoingAssetAddr = web3.utils.toHex(outgoingAssetAddress);
-    var from = web3.utils.toHex(currentAccount);
-    var to = web3.utils.toHex(to);
 
-    deptContract.methods.transferAsset(from, to, amount, outgoingAssetAddr).send().on("receipt", function (receipt) {
-     var result = deptContract.methods.transferAsset(from, to, amount, outgoingAssetAddr).call({ from: "0xceaa0bec4bfd4da238d10e7e74631e68fa39b53c" }, function (error, res) {
-        console.log("addr", res);
-      });
-    })
-      .on("error", console.log);
+  function getBalance(){
+    return incomingAssetContract.methods.balanceOf(currentAccount).call();
+  }
+  function getOutgoingBalance(){
+    return outgoingAssetContract.methods.balanceOf(currentAccount).call();
+  }
+
+  function getRate(incoming, outgoing){
+    return convertContract.methods.getConversionRate(incoming, outgoing).call();
   }
 
 	async function getDepartmentDetails() {
 		let department = await deptContract.methods.getDepartment(currentAccount).call();
+    var incomingAssetTokenAddr = department[2];
+    var outgoingAssetTokenAddr = department[3];
+    let incomingAssetAddr = department[2];
+    let outgoingAssetAddr = department[3];
+
+    incomingAssetContract = new web3.eth.Contract([
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "DECIMALS",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "mint",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_burner",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_symbol",
+          "type": "string"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Mint",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "burner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Burn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    }
+  ], incomingAssetTokenAddr);
+
+  outgoingAssetContract = new web3.eth.Contract([
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "name",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "totalSupply",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_from",
+          "type": "address"
+        },
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "transferFrom",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "DECIMALS",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "mint",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [
+        {
+          "name": "_owner",
+          "type": "address"
+        }
+      ],
+      "name": "balanceOf",
+      "outputs": [
+        {
+          "name": "balance",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "symbol",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_burner",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "burn",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_to",
+          "type": "address"
+        },
+        {
+          "name": "_value",
+          "type": "uint256"
+        }
+      ],
+      "name": "transfer",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "transferOwnership",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_symbol",
+          "type": "string"
+        }
+      ],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "constructor"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "Mint",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "previousOwner",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "newOwner",
+          "type": "address"
+        }
+      ],
+      "name": "OwnershipTransferred",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "burner",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Burn",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "name": "from",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "name": "to",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "name": "value",
+          "type": "uint256"
+        }
+      ],
+      "name": "Transfer",
+      "type": "event"
+    }
+  ], outgoingAssetTokenAddr);
 
 		let [incomingAssetName, incomingAssetSymbol] = await Promise.all([getAssetName(department[2]), getAssetSymbol(department[2])]);
 		let [outgoingAssetName, outgoingAssetSymbol] = await Promise.all([getAssetName(department[3]), getAssetSymbol(department[3])]);
-
-		incomingAssetName = incomingAssetName;
+    rate = await getRate(web3.utils.toHex(department[2]), web3.utils.toHex(department[3]));
+    let incomingBalance = await getBalance();
+    let outgoingBalance = await getOutgoingBalance();
+		
+    incomingAssetName = incomingAssetName;
     outgoingAssetName = outgoingAssetName;
     incomingAssetAddress = department[2];
     outgoingAssetAddress = department[3];
 
-    $('.incomingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+incomingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+incomingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount"></span>');
-		$('.outgoingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+outgoingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+outgoingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount"></span>')
+    console.log('incomingAssetAddress', incomingAssetAddress);
+    console.log('outgoingAssetAddress', outgoingAssetAddress);
+
+    $('.incomingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+incomingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+incomingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount">'+incomingBalance+'</span>');
+
+		$('.outgoingAssetDiv').append('<span class="card-text">Name</span><span class="card-title" id="incomingAssetName">'+outgoingAssetName+'</span><span class="card-text">Symbol</span><span class="card-title" id="incomingAssetSymbol">'+outgoingAssetSymbol+'</span><span class="card-text">Balance</span><span class="card-title" id="incomingAssetAmount">'+outgoingBalance+'</span>')
 	   
-    $('.assetConvertDiv').append('<span class="card-text">Name</span><span class="card-title">'+incomingAssetName+'</span><span class="card-text">Balance</span><span class="card-title">500 '+incomingAssetSymbol+'</span>');
+    $('.assetConvertDiv').append('<span class="card-text">Incoming Asset</span><span class="card-title">'+incomingAssetName+'</span><span class="card-text">Balance</span><span class="card-title">'+incomingBalance+' '+incomingAssetSymbol+'</span>');
+    
+    $('.convertedAssetDiv').append('<span class="card-text">Outgoing Asset</span><span class="card-title">'+outgoingAssetName+'</span><span class="card-text">Balance</span><span class="card-title">'+outgoingBalance+' '+outgoingAssetSymbol+'</span>');
   }
 
   async function getDepartmentList(){
@@ -490,9 +1176,37 @@ $(function(){
     }
   }
 
-  async function transferAsset(selectedDepartment, amount){
-    let result = await assetTransfer(selectedDepartment, amount);
-    console.log('result', result);
+  async function transferAsset(department, amount){
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
+    outgoingAssetContract.methods.transfer(department, amount).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
+
+      var result = outgoingAssetContract.methods.transfer(department, amount).call({ from: currentAccount }, function (error, res) {
+        if(res){
+          Materialize.Toast.removeAll();
+          location.href = 'home.html';
+        }
+      });
+    })
+      .on("error two", console.log);
+  }
+
+  async function convertAsset(amount, actualAmount){
+
+    Materialize.toast('The transaction is getting mined. You will be redirected when mining has completed.<span class="closeBtn"><i class="fas fa-times"></i></span>');
+
+    convertContract.methods.convertAsset(amount, actualAmount, incomingAssetAddress, outgoingAssetAddress).send({from: currentAccount, gas:300000}).on("receipt", function (receipt) {
+
+      var result = convertContract.methods.convertAsset(amount, actualAmount, incomingAssetAddress, outgoingAssetAddress).call({ from: currentAccount }, function (error, res) {
+        console.log('res', res);
+        console.log('error', error);
+        if(res){
+          Materialize.Toast.removeAll();
+          location.href = './home.html';
+        }
+      });
+    })
+      .on("error two", console.log);
   }
 
 	$(window).load(function(){
@@ -503,14 +1217,39 @@ $(function(){
 
     //on convert asset
     $('.convertAssetBtn').click(function(){
-
+      var amount = parseInt($('#amount').val());
+      if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10))){
+        Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+        return false;
+      }
+      var expectedAmount = $('#expectedAmount').val();
+      var actualAmount = $('#actualAmount').val();
+      convertAsset(amount, actualAmount);
     });
 
     //on transfer asset
     $('.transferBtn').click(function(){
       var selectedDepartment = web3.utils.toHex($('.selectedDepartment').find(":selected").val());
       var amount = $('#amount').val();
+      if(amount == '' || amount == '0' || amount < 0 || !(amount === parseInt(amount, 10)) ){
+        Materialize.toast('Please enter only non-zero, integer values.<span class="closeBtn"><i class="fas fa-times"></i></span>', 3000);
+        return false;
+      }
       transferAsset(selectedDepartment, amount);
+    });
+
+    //on amount change
+    $('#amount').keyup(function(){
+      amount = $('#amount').val();
+      expectedAmount = rate*amount;
+      $('#expectedAmount').val(expectedAmount);
+      $('#actualAmount').val(expectedAmount);
+    });
+
+    $(document).on('click', '#toast-container .toast', function() {
+      $(this).fadeOut(function(){
+        $(this).remove();
+      });
     });
 
 	});

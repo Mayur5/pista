@@ -25,6 +25,7 @@
   <!-- CSS for alert box -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.css">
   <link href="https://fonts.googleapis.com/css?family=Chau+Philomene+One" rel="stylesheet">
+  <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
 
 </head>
 
@@ -59,17 +60,13 @@
 
         <div class="col s6">
           <select class="incomingAsset">
-            <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">BMP</option>
-            <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">EGH</option>
-            <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">OMB</option>
+            <option selected disabled>Select incoming asset</option>
           </select>
         </div>
 
         <div class="col s6">
           <select class="outgoingAsset">
-            <option value="0xa1Da7630f36247aedCE83e87984706230a24CCFE">EGH</option>
-            <option value="0x58a6C8e51BF13afd515c8B0C3Aa918ebB08CA5D1">BMP</option>
-            <option value="0xFA978CdA37Ccb1D4158ABC541b3385D14c18be77">OMB</option>
+            <option selected disabled>Select outgoing asset</option>
           </select>
         </div>
       </div>
@@ -77,7 +74,6 @@
       <div class="conversionForm">
         <div class="input-field col s6 assetRate">
           <input placeholder="1" id="incomingAmount" type="text">
-          <p class="assetSymSelected">BMP</p>
         </div>
 
         <div class="equalsDiv">
@@ -86,7 +82,6 @@
 
         <div class="input-field col s6 assetRate">
           <input placeholder="10" id="outgoingAmount" type="text">
-          <p class="assetSymSelected">EGH</p>
         </div>
       </div>
 
@@ -105,7 +100,7 @@
   <!-- JS file for alert box -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-confirm/3.3.0/jquery-confirm.min.js"></script>
   <script src="js/web3.min.js"></script>
-  <script src="js/app.js"></script>
+  <script src="js/admin.js"></script>
 </body>
 
 </html>
